@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout="@layout/preference_item"
+    android:title="@string/title_activity_setting">
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title="个性化设置">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/check_update"
+            android:layout="@layout/preference_item"
+            android:summaryOff="自动开启已关闭(默认)"
+            android:summaryOn="目前已开启自动更新"
+            android:title="自动检测更新" />
+        <EditTextPreference
+            android:defaultValue="musicuu"
+            android:key="@string/save_path"
+            android:layout="@layout/preference_item"
+            android:summary="默认保存在SD卡musicuu文件夹下"
+            android:title="下载路径" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title="帮助">
+        <Preference
+            android:layout="@layout/preference_item"
+            android:title="关于">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.pgyer.com/musicspy" />
+        </Preference>
+
+        <com.qtfreet.musicuu.wiget.DialogPreference
+            android:dialogMessage="音乐间谍（第三方版）本着开源开发的一款工具类App，请勿将此软件用于任何非法用途，本软件仅供学习交流，使用此软件即代表默认遵守此声明，本人将不对此负任何法律责任！"
+            android:dialogTitle="免责声明"
+            android:title="免责声明"
+            android:key="DialogPreference"
+            android:layout="@layout/preference_item"
+            android:positiveButtonText="@null"
+            android:negativeButtonText="同意"></com.qtfreet.musicuu.wiget.DialogPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title="那些人">
+        <Preference
+            android:layout="@layout/preference_item"
+            android:title="程序设计:qtfreet00">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://weibo.com/u/3552577720" />
+        </Preference>
+
+        <Preference
+            android:layout="@layout/preference_item"
+            android:title="UI设计:Hiapk-天使">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://weibo.com/u/2535451595" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:drakeet="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activity.MainActivity">
+
+    <include
+        android:id="@+id/tool"
+        layout="@layout/view_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dip"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingTop="5dp">
+
+
+            <LinearLayout
+                android:id="@+id/ll_search_container"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="4dip"
+                android:layout_weight="1"
+                android:background="@drawable/search_btn_bg"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/et_search_content"
+                    style="?android:attr/textViewStyle"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="搜索"
+                    android:padding="2dp"
+                    android:singleLine="true"
+                    android:textColor="#FF666666" />
+
+                <ImageButton
+                    android:id="@+id/ib_search_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:padding="0dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/search_drawable_left" />
+            </LinearLayout>
+
+
+            <me.drakeet.uiview.UIButton
+                android:id="@+id/btn_search"
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/btn_search"
+                drakeet:alpha_pressed="40"
+                drakeet:color_pressed="#6a66ee" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:layout_marginRight="25dip"
+            android:layout_marginTop="25dip"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/bk" />
+
+        <TextView
+            android:id="@+id/text"
+        android:typeface="serif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="10dip"
+            android:lineSpacingExtra="5dip"
+            android:text="这里依然有新亮的色彩,红的花,碧绿的叶子,和我们同行的人,我们好像,总是在晴天的时候,期待下雨,在下雨的时候,盼望天晴,就在这样的期待和盼望中,我们青春的时光,渐渐游走,但不论晴天雨里,愿你度过的每一天,都有值得留恋的光景,都能美妙不已" />
+    </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_add_white_24dp"
+        drakeet:borderWidth="0dp" />
+
+</android.support.design.widget.CoordinatorLayout>

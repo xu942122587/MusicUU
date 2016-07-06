@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">音乐助手</string>
+    <string name="action_settings">设置</string>
+    <string name="main_title">首页</string>
+
+
+
+    <string name="btn_search">寻你所想</string>
+    <string name="check_update">AutoCheck</string>
+    <string name="title_activity_setting">设置</string>
+    <string name="save_path">SavePath</string>
+    <string name="vertical_ellipsis">&#8942;</string>
+
+    <string name="description">欢迎使用此软件，你需要知道的:\n1.由于初衷只是个音乐搜索下载工具，所以本软件不支持后台播放音乐。\n2.右上角菜单栏可以对软件进行设置。\n3.右下角的"+"可以设置搜索的音乐源。\nPS:本软件纯属个人作品，有任何bug可以通过摇一摇反馈给我</string>
+
+</resources>
