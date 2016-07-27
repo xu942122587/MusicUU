@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:contentDescription=""
-                android:scaleType="fitXY" />
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/tv_play_name"
@@ -48,14 +48,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dip"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_current_time"
             android:layout_width="wrap_content"
-            android:padding="5dip"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:padding="5dip"
             android:text="0:00:00" />
 
         <android.support.v7.widget.AppCompatSeekBar
@@ -69,8 +70,8 @@
             android:id="@+id/tv_duration_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dip"
             android:layout_gravity="center_vertical"
+            android:padding="5dip"
             android:text="0:00:00" />
 
     </LinearLayout>
@@ -87,18 +88,23 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
-
             android:layout_toLeftOf="@+id/fab_2"
             android:layout_toStartOf="@+id/fab_2"
-            android:src="@drawable/ic_skip_previous_white_24dp" />
+            android:src="@drawable/ic_skip_previous_white_24dp"
+            app:backgroundTint="#56abe4"
+            app:elevation="0dp"
+            app:rippleColor="#56abe4" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/ic_play_arrow_white_24dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_play_arrow_white_24dp"
+            app:backgroundTint="#56abe4"
+            app:elevation="0dp"
+            app:rippleColor="#56abe4" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_3"
@@ -109,7 +115,9 @@
             android:layout_marginStart="30dp"
             android:layout_toEndOf="@+id/fab_2"
             android:layout_toRightOf="@+id/fab_2"
-            android:background="@drawable/ic_skip_next_white_24dp"
-            android:src="@drawable/ic_skip_next_white_24dp" />
+            android:src="@drawable/ic_skip_next_white_24dp"
+            app:backgroundTint="#56abe4"
+            app:elevation="0dp"
+            app:rippleColor="#56abe4" />
     </RelativeLayout>
 </LinearLayout>

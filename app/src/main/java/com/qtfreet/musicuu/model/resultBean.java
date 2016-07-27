@@ -4,42 +4,6 @@ package com.qtfreet.musicuu.model;
  * Created by qtfreet on 2016/3/20.
  */
 public class resultBean {
-
-    /**
-     * SongId : 16332546
-     * SongName : I
-     * SubTitle :
-     * Artist : Aphex Twin
-     * ArtistSubTitle :
-     * AlbumId : 1506477
-     * Album : Selected Ambient Works 85-92
-     * AlbumSubTitle :
-     * AlbumArtist : Aphex Twin
-     * CollectName :
-     * Length : 01:17
-     * Size :
-     * BitRate : 320K
-     * FlacUrl :
-     * AacUrl :
-     * SqUrl : 1212
-     * HqUrl : 1212
-     * LqUrl : 1212
-     * ListenUrl : 1212
-     * CopyUrl : 1212
-     * PicUrl : 1212
-     * LrcUrl : 1212
-     * KlokLrc : 1212
-     * MvId : 0
-     * MvUrl :
-     * VideoUrl :
-     * Language :
-     * Company :
-     * Year :
-     * Disc : 1
-     * TrackNum : 5
-     * Type : wy
-     */
-
     private String SongId;
     private String SongName;
     private String SubTitle;

@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -85,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     @Override
     protected void onResume() {
         initDir();
@@ -107,8 +107,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initDir() {
         String path = (String) SPUtils.get("com.qtfreet.musicuu_preferences", this, "SavePath", "musicuu");
-
-
         if (FileUtils.getInstance().isSdCardAvailable()) {
             if (!FileUtils.getInstance().isFileExist(path)) {
                 FileUtils.getInstance().creatSDDir(path);
@@ -123,7 +121,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     String musictype = "";
-    private UIButton btn_search;
+    @Bind(R.id.btn_search)
+    Button btn_search;
+    @Bind(R.id.fab)
+    FloatingActionButton floatingActionButton;
+
     private void startSearchSong() {
         String text = mSearchEditText.getText().toString();
         if (text.equals("")) {
@@ -146,8 +148,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initview() {
         ButterKnife.bind(this);
-        btn_search = (UIButton) findViewById(R.id.btn_search);
-        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         musictype = "wy";
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -202,8 +202,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fab:
-
-//                showBSDialog();
                 new ActionSheetDialog(MainActivity.this).builder().setTitle("选择音源").addSheetItem("网易云音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {

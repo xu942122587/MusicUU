@@ -63,14 +63,12 @@
             </LinearLayout>
 
 
-            <me.drakeet.uiview.UIButton
+            <Button
                 android:id="@+id/btn_search"
                 android:layout_width="wrap_content"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/btn_search"
-                drakeet:alpha_pressed="40"
-                drakeet:color_pressed="#6a66ee" />
+                android:text="@string/btn_search" />
 
         </LinearLayout>
 
@@ -86,14 +84,14 @@
 
         <TextView
             android:id="@+id/text"
-        android:typeface="serif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dip"
             android:layout_marginRight="15dip"
             android:layout_marginTop="10dip"
             android:lineSpacingExtra="5dip"
-            android:text="这里依然有新亮的色彩,红的花,碧绿的叶子,和我们同行的人,我们好像,总是在晴天的时候,期待下雨,在下雨的时候,盼望天晴,就在这样的期待和盼望中,我们青春的时光,渐渐游走,但不论晴天雨里,愿你度过的每一天,都有值得留恋的光景,都能美妙不已" />
+            android:text="这里依然有新亮的色彩,红的花,碧绿的叶子,和我们同行的人,我们好像,总是在晴天的时候,期待下雨,在下雨的时候,盼望天晴,就在这样的期待和盼望中,我们青春的时光,渐渐游走,但不论晴天雨里,愿你度过的每一天,都有值得留恋的光景,都能美妙不已"
+            android:typeface="serif" />
     </LinearLayout>
 
 

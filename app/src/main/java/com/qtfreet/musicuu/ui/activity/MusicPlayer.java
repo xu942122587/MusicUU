@@ -76,6 +76,7 @@ public class MusicPlayer extends AppCompatActivity implements IMediaPlayer.OnPre
         }
         name = MusicBean.songName;
         time = MusicBean.time;
+        artist = MusicBean.artist;
         initview();
         play.setOnClickListener(this);
         initThread();
@@ -87,7 +88,7 @@ public class MusicPlayer extends AppCompatActivity implements IMediaPlayer.OnPre
     String url;
     String time;
     String name;
-
+    String artist;
 
     private void initThread() {
         ExecutorService e = MyThreadPool.getInstance().getMyExecutorService();
@@ -113,6 +114,7 @@ public class MusicPlayer extends AppCompatActivity implements IMediaPlayer.OnPre
         });
 
     }
+
     private boolean isShowCurrentTime = true;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -141,7 +143,7 @@ public class MusicPlayer extends AppCompatActivity implements IMediaPlayer.OnPre
         } catch (IOException e) {
             e.printStackTrace();
         }
-        songTitle.setText(name);
+        songTitle.setText(name+"-"+artist);
         ijkExoMediaPlayer.prepareAsync();
         ijkExoMediaPlayer.setOnPreparedListener(this);
         ijkExoMediaPlayer.setOnBufferingUpdateListener(this);
@@ -206,7 +208,7 @@ public class MusicPlayer extends AppCompatActivity implements IMediaPlayer.OnPre
     @Override
     protected void onStop() {
         super.onStop();
-        if(ijkExoMediaPlayer.isPlaying()){
+        if (ijkExoMediaPlayer.isPlaying()) {
             play.setImageResource(R.drawable.ic_play_arrow_white_24dp);
             ijkExoMediaPlayer.pause();
         }
@@ -238,12 +240,12 @@ public class MusicPlayer extends AppCompatActivity implements IMediaPlayer.OnPre
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fab_2:
-                if(!ijkExoMediaPlayer.isPlaying()){
+                if (!ijkExoMediaPlayer.isPlaying()) {
                     ijkExoMediaPlayer.start();
                     play.setImageResource(R.drawable.ic_pause_white_24dp);
-                }else {
+                } else {
                     play.setImageResource(R.drawable.ic_play_arrow_white_24dp);
                     ijkExoMediaPlayer.pause();
                 }
