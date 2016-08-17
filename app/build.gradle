@@ -40,5 +40,5 @@ dependencies {
     compile 'com.zhy:mpermission-api:1.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.liulishuo.filedownloader:library:0.3.5'
-
+    compile 'top.zibin:BottomDialog:1.0.4'
 }

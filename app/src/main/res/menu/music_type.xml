@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/netease"
+        android:icon="@mipmap/netease"
+
+        android:title="@string/music_wy" />
+    <item
+        android:id="@+id/qq"
+        android:icon="@mipmap/qq"
+        android:title="@string/music_qq" />
+    <item
+        android:id="@+id/kugou"
+        android:icon="@mipmap/kugou"
+        android:title="@string/music_kg" />
+    <item
+        android:id="@+id/kuwo"
+        android:icon="@mipmap/kuwo"
+        android:title="@string/music_kw" />
+    <item
+        android:id="@+id/ttPod"
+        android:icon="@mipmap/ttpod"
+        android:title="@string/music_tt" />
+    <item
+        android:id="@+id/xiami"
+        android:icon="@mipmap/xiami"
+        android:title="@string/music_xm" />
+    <item
+        android:id="@+id/baidu"
+        android:icon="@mipmap/baidu"
+        android:title="@string/music_bd" />
+    <item
+        android:id="@+id/iting"
+        android:icon="@mipmap/iting"
+        android:title="@string/music_dx" />
+
+
+</menu>

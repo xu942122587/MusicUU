@@ -22,10 +22,12 @@ import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.utils.FileUtils;
 import com.qtfreet.musicuu.utils.SPUtils;
-import com.qtfreet.musicuu.wiget.ActionSheetDialog;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import me.curzbin.library.BottomDialog;
+import me.curzbin.library.Item;
+import me.curzbin.library.OnItemClickListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.ib_search_btn)
@@ -176,57 +178,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fab:
-                new ActionSheetDialog(MainActivity.this).builder().setTitle("选择音源").addSheetItem("网易云音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "wy";
-                    }
-                }).addSheetItem("电信爱音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "dx";
-                    }
-                }).addSheetItem("百度音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "bd";
-                    }
-                }).addSheetItem("天天动听", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "tt";
-                    }
-                }).addSheetItem("虾米音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "xm";
-                    }
-                }).addSheetItem("酷我音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "kw";
-                    }
-                }).addSheetItem("酷狗音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "kg";
-                    }
-                }).addSheetItem("多米音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "dm";
-                    }
-                }).addSheetItem("萌否音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "mf";
-                    }
-                }).addSheetItem("QQ音乐", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        mistype = "qq";
-                    }
-                }).show();
+                new BottomDialog(MainActivity.this)
+                        .title(getString(R.string.sel_music_type))             //设置标题
+
+                        .inflateMenu(R.menu.music_type)         //传人菜单内容
+                        .itemClick(new OnItemClickListener() {  //设置监听
+                            @Override
+                            public void click(Item item) {
+                                String type = item.getTitle();
+                                if (type.equals(getString(R.string.music_wy))) {
+                                    mistype = "wy";
+                                } else if (type.equals(getString(R.string.music_qq))) {
+                                    mistype = "qq";
+                                } else if (type.equals(getString(R.string.music_kg))) {
+                                    mistype = "kg";
+                                } else if (type.equals(getString(R.string.music_kw))) {
+                                    mistype = "kw";
+                                } else if (type.equals(getString(R.string.music_bd))) {
+                                    mistype = "bd";
+                                } else if (type.equals(getString(R.string.music_tt))) {
+                                    mistype = "tt";
+                                } else if (type.equals(getString(R.string.music_dx))) {
+                                    mistype = "dx";
+                                } else if (type.equals(getString(R.string.music_xm))) {
+                                    mistype = "xm";
+                                }
+                                Toast.makeText(MainActivity.this, "已切换成 " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
                 break;
         }
     }

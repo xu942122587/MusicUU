@@ -16,5 +16,14 @@
     <string name="start_info">温馨提示</string>
     <string name="i_know">知道了</string>
     <string name="no_music_url">未找到播放链接</string>
+    <string name="music_wy">网易云音乐</string>
+    <string name="music_qq">QQ音乐</string>
+    <string name="music_kg">酷狗音乐</string>
+    <string name="music_kw">酷我音乐</string>
+    <string name="music_tt">天天动听</string>
+    <string name="music_xm">虾米星球</string>
+    <string name="music_bd">百度音乐</string>
+    <string name="music_dx">爱音乐</string>
+    <string name="sel_music_type">选择音乐源</string>
 
 </resources>
