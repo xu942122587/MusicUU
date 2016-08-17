@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qtfreet.musicuu.R;
-import com.qtfreet.musicuu.model.MusicBean;
+import com.qtfreet.musicuu.model.Constant.Constants;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,8 +32,8 @@ public class VideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mv);
-        videoName =getIntent().getExtras().getString("name");
-        url = getIntent().getExtras().getString("url");
+        videoName = getIntent().getExtras().getString(Constants.NAME);
+        url = getIntent().getExtras().getString(Constants.URL);
         init();
         play();
 
@@ -42,10 +42,10 @@ public class VideoActivity extends AppCompatActivity {
 
     private void play() {
         player = new GiraffePlayer(this);
+        player.setFullScreenOnly(true);
         player.onComplete(new Runnable() {
             @Override
             public void run() {
-                //callback when video is finish
                 Toast.makeText(getApplicationContext(), "video play completed", Toast.LENGTH_SHORT).show();
             }
         }).onInfo(new GiraffePlayer.OnInfoListener() {
@@ -53,10 +53,8 @@ public class VideoActivity extends AppCompatActivity {
             public void onInfo(int what, int extra) {
                 switch (what) {
                     case IMediaPlayer.MEDIA_INFO_BUFFERING_START:
-                        //do something when buffering start
                         break;
                     case IMediaPlayer.MEDIA_INFO_BUFFERING_END:
-                        //do something when buffering end
                         break;
 
                 }

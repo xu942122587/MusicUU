@@ -8,13 +8,13 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.qtfreet.musicuu.R;
+import com.qtfreet.musicuu.model.Constant.Constants;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        initview();
+        initView();
         if (savedInstanceState == null) {
             mSettingsFragment = new SettingsFragment();
             replaceFragment(R.id.settings_container, mSettingsFragment);
@@ -41,7 +41,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-    private void initview() {
+    private void initView() {
         ButterKnife.bind(this);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -81,10 +81,10 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
 
             addPreferencesFromResource(R.xml.preferences);
-            editTextPreference = (EditTextPreference) getPreferenceManager().findPreference("SavePath");
+            editTextPreference = (EditTextPreference) getPreferenceManager().findPreference(Constants.SAVE_PATH);
             editTextPreference.setOnPreferenceChangeListener(this);
 
-            String path = editTextPreference.getSharedPreferences().getString("SavePath", "");
+            String path = editTextPreference.getSharedPreferences().getString(Constants.SAVE_PATH, "");
             if (!path.equals("musicuu")) {
                 editTextPreference.setSummary("当前保存在sd卡下的 " + path + " 文件夹下");
             }
@@ -93,7 +93,7 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
             if (preference == editTextPreference) {
-                editTextPreference.setText(editTextPreference.getSharedPreferences().getString("SavePath", ""));
+                editTextPreference.setText(editTextPreference.getSharedPreferences().getString(Constants.SAVE_PATH, ""));
                 return true;
             }
             return super.onPreferenceTreeClick(preferenceScreen, preference);

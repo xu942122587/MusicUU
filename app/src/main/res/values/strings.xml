@@ -10,7 +10,11 @@
     <string name="title_activity_setting">设置</string>
     <string name="save_path">SavePath</string>
     <string name="vertical_ellipsis">&#8942;</string>
-
+    <string name="download_progress">正在下载:%1$d%%</string>
     <string name="description">欢迎使用此软件，你需要知道的:\n1.由于初衷只是个音乐搜索下载工具，所以本软件不支持后台播放音乐。\n2.右上角菜单栏可以对软件进行设置。\n3.右下角的"+"可以设置搜索的音乐源。\nPS:本软件纯属个人作品，有任何bug可以通过摇一摇反馈给我</string>
+    <string name="no_music_name">你还没有输入歌曲名字呢</string>
+    <string name="start_info">温馨提示</string>
+    <string name="i_know">知道了</string>
+    <string name="no_music_url">未找到播放链接</string>
 
 </resources>

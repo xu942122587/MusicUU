@@ -1,58 +1,45 @@
 package com.qtfreet.musicuu.ui.activity;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qtfreet.musicuu.R;
-import com.qtfreet.musicuu.model.APi;
 import com.qtfreet.musicuu.model.ApiService;
-import com.qtfreet.musicuu.model.DownListener;
-import com.qtfreet.musicuu.model.MusicBean;
-import com.qtfreet.musicuu.model.resultBean;
+import com.qtfreet.musicuu.model.Bean.resultBean;
+import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.ui.OnMusicClickListener;
 import com.qtfreet.musicuu.ui.adapter.SongDetailAdapter;
-import com.qtfreet.musicuu.utils.DownloadUtil;
-import com.qtfreet.musicuu.utils.SPUtils;
-import com.qtfreet.musicuu.wiget.ActionSheetDialog;
+import com.qtfreet.musicuu.ui.service.DownloadService;
+import com.qtfreet.musicuu.utils.NetUtil;
 import com.zhy.m.permission.MPermissions;
 import com.zhy.m.permission.PermissionDenied;
 import com.zhy.m.permission.PermissionGrant;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import me.drakeet.uiview.UIButton;
-import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by qtfreet on 2016/3/20.
  */
-public class SearchActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, OnMusicClickListener, PopupMenu.OnMenuItemClickListener {
+public class SearchActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, OnMusicClickListener, PopupMenu.OnMenuItemClickListener {
 
     private SongDetailAdapter searchResultAdapter;
 
@@ -65,9 +52,8 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         MPermissions.requestPermissions(SearchActivity.this, REQUECT_CODE_SDCARD, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        initview();
+        initView();
         initData();
-        firstuse();
     }
 
     @Override
@@ -90,15 +76,8 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
 
     private void initData() {
         showRefreshing(true);
-        OkHttpClient client = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).writeTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .build();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APi.MUSIC_HOST).client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        ApiService apiService = retrofit.create(ApiService.class);
-        Call<List<resultBean>> call = apiService.GetInfo(getIntent().getExtras().getString("type"), getIntent().getExtras().getString("key"));
+        ApiService apiService = NetUtil.getInstance().create(ApiService.class);
+        Call<List<resultBean>> call = apiService.GetInfo(getIntent().getExtras().getString(Constants.TYPE), getIntent().getExtras().getString(Constants.KEY));
         call.enqueue(new Callback<List<resultBean>>() {
             @Override
             public void onResponse(Call<List<resultBean>> call, Response<List<resultBean>> response) {
@@ -160,18 +139,17 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
     }
 
     private int postion1;
-    public void popupMenuClick(View v,int postion) {
-        postion1  = postion;
+
+    public void popupMenuClick(View v, int postion) {
+        postion1 = postion;
         PopupMenu popupMenu = new PopupMenu(this, v);
         popupMenu.setOnMenuItemClickListener(this);
         popupMenu.inflate(R.menu.main_popup_menu);
         popupMenu.show();
     }
 
-    private void initview() {
+    private void initView() {
         ButterKnife.bind(this);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(this);
         refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         refresh.setOnRefreshListener(this);
         if (toolbar != null) {
@@ -188,60 +166,23 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
 
     }
 
-    private void firstuse() {
-        boolean isfirst = (boolean) SPUtils.get(this, "isdownload", true);
-        if (isfirst) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("温馨提示");
-
-            builder.setMessage("当前版本的下载功能还不完善，所以麻烦大家在下载期间请勿随意切换页面。");
-            builder.setCancelable(false);
-            builder.setNegativeButton("知道了", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    SPUtils.put(SearchActivity.this, "isdownload", false);
-                }
-            });
-            builder.show();
-        }
-    }
 
     private void Download(int position) {
-         final String SongId =  result.get(position).getSongId();
-         final String SongName  = result.get(position).getSongName();
-         final String Artist = result.get(position).getArtist();
-         String SqUrl = result.get(position).getSqUrl();
-         String HqUrl =  result.get(position).getHqUrl();
-         String LqUrl =  result.get(position).getLqUrl();
-         final String VideoUrl = result.get(position).getVideoUrl();
-         String MusicUrl="";
-        if(!SqUrl.equals("")){
-            MusicUrl =SqUrl;
-        }else if(!HqUrl.equals("")){
-           MusicUrl=HqUrl;
-        }else if(!LqUrl.equals("")){
-          MusicUrl =LqUrl;
+        final String SongName = result.get(position).getSongName();
+        final String SongID = result.get(position).getSongId();
+        final String Artist = result.get(position).getArtist();
+        String SqUrl = result.get(position).getSqUrl();
+        String HqUrl = result.get(position).getHqUrl();
+        String LqUrl = result.get(position).getLqUrl();
+        String MusicUrl = "";
+        if (!SqUrl.equals("")) {
+            MusicUrl = SqUrl;
+        } else if (!HqUrl.equals("")) {
+            MusicUrl = HqUrl;
+        } else if (!LqUrl.equals("")) {
+            MusicUrl = LqUrl;
         }
-        ActionSheetDialog actionSheetDialog = new ActionSheetDialog(SearchActivity.this).builder();
-        actionSheetDialog.setTitle("选择");
-        final String finalMusicUrl = MusicUrl;
-        actionSheetDialog.addSheetItem("MP3", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-            @Override
-            public void onClick(int which) {
-                download(SongName + "-" + Artist + "-L" + ".mp3", finalMusicUrl, SongId);
-            }
-        });
-        if (!VideoUrl.equals("")) {
-            actionSheetDialog.addSheetItem("MV", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                @Override
-                public void onClick(int which) {
-
-                    download(SongName + "-" + Artist + ".mp4", VideoUrl, SongId);
-
-                }
-            });
-        }
-        actionSheetDialog.show();
+        download(SongName + "-" + Artist + "-L", MusicUrl, SongID);
     }
 
 
@@ -258,10 +199,14 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
         return super.onOptionsItemSelected(item);
     }
 
-    private void download(String name, String url, String tag) {
-
-        DownloadUtil.StartDownload(this, name, url, tag);
-
+    private void download(String name, String url, String id) {
+        Intent i = new Intent(this, DownloadService.class);
+        Bundle b = new Bundle();
+        b.putString(Constants.URL, url);
+        b.putString(Constants.NAME, name);
+        b.putString(Constants.SONG_ID, id);
+        i.putExtras(b);
+        startService(i);
     }
 
     @Override
@@ -269,28 +214,29 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
         initData();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.fab:
-
-                break;
-        }
-    }
 
     @Override
     public void Music(View itemView, int position) {
-
-        MusicBean.listenUrl = result.get(position).getListenUrl();
-        MusicBean.pic = result.get(position).getPicUrl();
-        MusicBean.time = result.get(position).getLength();
-        MusicBean.videoUrl = result.get(position).getVideoUrl();
-        MusicBean.songName = result.get(position).getSongName();
-        MusicBean.artist = result.get(position).getArtist();
-        MusicBean.hqUrl = result.get(position).getHqUrl();
-        MusicBean.sqUrl = result.get(position).getSqUrl();
-        MusicBean.lqUrl = result.get(position).getLqUrl();
-        Intent i = new Intent(SearchActivity.this, MusicPlayer.class);
+        int size = result.size();
+        String[] songs = new String[size];
+        for (int i = 0; i < size; i++) {
+            songs[i] = result.get(i).getListenUrl();
+        }
+        String[] lrcs = new String[size];
+        for (int i = 0; i < size; i++) {
+            lrcs[i] = result.get(i).getLrcUrl();
+        }
+        String[] names = new String[size];
+        for (int i = 0; i < size; i++) {
+            names[i] = result.get(i).getSongName() + "--" + result.get(i).getArtist();
+        }
+        Intent i = new Intent(SearchActivity.this, PlayMusicActivity.class);
+        Bundle b = new Bundle();
+        b.putStringArray(Constants.PLAY_URLS, songs);
+        b.putStringArray(Constants.PLAY_LRCS, lrcs);
+        b.putStringArray(Constants.PLAY_NAMES, names);
+        b.putInt(Constants.POSITION, position);
+        i.putExtras(b);
         startActivity(i);
     }
 
@@ -301,13 +247,16 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
                 Download(postion1);
                 return true;
             case R.id.mv:
-                String    MVurl = result.get(postion1).getMvUrl();
-                Log.e("qtfreet",MVurl);
-                String Songname =   result.get(postion1).getSongName()+"--"+ result.get(postion1).getArtist();
-                Intent i = new Intent(SearchActivity.this,VideoActivity.class);
-                Bundle bundle   = new Bundle();
-                bundle.putString("name",Songname);
-                bundle.putString("url",MVurl);
+                String mvUrl = result.get(postion1).getMvUrl();
+                if (mvUrl.isEmpty()) {
+                    Toast.makeText(SearchActivity.this, "无MV信息", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+                String songName = result.get(postion1).getSongName() + "--" + result.get(postion1).getArtist();
+                Intent i = new Intent(SearchActivity.this, VideoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.NAME, songName);
+                bundle.putString(Constants.URL, mvUrl);
                 i.putExtras(bundle);
                 startActivity(i);
                 return true;

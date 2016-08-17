@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qtfreet.musicuu.ui.view.CustomRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone">
+
+    <com.qtfreet.musicuu.ui.view.CustomSettingView
+        android:id="@+id/setting_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:alpha="0.98"
+        android:background="#ECEDDE" />
+</com.qtfreet.musicuu.ui.view.CustomRelativeLayout>

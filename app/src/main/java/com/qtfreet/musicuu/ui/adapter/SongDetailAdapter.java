@@ -1,7 +1,6 @@
 package com.qtfreet.musicuu.ui.adapter;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qtfreet.musicuu.R;
-import com.qtfreet.musicuu.model.resultBean;
+import com.qtfreet.musicuu.model.Bean.resultBean;
 import com.qtfreet.musicuu.ui.OnMusicClickListener;
 import com.qtfreet.musicuu.ui.activity.SearchActivity;
 import com.squareup.picasso.Picasso;
