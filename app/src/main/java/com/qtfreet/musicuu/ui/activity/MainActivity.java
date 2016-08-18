@@ -7,9 +7,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.KeyListener;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -29,7 +32,7 @@ import me.curzbin.library.BottomDialog;
 import me.curzbin.library.Item;
 import me.curzbin.library.OnItemClickListener;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
     @Bind(R.id.ib_search_btn)
     ImageButton mSearchButton;
     @Bind(R.id.et_search_content)
@@ -64,20 +67,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         floatingActionButton.setOnClickListener(this);
-        btn_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startSearchSong();
-
-            }
-        });
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startSearchSong();
             }
         });
-
+        mSearchEditText.setOnKeyListener(this);
     }
 
 
@@ -135,8 +131,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     String mistype = "";
-    @Bind(R.id.btn_search)
-    Button btn_search;
     @Bind(R.id.fab)
     FloatingActionButton floatingActionButton;
 
@@ -209,5 +203,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .show();
                 break;
         }
+    }
+
+    @Override
+    public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            // 先隐藏键盘
+            ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
+                    .hideSoftInputFromWindow(this.getCurrentFocus()
+                            .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            //进行搜索操作的方法，在该方法中可以加入mEditSearchUser的非空判断
+            startSearchSong();
+        }
+        return false;
     }
 }

@@ -48,6 +48,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="搜索"
+                    android:imeOptions="actionSearch"
                     android:padding="2dp"
                     android:singleLine="true"
                     android:textColor="#FF666666" />
@@ -61,14 +62,6 @@
                     android:scaleType="centerInside"
                     android:src="@drawable/search_drawable_left" />
             </LinearLayout>
-
-
-            <Button
-                android:id="@+id/btn_search"
-                android:layout_width="wrap_content"
-                android:layout_height="40dip"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/btn_search" />
 
         </LinearLayout>
 

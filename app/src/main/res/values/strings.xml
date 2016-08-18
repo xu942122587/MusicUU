@@ -2,10 +2,6 @@
     <string name="app_name">音乐助手</string>
     <string name="action_settings">设置</string>
     <string name="main_title">首页</string>
-
-
-
-    <string name="btn_search">寻你所想</string>
     <string name="check_update">AutoCheck</string>
     <string name="title_activity_setting">设置</string>
     <string name="save_path">SavePath</string>
@@ -25,5 +21,8 @@
     <string name="music_bd">百度音乐</string>
     <string name="music_dx">爱音乐</string>
     <string name="sel_music_type">选择音乐源</string>
+    <string name="app_designer">程序设计:qtfreet00</string>
+    <string name="ui_designer">UI设计:Hiapk-天使</string>
+    <string name="dialog_message">音乐助手本着开源开发的一款工具类App，请勿将此软件用于任何非法用途，本软件仅供学习交流，使用此软件即代表默认遵守此声明，本人将不对此负任何法律责任！</string>
 
 </resources>

@@ -320,8 +320,10 @@ public class PlayMusicActivity extends AppCompatActivity implements View.OnClick
                         mediaPlayer.setOnPreparedListener(PlayMusicActivity.this);
                         mediaPlayer.setOnCompletionListener(PlayMusicActivity.this);
                         mediaPlayer.setOnBufferingUpdateListener(PlayMusicActivity.this);
+
                         mediaPlayer.setDataSource(song_urls[position]);
                         mediaPlayer.prepareAsync();
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

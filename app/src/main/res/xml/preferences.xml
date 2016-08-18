@@ -35,7 +35,7 @@
         </Preference>
 
         <com.qtfreet.musicuu.wiget.DialogPreference
-            android:dialogMessage="音乐间谍（第三方版）本着开源开发的一款工具类App，请勿将此软件用于任何非法用途，本软件仅供学习交流，使用此软件即代表默认遵守此声明，本人将不对此负任何法律责任！"
+            android:dialogMessage="@string/dialog_message"
             android:dialogTitle="免责声明"
             android:key="DialogPreference"
             android:layout="@layout/preference_item"
@@ -49,7 +49,7 @@
         android:title="那些人">
         <Preference
             android:layout="@layout/preference_item"
-            android:title="程序设计:qtfreet00">
+            android:title="@string/app_designer">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="http://weibo.com/u/3552577720" />
@@ -57,7 +57,7 @@
 
         <Preference
             android:layout="@layout/preference_item"
-            android:title="UI设计:Hiapk-天使">
+            android:title="@string/ui_designer">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="http://weibo.com/u/2535451595" />
