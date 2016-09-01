@@ -1,6 +1,6 @@
 package com.qtfreet.musicuu.utils;
 
-import com.qtfreet.musicuu.model.APi;
+import com.qtfreet.musicuu.model.Constant.Constants;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +17,7 @@ public class NetUtil {
                 .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APi.MUSIC_HOST).client(client)
+                .baseUrl(Constants.MUSIC_HOST).client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;

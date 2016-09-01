@@ -22,8 +22,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.qtfreet.musicuu.R;
-import com.qtfreet.musicuu.ui.Constant;
 
+import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.ui.view.LyricView;
 import com.qtfreet.musicuu.utils.PreferenceUtil;
 import com.qtfreet.musicuu.ui.view.CustomRelativeLayout;
@@ -40,7 +40,7 @@ import java.text.DecimalFormat;
 
 import okhttp3.Call;
 
-public class PlayMusicActivity extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, LyricView.OnPlayerClickListener {
+public class PlayMusicActivity extends BaseActivity implements View.OnClickListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, LyricView.OnPlayerClickListener {
 
     private LyricView lyricView;
     private MediaPlayer mediaPlayer;
@@ -281,7 +281,7 @@ public class PlayMusicActivity extends AppCompatActivity implements View.OnClick
                 break;
             case STATE_SETUP:
                 String lrcName = song_names[position] + ".lrc";
-                File file = new File(Constant.lyricPath + lrcName);
+                File file = new File(Constants.lyricPath + lrcName);
                 if (file.exists()) {
                     lyricView.setLyricFile(file, "UTF-8");
                 } else {
@@ -390,7 +390,7 @@ public class PlayMusicActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void downloadLyric(String url, String name) {
-        OkHttpUtils.get().url(url).build().execute(new FileCallBack(Constant.lyricPath, name) {
+        OkHttpUtils.get().url(url).build().execute(new FileCallBack(Constants.lyricPath, name) {
             @Override
             public void onError(Call call, Exception e, int id) {
 
@@ -585,13 +585,5 @@ public class PlayMusicActivity extends AppCompatActivity implements View.OnClick
         STATE_STOP, STATE_SETUP, STATE_PREPARE, STATE_PLAYING, STATE_PAUSE;
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getRepeatCount() == 0) {
-            finish();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 }

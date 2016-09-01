@@ -16,7 +16,7 @@
 
 
     <application
-        android:name=".ui.APp"
+        android:name=".ui.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
 
@@ -33,6 +33,7 @@
         </activity>
         <activity
             android:name=".ui.activity.SearchActivity"
+            android:exported="false"
             android:label=""
             android:screenOrientation="portrait" />
 
@@ -44,6 +45,7 @@
 
         <service
             android:name=".ui.service.MusicService"
+
             android:exported="false" />
 
         <activity
@@ -66,6 +68,7 @@
         <activity
             android:name=".ui.activity.PlayMusicActivity"
             android:exported="false"
+
             android:screenOrientation="portrait" />
     </application>
 

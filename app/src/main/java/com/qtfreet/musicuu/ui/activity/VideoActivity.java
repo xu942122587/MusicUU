@@ -24,7 +24,6 @@ public class VideoActivity extends AppCompatActivity {
     Toolbar toolbar;
     @Bind(R.id.title_name)
     TextView toolbarTitle;
-
     private String url = "";
     private String videoName;
 
@@ -80,15 +79,6 @@ public class VideoActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            this.finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     protected void onPause() {
@@ -132,15 +122,5 @@ public class VideoActivity extends AppCompatActivity {
         }
 
         super.onBackPressed();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        //捕获返回键按下的事件
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            finish();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

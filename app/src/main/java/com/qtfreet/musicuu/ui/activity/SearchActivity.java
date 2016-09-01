@@ -19,6 +19,7 @@ import com.qtfreet.musicuu.model.ApiService;
 import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.model.OnMusicClickListener;
+import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.ui.adapter.SongDetailAdapter;
 import com.qtfreet.musicuu.ui.service.DownloadService;
 import com.qtfreet.musicuu.utils.NetUtil;
@@ -35,7 +36,7 @@ import retrofit2.Response;
 /**
  * Created by qtfreet on 2016/3/20.
  */
-public class SearchActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, OnMusicClickListener, PopupMenu.OnMenuItemClickListener {
+public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, OnMusicClickListener, PopupMenu.OnMenuItemClickListener {
 
     private SongDetailAdapter searchResultAdapter;
 
@@ -166,16 +167,6 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
 
     private static final int REQUEST_SUCCESS = 1;
     private static final int REQUEST_ERROR = 0;
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            this.finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void download(String name, String url, String id) {
         Intent i = new Intent(this, DownloadService.class);

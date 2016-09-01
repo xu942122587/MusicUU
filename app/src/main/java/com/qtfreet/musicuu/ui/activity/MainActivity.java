@@ -8,13 +8,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.method.KeyListener;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,7 +22,6 @@ import com.pgyersdk.feedback.PgyFeedbackShakeManager;
 import com.pgyersdk.update.PgyUpdateManager;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
-import com.qtfreet.musicuu.ui.Constant;
 import com.qtfreet.musicuu.utils.FileUtils;
 import com.qtfreet.musicuu.utils.SPUtils;
 import com.zhy.m.permission.MPermissions;
@@ -147,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         Bundle bundle = new Bundle();
         if (mistype.equals("yinyutai")) {
-            bundle.putString(Constant.YinyueTai, text);
+            bundle.putString(Constants.YinyueTai, text);
             Intent t = new Intent(MainActivity.this, SearchMvActivity.class);
             t.putExtras(bundle);
             startActivity(t);

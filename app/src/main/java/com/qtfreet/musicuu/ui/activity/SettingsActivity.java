@@ -15,12 +15,13 @@ import android.widget.TextView;
 
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
+import com.qtfreet.musicuu.ui.BaseActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends BaseActivity {
 
     private SettingsFragment mSettingsFragment;
     @Bind(R.id.toolbar)
@@ -57,16 +58,6 @@ public class SettingsActivity extends AppCompatActivity {
     public void replaceFragment(int viewId, android.app.Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(viewId, fragment).commit();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            this.finish();
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     /**

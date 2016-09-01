@@ -22,8 +22,8 @@ import com.qtfreet.musicuu.model.Bean.YinyueTai.MvBean;
 import com.qtfreet.musicuu.model.Bean.YinyueTai.MvPlayBean;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.model.OnVideoClickListener;
-import com.qtfreet.musicuu.ui.Constant;
-import com.qtfreet.musicuu.ui.adapter.MvAdatper;
+import com.qtfreet.musicuu.ui.BaseActivity;
+import com.qtfreet.musicuu.ui.adapter.MvDetailAdatper;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -36,7 +36,7 @@ import okhttp3.Call;
 /**
  * Created by qtfreet00 on 2016/9/1.
  */
-public class SearchMvActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, OnVideoClickListener {
+public class SearchMvActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, OnVideoClickListener {
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
 
     @Bind(R.id.swipe_refresh)
@@ -47,7 +47,7 @@ public class SearchMvActivity extends AppCompatActivity implements SwipeRefreshL
     Toolbar toolbar;
     @Bind(R.id.title_name)
     TextView toolbarTitle;
-    private MvAdatper mAdapter;
+    private MvDetailAdatper mAdapter;
     private List<MvBean.DataBean> dataBean;
 
     @Override
@@ -59,21 +59,11 @@ public class SearchMvActivity extends AppCompatActivity implements SwipeRefreshL
     }
 
     private void initData() {
-        String keyWord = getIntent().getStringExtra(Constant.YinyueTai);
+        String keyWord = getIntent().getStringExtra(Constants.YinyueTai);
         if (keyWord.isEmpty()) {
             return;
         }
         requestData(keyWord);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            this.finish();
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initView() {
@@ -108,8 +98,6 @@ public class SearchMvActivity extends AppCompatActivity implements SwipeRefreshL
                         }
                     }
                 }
-
-
             }
         });
     }
@@ -152,7 +140,7 @@ public class SearchMvActivity extends AppCompatActivity implements SwipeRefreshL
                     showRefreshing(false);
                     Gson gson = new Gson();
                     dataBean = gson.fromJson(message.obj.toString(), MvBean.class).getData();
-                    mAdapter = new MvAdatper(SearchMvActivity.this, dataBean);
+                    mAdapter = new MvDetailAdatper(SearchMvActivity.this, dataBean);
                     mAdapter.setOnVideoClickListener(SearchMvActivity.this);
                     recyclerView.setAdapter(mAdapter);
                     break;
@@ -197,7 +185,7 @@ public class SearchMvActivity extends AppCompatActivity implements SwipeRefreshL
 
     @Override
     public void onRefresh() {
-        requestData(getIntent().getStringExtra(Constant.YinyueTai));
+        requestData(getIntent().getStringExtra(Constants.YinyueTai));
     }
 
     @Override

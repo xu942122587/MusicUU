@@ -2,7 +2,6 @@ package com.qtfreet.musicuu.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,14 +21,14 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class MvAdatper extends RecyclerView.Adapter<MvAdatper.VideoViewHodler> {
+public class MvDetailAdatper extends RecyclerView.Adapter<MvDetailAdatper.VideoViewHodler> {
 
     private Context mContext;
     private List<MvBean.DataBean> mvBean;
 
     private OnVideoClickListener onVideoClickListener;
 
-    public MvAdatper(Context mContext, List<MvBean.DataBean> imageInfos) {
+    public MvDetailAdatper(Context mContext, List<MvBean.DataBean> imageInfos) {
         this.mContext = mContext;
         this.mvBean = imageInfos;
     }
