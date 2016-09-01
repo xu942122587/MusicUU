@@ -5,13 +5,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,11 +33,8 @@ import okhttp3.Call;
 /**
  * Created by qtfreet00 on 2016/9/1.
  */
-public class SearchMvActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, OnVideoClickListener {
+public class SearchMvActivity extends BaseActivity implements OnVideoClickListener {
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
-
-    @Bind(R.id.swipe_refresh)
-    SwipeRefreshLayout refresh;
     @Bind(R.id.lv_search_result)
     RecyclerView recyclerView;
     @Bind(R.id.toolbar)
@@ -49,21 +43,22 @@ public class SearchMvActivity extends BaseActivity implements SwipeRefreshLayout
     TextView toolbarTitle;
     private MvDetailAdatper mAdapter;
     private List<MvBean.DataBean> dataBean;
+    private String KeyWord;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_search_mv);
         initView();
         initData();
     }
 
     private void initData() {
-        String keyWord = getIntent().getStringExtra(Constants.YinyueTai);
-        if (keyWord.isEmpty()) {
+        KeyWord = getIntent().getStringExtra(Constants.YinyueTai);
+        if (KeyWord.isEmpty()) {
             return;
         }
-        requestData(keyWord);
+        requestData(KeyWord);
     }
 
     private void initView() {
@@ -76,44 +71,13 @@ public class SearchMvActivity extends BaseActivity implements SwipeRefreshLayout
                 toolbarTitle.setText("搜索");
             }
         }
-        refresh.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R
-                .color.holo_orange_light, android.R.color.holo_green_light);
-        refresh.setOnRefreshListener(this);
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mStaggeredGridLayoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-
-                    int[] positions = new int[mStaggeredGridLayoutManager.getSpanCount()];
-                    positions = mStaggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(positions);
-                    for (int position : positions) {
-                        if (position == mStaggeredGridLayoutManager.getItemCount() - 1) {
-                            Toast.makeText(SearchMvActivity.this, "木有更多了哦", Toast.LENGTH_SHORT).show();
-                            break;
-                        }
-                    }
-                }
-            }
-        });
     }
 
-    private void showRefreshing(boolean isShow) {
-        if (isShow) {
-            refresh.setProgressViewOffset(false, 0, (int) (getResources().getDisplayMetrics().density * 24 +
-                    0.5f));
-            refresh.setRefreshing(true);
-        } else {
-            refresh.setRefreshing(false);
-        }
-    }
 
     public void requestData(String keyWord) {
-        showRefreshing(true);
         OkHttpUtils.get().url("http://mapiv2.yinyuetai.com/search/video.json?&order=&sourceVersion=&area=&singerType=&offset=0&size=20&keyword=" + keyWord).addHeader("App-Id", "10201041").addHeader("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb").addHeader("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=").build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
@@ -137,7 +101,7 @@ public class SearchMvActivity extends BaseActivity implements SwipeRefreshLayout
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    showRefreshing(false);
+
                     Gson gson = new Gson();
                     dataBean = gson.fromJson(message.obj.toString(), MvBean.class).getData();
                     mAdapter = new MvDetailAdatper(SearchMvActivity.this, dataBean);
@@ -146,7 +110,7 @@ public class SearchMvActivity extends BaseActivity implements SwipeRefreshLayout
                     break;
                 case 1:
                     Toast.makeText(SearchMvActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
-                    showRefreshing(false);
+
                     break;
                 case 2:
                     Gson gson2 = new Gson();
@@ -183,10 +147,6 @@ public class SearchMvActivity extends BaseActivity implements SwipeRefreshLayout
         }
     });
 
-    @Override
-    public void onRefresh() {
-        requestData(getIntent().getStringExtra(Constants.YinyueTai));
-    }
 
     @Override
     public void click(View v, int postion) {
@@ -215,7 +175,5 @@ public class SearchMvActivity extends BaseActivity implements SwipeRefreshLayout
 
             }
         });
-
-
     }
 }
