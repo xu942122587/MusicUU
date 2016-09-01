@@ -1,4 +1,4 @@
-package com.qtfreet.musicuu.ui;
+package com.qtfreet.musicuu.model;
 
 import android.view.View;
 

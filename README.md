@@ -21,4 +21,9 @@
 * 支持显示歌词了
 * 还是不支持后台播放，- -
 
+######2016.9.1
+* 调整了下搜索歌曲页面的布局大小，现在可以显示更多的选项
+* 增加了音悦台接口，可以直接看mv
+* 越写越觉得代码丑，丑炸了
+
 ![image](https://raw.githubusercontent.com/Qrilee/MusicUU/master/screenshots/pic.png)

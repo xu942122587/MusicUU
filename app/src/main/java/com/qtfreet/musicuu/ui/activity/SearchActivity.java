@@ -1,6 +1,5 @@
 package com.qtfreet.musicuu.ui.activity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
@@ -17,15 +16,12 @@ import android.widget.Toast;
 
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.ApiService;
-import com.qtfreet.musicuu.model.Bean.resultBean;
+import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.Constant.Constants;
-import com.qtfreet.musicuu.ui.OnMusicClickListener;
+import com.qtfreet.musicuu.model.OnMusicClickListener;
 import com.qtfreet.musicuu.ui.adapter.SongDetailAdapter;
 import com.qtfreet.musicuu.ui.service.DownloadService;
 import com.qtfreet.musicuu.utils.NetUtil;
-import com.zhy.m.permission.MPermissions;
-import com.zhy.m.permission.PermissionDenied;
-import com.zhy.m.permission.PermissionGrant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,34 +41,22 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
 
     @Bind(R.id.lv_search_result)
     RecyclerView search_list;
-    private static final int REQUECT_CODE_SDCARD = 2;
+    private SwipeRefreshLayout refresh;
+    private List<resultBean> result = new ArrayList<>();
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
+    @Bind(R.id.title_name)
+    TextView toolbarTitle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        MPermissions.requestPermissions(SearchActivity.this, REQUECT_CODE_SDCARD, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         initView();
         initData();
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        MPermissions.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-
-    @PermissionGrant(REQUECT_CODE_SDCARD)
-    public void requestSdcardSuccess() {
-
-    }
-
-    @PermissionDenied(REQUECT_CODE_SDCARD)
-    public void requestSdcardFailed() {
-        Toast.makeText(this, "未获取到SD卡权限!", Toast.LENGTH_SHORT).show();
-
-    }
 
     private void initData() {
         showRefreshing(true);
@@ -100,12 +84,7 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
         });
     }
 
-    private SwipeRefreshLayout refresh;
-    private List<resultBean> result = new ArrayList<>();
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-    @Bind(R.id.title_name)
-    TextView toolbarTitle;
+
 
     private android.os.Handler handler = new android.os.Handler(new android.os.Handler.Callback() {
         @Override
@@ -141,7 +120,7 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
     private int postion1;
 
     public void popupMenuClick(View v, int postion) {
-        postion1 = postion;
+        this.postion1 = postion;
         PopupMenu popupMenu = new PopupMenu(this, v);
         popupMenu.setOnMenuItemClickListener(this);
         popupMenu.inflate(R.menu.main_popup_menu);
@@ -160,7 +139,6 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
                 toolbarTitle.setText("搜索");
             }
         }
-
         search_list.setLayoutManager(new LinearLayoutManager(this));
         search_list.setHasFixedSize(true);
 
@@ -260,8 +238,6 @@ public class SearchActivity extends AppCompatActivity implements SwipeRefreshLay
                 i.putExtras(bundle);
                 startActivity(i);
                 return true;
-
-
         }
         return false;
     }

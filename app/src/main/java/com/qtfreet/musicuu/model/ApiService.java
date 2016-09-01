@@ -1,7 +1,7 @@
 package com.qtfreet.musicuu.model;
 
-import com.qtfreet.musicuu.model.Bean.RecomendResult;
-import com.qtfreet.musicuu.model.Bean.resultBean;
+import com.qtfreet.musicuu.model.Bean.MusicUU.RecomendResult;
+import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 
 import java.util.List;
 

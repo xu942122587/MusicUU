@@ -10,8 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qtfreet.musicuu.R;
-import com.qtfreet.musicuu.model.Bean.resultBean;
-import com.qtfreet.musicuu.ui.OnMusicClickListener;
+import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
+import com.qtfreet.musicuu.model.OnMusicClickListener;
 import com.qtfreet.musicuu.ui.activity.SearchActivity;
 import com.squareup.picasso.Picasso;
 
@@ -27,9 +27,11 @@ public class SongDetailAdapter extends RecyclerView.Adapter<SongDetailAdapter.Vi
     private List<resultBean> mSongs;
     private Context mContext;
     public static final String TAG = "SongDetailAdapter";
+
     public void setOnMusicClickListener(OnMusicClickListener listener) {
         this.onItemClickListener = listener;
     }
+
     public SongDetailAdapter(Context context, List<resultBean>
             songs) {
         mSongs = songs;
@@ -44,12 +46,10 @@ public class SongDetailAdapter extends RecyclerView.Adapter<SongDetailAdapter.Vi
     }
 
 
-
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final resultBean song = mSongs.get(position);
         String url = song.getPicUrl();
-        final String download = song.getHqUrl();
         holder.mImageView.setTag(url);
         Picasso.with(mContext).load(url).into(holder.mImageView);
         holder.mSongName.setText(song.getSongName());
@@ -58,7 +58,7 @@ public class SongDetailAdapter extends RecyclerView.Adapter<SongDetailAdapter.Vi
             @Override
             public void onClick(View v) {
                 if (mContext instanceof SearchActivity) {
-                    ((SearchActivity) mContext).popupMenuClick(v,position);
+                    ((SearchActivity) mContext).popupMenuClick(v, position);
                 }
             }
         });

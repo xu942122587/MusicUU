@@ -1,5 +1,6 @@
 package com.qtfreet.musicuu.ui.activity;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,8 +24,12 @@ import com.pgyersdk.feedback.PgyFeedbackShakeManager;
 import com.pgyersdk.update.PgyUpdateManager;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
+import com.qtfreet.musicuu.ui.Constant;
 import com.qtfreet.musicuu.utils.FileUtils;
 import com.qtfreet.musicuu.utils.SPUtils;
+import com.zhy.m.permission.MPermissions;
+import com.zhy.m.permission.PermissionDenied;
+import com.zhy.m.permission.PermissionGrant;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -42,13 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Toolbar toolbar;
     @Bind(R.id.title_name)
     TextView toolbarTitle;
+    private static final int REQUECT_CODE_SDCARD = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        MPermissions.requestPermissions(MainActivity.this, REQUECT_CODE_SDCARD, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         firstUse();
         initView();
         checkUpdate();
@@ -141,13 +146,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.KEY, text);
-        bundle.putString(Constants.TYPE, mistype);
-        Intent i = new Intent(MainActivity.this, SearchActivity.class);
-        i.putExtras(bundle);
-        startActivity(i);
+        if (mistype.equals("yinyutai")) {
+            bundle.putString(Constant.YinyueTai, text);
+            Intent t = new Intent(MainActivity.this, SearchMvActivity.class);
+            t.putExtras(bundle);
+            startActivity(t);
+
+        } else {
+            bundle.putString(Constants.KEY, text);
+            bundle.putString(Constants.TYPE, mistype);
+            Intent i = new Intent(MainActivity.this, SearchActivity.class);
+            i.putExtras(bundle);
+            startActivity(i);
+        }
+
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        MPermissions.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+
+    @PermissionGrant(REQUECT_CODE_SDCARD)
+    public void requestSdcardSuccess() {
+
+    }
+
+    @PermissionDenied(REQUECT_CODE_SDCARD)
+    public void requestSdcardFailed() {
+        Toast.makeText(this, "未获取到SD卡权限!将无法使用下载功能", Toast.LENGTH_SHORT).show();
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -196,7 +227,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     mistype = "dx";
                                 } else if (type.equals(getString(R.string.music_xm))) {
                                     mistype = "xm";
+                                } else if (type.equals(getString(R.string.mv_yinyuetai))) {
+                                    mistype = "yinyutai";
                                 }
+
                                 Toast.makeText(MainActivity.this, "已切换成 " + item.getTitle(), Toast.LENGTH_SHORT).show();
                             }
                         })

@@ -124,7 +124,6 @@ public class PlayMusicActivity extends AppCompatActivity implements View.OnClick
         lyricView.setLineSpace(PreferenceUtil.getInstance(PlayMusicActivity.this).getFloat(PreferenceUtil.KEY_TEXT_SIZE, 12.0f));
         lyricView.setTextSize(PreferenceUtil.getInstance(PlayMusicActivity.this).getFloat(PreferenceUtil.KEY_TEXT_SIZE, 15.0f));
         lyricView.setHighLightTextColor(PreferenceUtil.getInstance(PlayMusicActivity.this).getInt(PreferenceUtil.KEY_HIGHLIGHT_COLOR, Color.parseColor("#4FC5C7")));
-
         setting_layout = (ViewStub) findViewById(R.id.main_setting_layout);
     }
 

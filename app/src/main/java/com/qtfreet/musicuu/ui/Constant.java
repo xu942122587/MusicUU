@@ -8,4 +8,5 @@ import android.os.Environment;
 public class Constant {
 
     public static final String lyricPath = Environment.getExternalStorageDirectory() + "/LyricDemo/lyric/";
+    public static final String YinyueTai = "keyword";
 }

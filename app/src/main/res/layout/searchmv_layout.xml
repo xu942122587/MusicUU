@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card"
+    android:orientation="vertical">
+
+    <com.qtfreet.musicuu.ui.view.RadioImageView
+        android:id="@+id/iv_gril"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="1dip"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/des"
+        android:padding="3dip"
+        android:maxLines="1"
+        android:layout_height="30dip" />
+
+</LinearLayout>

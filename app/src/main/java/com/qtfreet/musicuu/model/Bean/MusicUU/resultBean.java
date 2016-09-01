@@ -1,4 +1,4 @@
-package com.qtfreet.musicuu.model.Bean;
+package com.qtfreet.musicuu.model.Bean.MusicUU;
 
 /**
  * Created by qtfreet on 2016/3/20.
