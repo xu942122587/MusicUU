@@ -8,15 +8,17 @@
     <com.qtfreet.musicuu.ui.view.RadioImageView
         android:id="@+id/iv_gril"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:padding="1dip"
         android:scaleType="centerCrop" />
 
     <TextView
-        android:layout_width="match_parent"
         android:id="@+id/des"
-        android:padding="3dip"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:gravity="center_horizontal"
         android:maxLines="1"
-        android:layout_height="30dip" />
+        android:padding="3dip"
+        android:textSize="12dip" />
 
 </LinearLayout>

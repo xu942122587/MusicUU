@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.Mango.MangoBean;
 import com.qtfreet.musicuu.model.Bean.Mango.MangoDetailBean;
@@ -47,6 +48,8 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
     @Bind(R.id.title_name)
     TextView toolbarTitle;
     private MangoDetailAdatper mangoDetaiAdapter;
+    @Bind(R.id.loadView)
+    LoadingView loadingView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -132,10 +135,11 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
+                    loadingView.setVisibility(View.GONE);
                     Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();
                     break;
                 case 0:
-
+                    loadingView.setVisibility(View.GONE);
                     MangoBean mangoBean = gson.fromJson(message.obj.toString(), MangoBean.class);
                     if (mangoBean == null) {
                         Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();

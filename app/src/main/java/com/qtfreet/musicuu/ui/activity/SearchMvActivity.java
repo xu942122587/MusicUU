@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.YinyueTai.MvBean;
 import com.qtfreet.musicuu.model.Bean.YinyueTai.MvPlayBean;
@@ -44,6 +45,8 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
     private MvDetailAdatper mAdapter;
     private List<MvBean.DataBean> dataBean;
     private String KeyWord;
+    @Bind(R.id.loadView)
+    LoadingView loadingView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -101,7 +104,7 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-
+                    loadingView.setVisibility(View.GONE);
                     Gson gson = new Gson();
                     dataBean = gson.fromJson(message.obj.toString(), MvBean.class).getData();
                     mAdapter = new MvDetailAdatper(SearchMvActivity.this, dataBean);
@@ -109,8 +112,8 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
                     recyclerView.setAdapter(mAdapter);
                     break;
                 case 1:
+                    loadingView.setVisibility(View.GONE);
                     Toast.makeText(SearchMvActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
-
                     break;
                 case 2:
                     Gson gson2 = new Gson();

@@ -14,6 +14,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.ApiService;
 import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
@@ -48,6 +49,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     Toolbar toolbar;
     @Bind(R.id.title_name)
     TextView toolbarTitle;
+    @Bind(R.id.loadView)
+    LoadingView loadingView;
 
 
     @Override
@@ -60,13 +63,14 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
 
     private void initData() {
-        showRefreshing(true);
+        if (loadingView.getVisibility() == View.GONE) {
+            loadingView.setVisibility(View.VISIBLE);
+        }
         ApiService apiService = NetUtil.getInstance().create(ApiService.class);
         Call<List<resultBean>> call = apiService.GetInfo(getIntent().getExtras().getString(Constants.TYPE), getIntent().getExtras().getString(Constants.KEY));
         call.enqueue(new Callback<List<resultBean>>() {
             @Override
             public void onResponse(Call<List<resultBean>> call, Response<List<resultBean>> response) {
-                showRefreshing(false);
                 if (response.body().size() == 0) {
                     handler.sendEmptyMessage(REQUEST_ERROR);
                     return;
@@ -78,13 +82,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
             @Override
             public void onFailure(Call<List<resultBean>> call, Throwable t) {
-                showRefreshing(false);
-
                 handler.sendEmptyMessage(REQUEST_ERROR);
             }
         });
     }
-
 
 
     private android.os.Handler handler = new android.os.Handler(new android.os.Handler.Callback() {
@@ -92,6 +93,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
                 case REQUEST_SUCCESS:
+                    loadingView.setVisibility(View.GONE);
                     if (result == null) {
                         handler.sendEmptyMessage(REQUEST_ERROR);
                         return true;
@@ -101,6 +103,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                     search_list.setAdapter(searchResultAdapter);
                     break;
                 case REQUEST_ERROR:
+                    loadingView.setVisibility(View.GONE);
                     Toast.makeText(SearchActivity.this, "获取信息失败", Toast.LENGTH_SHORT).show();
                     break;
             }
@@ -180,6 +183,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     @Override
     public void onRefresh() {
+        showRefreshing(false);
         initData();
     }
 

@@ -19,8 +19,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pgyersdk.feedback.PgyFeedbackShakeManager;
-import com.pgyersdk.update.PgyUpdateManager;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.utils.FileUtils;
@@ -103,18 +101,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         initDir();
         super.onResume();
-        // 自定义摇一摇的灵敏度，默认为950，数值越小灵敏度越高。
-        PgyFeedbackShakeManager.setShakingThreshold(1100);
-        // 以对话框的形式弹出
-        PgyFeedbackShakeManager.register(MainActivity.this);
-
     }
 
     private void checkUpdate() {
         if (!(boolean) SPUtils.get(Constants.MUSICUU_PREF, this, Constants.AUTO_CHECK, true)) {
             return;
         }
-        PgyUpdateManager.register(this);
+
     }
 
 
@@ -127,11 +120,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        PgyFeedbackShakeManager.unregister();
-    }
 
     String mistype = "";
     @Bind(R.id.fab)
@@ -146,16 +134,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Bundle bundle = new Bundle();
         if (mistype.equals("yinyutai")) {
             bundle.putString(Constants.YinyueTai, text);
-            startActivity(MainActivity.this,SearchMvActivity.class,bundle);
+            startActivity(MainActivity.this, SearchMvActivity.class, bundle);
 
         } else if (mistype.equals("mango")) {
             bundle.putString(Constants.Mango, text);
-            startActivity(MainActivity.this,SearchMangoActivity.class,bundle);
+            startActivity(MainActivity.this, SearchMangoActivity.class, bundle);
 
         } else {
             bundle.putString(Constants.KEY, text);
             bundle.putString(Constants.TYPE, mistype);
-            startActivity(MainActivity.this,SearchActivity.class,bundle);
+            startActivity(MainActivity.this, SearchActivity.class, bundle);
         }
 
     }
