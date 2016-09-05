@@ -1,6 +1,7 @@
 package com.qtfreet.musicuu.ui.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -145,18 +146,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Bundle bundle = new Bundle();
         if (mistype.equals("yinyutai")) {
             bundle.putString(Constants.YinyueTai, text);
-            Intent t = new Intent(MainActivity.this, SearchMvActivity.class);
-            t.putExtras(bundle);
-            startActivity(t);
+            startActivity(MainActivity.this,SearchMvActivity.class,bundle);
+
+        } else if (mistype.equals("mango")) {
+            bundle.putString(Constants.Mango, text);
+            startActivity(MainActivity.this,SearchMangoActivity.class,bundle);
 
         } else {
             bundle.putString(Constants.KEY, text);
             bundle.putString(Constants.TYPE, mistype);
-            Intent i = new Intent(MainActivity.this, SearchActivity.class);
-            i.putExtras(bundle);
-            startActivity(i);
+            startActivity(MainActivity.this,SearchActivity.class,bundle);
         }
 
+    }
+
+    private void startActivity(Context ctx, Class<?> resClass, Bundle bundle) {
+        Intent i = new Intent(ctx, resClass);
+        i.putExtras(bundle);
+        startActivity(i);
     }
 
     @Override
@@ -226,7 +233,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     mistype = "xm";
                                 } else if (type.equals(getString(R.string.mv_yinyuetai))) {
                                     mistype = "yinyutai";
+                                } else if (type.equals(getString(R.string.mango))) {
+                                    mistype = "mango";
                                 }
+
 
                                 Toast.makeText(MainActivity.this, "已切换成 " + item.getTitle(), Toast.LENGTH_SHORT).show();
                             }

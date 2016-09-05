@@ -22,4 +22,5 @@ public class Constants {
     public static final String MUSIC_HOST = "http://itwusun.com/";
     public static final String lyricPath = Environment.getExternalStorageDirectory() + "/LyricDemo/lyric/";
     public static final String YinyueTai = "keyword";
+    public static final String Mango = "mango";
 }

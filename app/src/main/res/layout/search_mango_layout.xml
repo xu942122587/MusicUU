@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <com.qtfreet.musicuu.ui.view.RadioImageView
+            android:id="@+id/iv_gril"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="1dip"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:layout_width="20dip"
+            android:id="@+id/yuGao"
+            android:layout_gravity="start|top"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="15dip"
+            android:layout_height="20dip"
+            />
+
+        <TextView
+            android:id="@+id/video_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginRight="15dip"
+            android:textColor="@color/ripple_color"
+            android:maxLines="1"
+            android:padding="3dip" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/des"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="30dip"
+        android:maxLines="1"
+        android:padding="3dip" />
+
+</LinearLayout>

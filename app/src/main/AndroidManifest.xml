@@ -65,8 +65,14 @@
         <service
             android:name=".ui.service.DownloadService"
             android:exported="false" />
+
         <activity
             android:name=".ui.activity.PlayMusicActivity"
+            android:exported="false"
+
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SearchMangoActivity"
             android:exported="false"
 
             android:screenOrientation="portrait" />

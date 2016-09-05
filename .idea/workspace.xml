@@ -5,6 +5,16 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/main_popup_menu.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/music_type.xml">
         <config>
           <theme>@android:style/Theme.Material.Light</theme>
@@ -13,11 +23,21 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="TAG1" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65267a9c-f2d4-4745-8adb-1773c4bead37" name="Default" comment="" />
+    <list default="true" id="65267a9c-f2d4-4745-8adb-1773c4bead37" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Constant/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Constant/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/music_type.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/music_type.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/giraffeplayer/giraffeplayer.iml" afterPath="$PROJECT_DIR$/giraffeplayer/giraffeplayer.iml" />
+    </list>
     <ignored path="MusicUU.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,49 +56,274 @@
     <favorites_list name="MusicUU" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="btn_mv.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_mv.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ic_play_arrow_white_24dp.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_play_arrow_white_24dp.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layer_player_playing_progress.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/layer_player_playing_progress.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layer_player_setting_seek_bar.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/layer_player_setting_seek_bar.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchActivity.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="SearchMangoActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMangoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+              <caret line="182" column="93" selection-start-line="182" selection-start-column="93" selection-end-line="182" selection-end-column="93" />
               <folding>
-                <element signature="e#2966#3792#0" expanded="true" />
-                <element signature="e#3791#3792#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#10022#10023#0" expanded="true" />
+                <element signature="e#10081#10082#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.31456953">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MangoVideoData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/Mango/MangoVideoData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+              <folding>
+                <element signature="e#14045#14046#0" expanded="true" />
+                <element signature="e#14074#14075#0" expanded="true" />
+                <element signature="e#14115#14116#0" expanded="true" />
+                <element signature="e#14151#14152#0" expanded="true" />
+                <element signature="e#14181#14182#0" expanded="true" />
+                <element signature="e#14207#14208#0" expanded="true" />
+                <element signature="e#14245#14246#0" expanded="true" />
+                <element signature="e#14275#14276#0" expanded="true" />
+                <element signature="e#14308#14309#0" expanded="true" />
+                <element signature="e#14335#14336#0" expanded="true" />
+                <element signature="e#14377#14378#0" expanded="true" />
+                <element signature="e#14409#14410#0" expanded="true" />
+                <element signature="e#17361#17362#0" expanded="true" />
+                <element signature="e#17396#17397#0" expanded="true" />
+                <element signature="e#17442#17443#0" expanded="true" />
+                <element signature="e#17482#17483#0" expanded="true" />
+                <element signature="e#17519#17520#0" expanded="true" />
+                <element signature="e#17554#17555#0" expanded="true" />
+                <element signature="e#17600#17601#0" expanded="true" />
+                <element signature="e#17640#17641#0" expanded="true" />
+                <element signature="e#17679#17680#0" expanded="true" />
+                <element signature="e#17715#17716#0" expanded="true" />
+                <element signature="e#17764#17765#0" expanded="true" />
+                <element signature="e#17806#17807#0" expanded="true" />
+                <element signature="e#17843#17844#0" expanded="true" />
+                <element signature="e#17878#17879#0" expanded="true" />
+                <element signature="e#17924#17925#0" expanded="true" />
+                <element signature="e#17964#17965#0" expanded="true" />
+                <element signature="e#18003#18004#0" expanded="true" />
+                <element signature="e#18039#18040#0" expanded="true" />
+                <element signature="e#18088#18089#0" expanded="true" />
+                <element signature="e#18130#18131#0" expanded="true" />
+                <element signature="e#18171#18172#0" expanded="true" />
+                <element signature="e#18208#18209#0" expanded="true" />
+                <element signature="e#18260#18261#0" expanded="true" />
+                <element signature="e#18304#18305#0" expanded="true" />
+                <element signature="e#18351#18352#0" expanded="true" />
+                <element signature="e#18388#18389#0" expanded="true" />
+                <element signature="e#18446#18447#0" expanded="true" />
+                <element signature="e#18490#18491#0" expanded="true" />
+                <element signature="e#18540#18541#0" expanded="true" />
+                <element signature="e#18584#18585#0" expanded="true" />
+                <element signature="e#18753#18754#0" expanded="true" />
+                <element signature="e#18790#18791#0" expanded="true" />
+                <element signature="e#18844#18845#0" expanded="true" />
+                <element signature="e#18888#18889#0" expanded="true" />
+                <element signature="e#18924#18925#0" expanded="true" />
+                <element signature="e#18959#18960#0" expanded="true" />
+                <element signature="e#19004#19005#0" expanded="true" />
+                <element signature="e#19044#19045#0" expanded="true" />
+                <element signature="e#19286#19287#0" expanded="true" />
+                <element signature="e#19327#19328#0" expanded="true" />
+                <element signature="e#19371#19372#0" expanded="true" />
+                <element signature="e#19415#19416#0" expanded="true" />
+                <element signature="e#19454#19455#0" expanded="true" />
+                <element signature="e#19497#19498#0" expanded="true" />
+                <element signature="e#19545#19546#0" expanded="true" />
+                <element signature="e#19593#19594#0" expanded="true" />
+                <element signature="e#19633#19634#0" expanded="true" />
+                <element signature="e#19677#19678#0" expanded="true" />
+                <element signature="e#19727#19728#0" expanded="true" />
+                <element signature="e#19777#19778#0" expanded="true" />
+                <element signature="e#19819#19820#0" expanded="true" />
+                <element signature="e#19865#19866#0" expanded="true" />
+                <element signature="e#19919#19920#0" expanded="true" />
+                <element signature="e#19973#19974#0" expanded="true" />
+                <element signature="e#20010#20011#0" expanded="true" />
+                <element signature="e#20051#20052#0" expanded="true" />
+                <element signature="e#20095#20096#0" expanded="true" />
+                <element signature="e#20139#20140#0" expanded="true" />
+                <element signature="e#21071#21072#0" expanded="true" />
+                <element signature="e#21118#21119#0" expanded="true" />
+                <element signature="e#21174#21175#0" expanded="true" />
+                <element signature="e#21230#21231#0" expanded="true" />
+                <element signature="e#21272#21273#0" expanded="true" />
+                <element signature="e#21318#21319#0" expanded="true" />
+                <element signature="e#21372#21373#0" expanded="true" />
+                <element signature="e#21426#21427#0" expanded="true" />
+                <element signature="e#21470#21471#0" expanded="true" />
+                <element signature="e#21518#21519#0" expanded="true" />
+                <element signature="e#21576#21577#0" expanded="true" />
+                <element signature="e#21634#21635#0" expanded="true" />
+                <element signature="e#21682#21683#0" expanded="true" />
+                <element signature="e#21734#21735#0" expanded="true" />
+                <element signature="e#21916#21917#0" expanded="true" />
+                <element signature="e#21970#21971#0" expanded="true" />
+                <element signature="e#22154#22155#0" expanded="true" />
+                <element signature="e#22202#22203#0" expanded="true" />
+                <element signature="e#22260#22261#0" expanded="true" />
+                <element signature="e#22318#22319#0" expanded="true" />
+                <element signature="e#22358#22359#0" expanded="true" />
+                <element signature="e#22402#22403#0" expanded="true" />
+                <element signature="e#22452#22453#0" expanded="true" />
+                <element signature="e#22502#22503#0" expanded="true" />
+                <element signature="e#22546#22547#0" expanded="true" />
+                <element signature="e#22594#22595#0" expanded="true" />
+                <element signature="e#22652#22653#0" expanded="true" />
+                <element signature="e#22710#22711#0" expanded="true" />
+                <element signature="e#22751#22752#0" expanded="true" />
+                <element signature="e#22796#22797#0" expanded="true" />
+                <element signature="e#22848#22849#0" expanded="true" />
+                <element signature="e#22900#22901#0" expanded="true" />
+                <element signature="e#22938#22939#0" expanded="true" />
+                <element signature="e#22980#22981#0" expanded="true" />
+                <element signature="e#23026#23027#0" expanded="true" />
+                <element signature="e#23072#23073#0" expanded="true" />
+                <element signature="e#23112#23113#0" expanded="true" />
+                <element signature="e#23156#23157#0" expanded="true" />
+                <element signature="e#23206#23207#0" expanded="true" />
+                <element signature="e#23256#23257#0" expanded="true" />
+                <element signature="e#23295#23296#0" expanded="true" />
+                <element signature="e#23338#23339#0" expanded="true" />
+                <element signature="e#23386#23387#0" expanded="true" />
+                <element signature="e#23434#23435#0" expanded="true" />
+                <element signature="e#23473#23474#0" expanded="true" />
+                <element signature="e#23516#23517#0" expanded="true" />
+                <element signature="e#23564#23565#0" expanded="true" />
+                <element signature="e#23612#23613#0" expanded="true" />
+                <element signature="e#23656#23657#0" expanded="true" />
+                <element signature="e#23704#23705#0" expanded="true" />
+                <element signature="e#23762#23763#0" expanded="true" />
+                <element signature="e#23820#23821#0" expanded="true" />
+                <element signature="e#23860#23861#0" expanded="true" />
+                <element signature="e#23904#23905#0" expanded="true" />
+                <element signature="e#23954#23955#0" expanded="true" />
+                <element signature="e#24004#24005#0" expanded="true" />
+                <element signature="e#24048#24049#0" expanded="true" />
+                <element signature="e#24096#24097#0" expanded="true" />
+                <element signature="e#24154#24155#0" expanded="true" />
+                <element signature="e#24212#24213#0" expanded="true" />
+                <element signature="e#24255#24256#0" expanded="true" />
+                <element signature="e#24302#24303#0" expanded="true" />
+                <element signature="e#24358#24359#0" expanded="true" />
+                <element signature="e#24414#24415#0" expanded="true" />
+                <element signature="e#24458#24459#0" expanded="true" />
+                <element signature="e#24506#24507#0" expanded="true" />
+                <element signature="e#24564#24565#0" expanded="true" />
+                <element signature="e#24622#24623#0" expanded="true" />
+                <element signature="e#24662#24663#0" expanded="true" />
+                <element signature="e#24706#24707#0" expanded="true" />
+                <element signature="e#24756#24757#0" expanded="true" />
+                <element signature="e#24806#24807#0" expanded="true" />
+                <element signature="e#24846#24847#0" expanded="true" />
+                <element signature="e#24890#24891#0" expanded="true" />
+                <element signature="e#24940#24941#0" expanded="true" />
+                <element signature="e#24990#24991#0" expanded="true" />
+                <element signature="e#25034#25035#0" expanded="true" />
+                <element signature="e#25082#25083#0" expanded="true" />
+                <element signature="e#25140#25141#0" expanded="true" />
+                <element signature="e#25198#25199#0" expanded="true" />
+                <element signature="e#25244#25245#0" expanded="true" />
+                <element signature="e#25294#25295#0" expanded="true" />
+                <element signature="e#25356#25357#0" expanded="true" />
+                <element signature="e#25418#25419#0" expanded="true" />
+                <element signature="e#25458#25459#0" expanded="true" />
+                <element signature="e#25502#25503#0" expanded="true" />
+                <element signature="e#25552#25553#0" expanded="true" />
+                <element signature="e#25602#25603#0" expanded="true" />
+                <element signature="e#25827#25828#0" expanded="true" />
+                <element signature="e#25871#25872#0" expanded="true" />
+                <element signature="e#25921#25922#0" expanded="true" />
+                <element signature="e#25971#25972#0" expanded="true" />
+                <element signature="e#26012#26013#0" expanded="true" />
+                <element signature="e#26057#26058#0" expanded="true" />
+                <element signature="e#26109#26110#0" expanded="true" />
+                <element signature="e#26161#26162#0" expanded="true" />
+                <element signature="e#26198#26199#0" expanded="true" />
+                <element signature="e#26239#26240#0" expanded="true" />
+                <element signature="e#26283#26284#0" expanded="true" />
+                <element signature="e#26327#26328#0" expanded="true" />
+                <element signature="e#26367#26368#0" expanded="true" />
+                <element signature="e#26411#26412#0" expanded="true" />
+                <element signature="e#26461#26462#0" expanded="true" />
+                <element signature="e#26511#26512#0" expanded="true" />
+                <element signature="e#26699#26700#0" expanded="true" />
+                <element signature="e#26743#26744#0" expanded="true" />
+                <element signature="e#26793#26794#0" expanded="true" />
+                <element signature="e#26843#26844#0" expanded="true" />
+                <element signature="e#26881#26882#0" expanded="true" />
+                <element signature="e#26923#26924#0" expanded="true" />
+                <element signature="e#26969#26970#0" expanded="true" />
+                <element signature="e#27015#27016#0" expanded="true" />
+                <element signature="e#27053#27054#0" expanded="true" />
+                <element signature="e#27095#27096#0" expanded="true" />
+                <element signature="e#27141#27142#0" expanded="true" />
+                <element signature="e#27187#27188#0" expanded="true" />
+                <element signature="e#27367#27368#0" expanded="true" />
+                <element signature="e#27412#27413#0" expanded="true" />
+                <element signature="e#27470#27471#0" expanded="true" />
+                <element signature="e#27522#27523#0" expanded="true" />
+                <element signature="e#27569#27570#0" expanded="true" />
+                <element signature="e#27614#27615#0" expanded="true" />
+                <element signature="e#27672#27673#0" expanded="true" />
+                <element signature="e#27724#27725#0" expanded="true" />
+                <element signature="e#27937#27938#0" expanded="true" />
+                <element signature="e#27981#27982#0" expanded="true" />
+                <element signature="e#28037#28038#0" expanded="true" />
+                <element signature="e#28087#28088#0" expanded="true" />
+                <element signature="e#28131#28132#0" expanded="true" />
+                <element signature="e#28173#28174#0" expanded="true" />
+                <element signature="e#28225#28226#0" expanded="true" />
+                <element signature="e#28271#28272#0" expanded="true" />
+                <element signature="e#28314#28315#0" expanded="true" />
+                <element signature="e#28360#28361#0" expanded="true" />
+                <element signature="e#28415#28416#0" expanded="true" />
+                <element signature="e#28469#28470#0" expanded="true" />
+                <element signature="e#28624#28625#0" expanded="true" />
+                <element signature="e#28666#28667#0" expanded="true" />
+                <element signature="e#28712#28713#0" expanded="true" />
+                <element signature="e#28758#28759#0" expanded="true" />
+                <element signature="e#28797#28798#0" expanded="true" />
+                <element signature="e#28840#28841#0" expanded="true" />
+                <element signature="e#28888#28889#0" expanded="true" />
+                <element signature="e#28936#28937#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnVideoClickListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/OnVideoClickListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="233" column="91" selection-start-line="233" selection-start-column="91" selection-end-line="233" selection-end-column="91" />
+              <folding>
+                <element signature="e#8255#8287#0" expanded="true" />
+                <element signature="e#8405#8430#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,53 +339,46 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="MangoDetailAdatper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/MangoDetailAdatper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+              <folding>
+                <element signature="e#1851#1852#0" expanded="true" />
+                <element signature="e#1887#1888#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SearchMvActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayMusicActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/PlayMusicActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.670922">
-              <caret line="42" column="51" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="51" />
+              <caret line="135" column="10" selection-start-line="135" selection-start-column="10" selection-end-line="140" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_search.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml">
+      <file leaf-file-name="SettingsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SettingsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.413793">
-              <caret line="20" column="47" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_search_mv.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_mv.xml">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.2586207">
-              <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
-              <folding>
-                <element signature="e#497#537#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-18.464285">
+              <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
+              <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -157,6 +395,9 @@
     <option name="KEY_STORE_PATH" value="D:\迅雷下载\keystore" />
     <option name="KEY_ALIAS" value="qri" />
     <option name="REMEMBER_PASSWORDS" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -2349,7 +2590,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5887054406667" />
+        <entry key="$PROJECT_DIR$" value="5887399500957" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2752,23 +2993,17 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/MvPlayBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/YinyueTai/MvPlayBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/MusicUU/MusicBean.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/music_type.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/searchmv_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/MvAdatper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/SongDetailAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_music_list.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/ApiService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/APi.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/Constant.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Constant/Constants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/utils/NetUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/BaseApplication.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/PlayMusicActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchActivity.java" />
@@ -2776,6 +3011,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/VideoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_mv.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Constant/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/Mango/MangoBean.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/searchmv_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/Mango/MangoDetailBean.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/music_type.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/search_mango_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/Mango/MangoVideoData.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMangoActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/MangoDetailAdatper.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -2810,6 +3057,26 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MusicUU" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MusicUU" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3224,6 +3491,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="adapter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MusicUU" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MusicUU" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="musicuu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="activity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -3384,31 +3689,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="MusicUU" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="MusicUU" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="musicuu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bean" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mango" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3429,8 +3756,8 @@
       <recent name="com.qtfreet.musicuu.ui.view" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\files\MusicUU\app\src\main\res\layout" />
       <recent name="D:\files\MusicUU\app\src\main\res\mipmap-mdpi" />
+      <recent name="D:\files\MusicUU\app\src\main\res\layout" />
       <recent name="D:\files\MusicUU\app\src\main\res\drawable" />
     </key>
   </component>
@@ -3712,33 +4039,33 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3366228" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3199554" sideWeight="0.5021322" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18171683" sideWeight="0.4978678" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33556297" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3199554" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29431438" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3749,162 +4076,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/music_type.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.428571">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/TOOLS/SDK/platforms/android-24/android.jar!/android/content/Context.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.160714">
-          <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
-          <folding>
-            <element signature="e#7302#7303#0" expanded="true" />
-            <element signature="e#7353#7354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.089286">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/yinyuetai.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/YinyueTai/MvBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="32.107143">
-          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
-          <folding>
-            <element signature="e#11763#11764#0" expanded="true" />
-            <element signature="e#11790#11791#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mv.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_setting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/searchmv_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.98275864">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/YinyueTai/MvPlayBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_playm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_setting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_music_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.206897">
-          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/MusicUU/resultBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Constant/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -3925,24 +4100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/OnVideoClickListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/MvDetailAdatper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="22" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/SongDetailAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3955,7 +4112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3963,7 +4119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3979,7 +4134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4003,14 +4157,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.964286">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -4051,15 +4197,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="240" column="46" selection-start-line="240" selection-start-column="46" selection-end-line="240" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4076,16 +4213,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4128,14 +4257,674 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/PlayMusicActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="51" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
           <folding>
-            <element signature="e#2966#3792#0" expanded="true" />
-            <element signature="e#3791#3792#0" expanded="true" />
+            <element signature="e#2966#3792#0" expanded="false" />
+            <element signature="e#3791#3792#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Constant/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_music_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3275862">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_playm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/Mango/MangoBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#162126#162127#0" expanded="true" />
+            <element signature="e#162157#162158#0" expanded="true" />
+            <element signature="e#162202#162203#0" expanded="true" />
+            <element signature="e#162242#162243#0" expanded="true" />
+            <element signature="e#162276#162277#0" expanded="true" />
+            <element signature="e#162306#162307#0" expanded="true" />
+            <element signature="e#162352#162353#0" expanded="true" />
+            <element signature="e#162390#162391#0" expanded="true" />
+            <element signature="e#162423#162424#0" expanded="true" />
+            <element signature="e#162450#162451#0" expanded="true" />
+            <element signature="e#162492#162493#0" expanded="true" />
+            <element signature="e#162524#162525#0" expanded="true" />
+            <element signature="e#166797#166798#0" expanded="true" />
+            <element signature="e#166833#166834#0" expanded="true" />
+            <element signature="e#166876#166877#0" expanded="true" />
+            <element signature="e#166918#166919#0" expanded="true" />
+            <element signature="e#166954#166955#0" expanded="true" />
+            <element signature="e#166990#166991#0" expanded="true" />
+            <element signature="e#167036#167037#0" expanded="true" />
+            <element signature="e#167078#167079#0" expanded="true" />
+            <element signature="e#167127#167128#0" expanded="true" />
+            <element signature="e#167165#167166#0" expanded="true" />
+            <element signature="e#167226#167227#0" expanded="true" />
+            <element signature="e#167272#167273#0" expanded="true" />
+            <element signature="e#170079#170080#0" expanded="true" />
+            <element signature="e#170126#170127#0" expanded="true" />
+            <element signature="e#170182#170183#0" expanded="true" />
+            <element signature="e#170238#170239#0" expanded="true" />
+            <element signature="e#170277#170278#0" expanded="true" />
+            <element signature="e#170323#170324#0" expanded="true" />
+            <element signature="e#170374#170375#0" expanded="true" />
+            <element signature="e#170428#170429#0" expanded="true" />
+            <element signature="e#170472#170473#0" expanded="true" />
+            <element signature="e#170520#170521#0" expanded="true" />
+            <element signature="e#170578#170579#0" expanded="true" />
+            <element signature="e#170636#170637#0" expanded="true" />
+            <element signature="e#170674#170675#0" expanded="true" />
+            <element signature="e#170719#170720#0" expanded="true" />
+            <element signature="e#170768#170769#0" expanded="true" />
+            <element signature="e#170820#170821#0" expanded="true" />
+            <element signature="e#170859#170860#0" expanded="true" />
+            <element signature="e#170902#170903#0" expanded="true" />
+            <element signature="e#170950#170951#0" expanded="true" />
+            <element signature="e#170998#170999#0" expanded="true" />
+            <element signature="e#171040#171041#0" expanded="true" />
+            <element signature="e#171089#171090#0" expanded="true" />
+            <element signature="e#171146#171147#0" expanded="true" />
+            <element signature="e#171206#171207#0" expanded="true" />
+            <element signature="e#171247#171248#0" expanded="true" />
+            <element signature="e#171295#171296#0" expanded="true" />
+            <element signature="e#171350#171351#0" expanded="true" />
+            <element signature="e#171408#171409#0" expanded="true" />
+            <element signature="e#171445#171446#0" expanded="true" />
+            <element signature="e#171489#171490#0" expanded="true" />
+            <element signature="e#171536#171537#0" expanded="true" />
+            <element signature="e#171586#171587#0" expanded="true" />
+            <element signature="e#171627#171628#0" expanded="true" />
+            <element signature="e#171672#171673#0" expanded="true" />
+            <element signature="e#171724#171725#0" expanded="true" />
+            <element signature="e#171776#171777#0" expanded="true" />
+            <element signature="e#171811#171812#0" expanded="true" />
+            <element signature="e#171853#171854#0" expanded="true" />
+            <element signature="e#171896#171897#0" expanded="true" />
+            <element signature="e#171942#171943#0" expanded="true" />
+            <element signature="e#171981#171982#0" expanded="true" />
+            <element signature="e#172024#172025#0" expanded="true" />
+            <element signature="e#172072#172073#0" expanded="true" />
+            <element signature="e#172120#172121#0" expanded="true" />
+            <element signature="e#172160#172161#0" expanded="true" />
+            <element signature="e#172204#172205#0" expanded="true" />
+            <element signature="e#172254#172255#0" expanded="true" />
+            <element signature="e#172304#172305#0" expanded="true" />
+            <element signature="e#172349#172350#0" expanded="true" />
+            <element signature="e#172398#172399#0" expanded="true" />
+            <element signature="e#172458#172459#0" expanded="true" />
+            <element signature="e#172518#172519#0" expanded="true" />
+            <element signature="e#172564#172565#0" expanded="true" />
+            <element signature="e#172614#172615#0" expanded="true" />
+            <element signature="e#172676#172677#0" expanded="true" />
+            <element signature="e#172738#172739#0" expanded="true" />
+            <element signature="e#172781#172782#0" expanded="true" />
+            <element signature="e#172828#172829#0" expanded="true" />
+            <element signature="e#172884#172885#0" expanded="true" />
+            <element signature="e#172940#172941#0" expanded="true" />
+            <element signature="e#172979#172980#0" expanded="true" />
+            <element signature="e#173022#173023#0" expanded="true" />
+            <element signature="e#173070#173071#0" expanded="true" />
+            <element signature="e#173118#173119#0" expanded="true" />
+            <element signature="e#173163#173164#0" expanded="true" />
+            <element signature="e#173212#173213#0" expanded="true" />
+            <element signature="e#173272#173273#0" expanded="true" />
+            <element signature="e#173332#173333#0" expanded="true" />
+            <element signature="e#173375#173376#0" expanded="true" />
+            <element signature="e#173425#173426#0" expanded="true" />
+            <element signature="e#173484#173485#0" expanded="true" />
+            <element signature="e#173546#173547#0" expanded="true" />
+            <element signature="e#173590#173591#0" expanded="true" />
+            <element signature="e#173638#173639#0" expanded="true" />
+            <element signature="e#173696#173697#0" expanded="true" />
+            <element signature="e#173754#173755#0" expanded="true" />
+            <element signature="e#173794#173795#0" expanded="true" />
+            <element signature="e#173841#173842#0" expanded="true" />
+            <element signature="e#173894#173895#0" expanded="true" />
+            <element signature="e#173950#173951#0" expanded="true" />
+            <element signature="e#173992#173993#0" expanded="true" />
+            <element signature="e#174038#174039#0" expanded="true" />
+            <element signature="e#174092#174093#0" expanded="true" />
+            <element signature="e#174146#174147#0" expanded="true" />
+            <element signature="e#174199#174200#0" expanded="true" />
+            <element signature="e#174245#174246#0" expanded="true" />
+            <element signature="e#174310#174311#0" expanded="true" />
+            <element signature="e#174364#174365#0" expanded="true" />
+            <element signature="e#174415#174416#0" expanded="true" />
+            <element signature="e#174460#174461#0" expanded="true" />
+            <element signature="e#174522#174523#0" expanded="true" />
+            <element signature="e#174574#174575#0" expanded="true" />
+            <element signature="e#174859#174860#0" expanded="true" />
+            <element signature="e#174914#174915#0" expanded="true" />
+            <element signature="e#174974#174975#0" expanded="true" />
+            <element signature="e#175038#175039#0" expanded="true" />
+            <element signature="e#175083#175084#0" expanded="true" />
+            <element signature="e#175136#175137#0" expanded="true" />
+            <element signature="e#175192#175193#0" expanded="true" />
+            <element signature="e#175252#175253#0" expanded="true" />
+            <element signature="e#175295#175296#0" expanded="true" />
+            <element signature="e#175346#175347#0" expanded="true" />
+            <element signature="e#175398#175399#0" expanded="true" />
+            <element signature="e#175454#175455#0" expanded="true" />
+            <element signature="e#175497#175498#0" expanded="true" />
+            <element signature="e#175548#175549#0" expanded="true" />
+            <element signature="e#175600#175601#0" expanded="true" />
+            <element signature="e#175656#175657#0" expanded="true" />
+            <element signature="e#175699#175700#0" expanded="true" />
+            <element signature="e#175750#175751#0" expanded="true" />
+            <element signature="e#175802#175803#0" expanded="true" />
+            <element signature="e#175858#175859#0" expanded="true" />
+            <element signature="e#176583#176584#0" expanded="true" />
+            <element signature="e#176634#176635#0" expanded="true" />
+            <element signature="e#176686#176687#0" expanded="true" />
+            <element signature="e#176742#176743#0" expanded="true" />
+            <element signature="e#176784#176785#0" expanded="true" />
+            <element signature="e#176837#176838#0" expanded="true" />
+            <element signature="e#176890#176891#0" expanded="true" />
+            <element signature="e#176950#176951#0" expanded="true" />
+            <element signature="e#177001#177002#0" expanded="true" />
+            <element signature="e#177052#177053#0" expanded="true" />
+            <element signature="e#177112#177113#0" expanded="true" />
+            <element signature="e#177168#177169#0" expanded="true" />
+            <element signature="e#177642#177643#0" expanded="true" />
+            <element signature="e#177705#177706#0" expanded="true" />
+            <element signature="e#177769#177770#0" expanded="true" />
+            <element signature="e#177841#177842#0" expanded="true" />
+            <element signature="e#177891#177892#0" expanded="true" />
+            <element signature="e#177956#177957#0" expanded="true" />
+            <element signature="e#178021#178022#0" expanded="true" />
+            <element signature="e#178097#178098#0" expanded="true" />
+            <element signature="e#178144#178145#0" expanded="true" />
+            <element signature="e#178203#178204#0" expanded="true" />
+            <element signature="e#178259#178260#0" expanded="true" />
+            <element signature="e#178323#178324#0" expanded="true" />
+            <element signature="e#178370#178371#0" expanded="true" />
+            <element signature="e#178432#178433#0" expanded="true" />
+            <element signature="e#178491#178492#0" expanded="true" />
+            <element signature="e#178561#178562#0" expanded="true" />
+            <element signature="e#178604#178605#0" expanded="true" />
+            <element signature="e#178662#178663#0" expanded="true" />
+            <element signature="e#178713#178714#0" expanded="true" />
+            <element signature="e#178775#178776#0" expanded="true" />
+            <element signature="e#178824#178825#0" expanded="true" />
+            <element signature="e#178885#178886#0" expanded="true" />
+            <element signature="e#178945#178946#0" expanded="true" />
+            <element signature="e#179013#179014#0" expanded="true" />
+            <element signature="e#179060#179061#0" expanded="true" />
+            <element signature="e#179119#179120#0" expanded="true" />
+            <element signature="e#179175#179176#0" expanded="true" />
+            <element signature="e#179239#179240#0" expanded="true" />
+            <element signature="e#179286#179287#0" expanded="true" />
+            <element signature="e#179345#179346#0" expanded="true" />
+            <element signature="e#179401#179402#0" expanded="true" />
+            <element signature="e#179465#179466#0" expanded="true" />
+            <element signature="e#179513#179514#0" expanded="true" />
+            <element signature="e#179573#179574#0" expanded="true" />
+            <element signature="e#179631#179632#0" expanded="true" />
+            <element signature="e#179697#179698#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/MvDetailAdatper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="22" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mv.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_mv.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.224138">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/Mango/MangoDetailBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#5047#5048#0" expanded="true" />
+            <element signature="e#5078#5079#0" expanded="true" />
+            <element signature="e#5123#5124#0" expanded="true" />
+            <element signature="e#5163#5164#0" expanded="true" />
+            <element signature="e#5197#5198#0" expanded="true" />
+            <element signature="e#5227#5228#0" expanded="true" />
+            <element signature="e#5273#5274#0" expanded="true" />
+            <element signature="e#5311#5312#0" expanded="true" />
+            <element signature="e#5350#5351#0" expanded="true" />
+            <element signature="e#5377#5378#0" expanded="true" />
+            <element signature="e#5425#5426#0" expanded="true" />
+            <element signature="e#5457#5458#0" expanded="true" />
+            <element signature="e#5706#5707#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5791#5792#0" expanded="true" />
+            <element signature="e#5837#5838#0" expanded="true" />
+            <element signature="e#5875#5876#0" expanded="true" />
+            <element signature="e#5916#5917#0" expanded="true" />
+            <element signature="e#5969#5970#0" expanded="true" />
+            <element signature="e#6021#6022#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6091#6092#0" expanded="true" />
+            <element signature="e#6135#6136#0" expanded="true" />
+            <element signature="e#6175#6176#0" expanded="true" />
+            <element signature="e#6211#6212#0" expanded="true" />
+            <element signature="e#6247#6248#0" expanded="true" />
+            <element signature="e#6293#6294#0" expanded="true" />
+            <element signature="e#6335#6336#0" expanded="true" />
+            <element signature="e#6370#6371#0" expanded="true" />
+            <element signature="e#6405#6406#0" expanded="true" />
+            <element signature="e#6449#6450#0" expanded="true" />
+            <element signature="e#6489#6490#0" expanded="true" />
+            <element signature="e#6524#6525#0" expanded="true" />
+            <element signature="e#6559#6560#0" expanded="true" />
+            <element signature="e#6603#6604#0" expanded="true" />
+            <element signature="e#6643#6644#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main_popup_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/music_type.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.464285">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+          <folding>
+            <element signature="e#211#229#0" expanded="true" />
+            <element signature="e#446#464#0" expanded="true" />
+            <element signature="e#569#587#0" expanded="true" />
+            <element signature="e#690#708#0" expanded="true" />
+            <element signature="e#813#831#0" expanded="true" />
+            <element signature="e#936#954#0" expanded="true" />
+            <element signature="e#1059#1077#0" expanded="true" />
+            <element signature="e#1182#1200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/searchmv_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.637931">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_mango_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6724138">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/OnVideoClickListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Bean/Mango/MangoVideoData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#14045#14046#0" expanded="true" />
+            <element signature="e#14074#14075#0" expanded="true" />
+            <element signature="e#14115#14116#0" expanded="true" />
+            <element signature="e#14151#14152#0" expanded="true" />
+            <element signature="e#14181#14182#0" expanded="true" />
+            <element signature="e#14207#14208#0" expanded="true" />
+            <element signature="e#14245#14246#0" expanded="true" />
+            <element signature="e#14275#14276#0" expanded="true" />
+            <element signature="e#14308#14309#0" expanded="true" />
+            <element signature="e#14335#14336#0" expanded="true" />
+            <element signature="e#14377#14378#0" expanded="true" />
+            <element signature="e#14409#14410#0" expanded="true" />
+            <element signature="e#17361#17362#0" expanded="true" />
+            <element signature="e#17396#17397#0" expanded="true" />
+            <element signature="e#17442#17443#0" expanded="true" />
+            <element signature="e#17482#17483#0" expanded="true" />
+            <element signature="e#17519#17520#0" expanded="true" />
+            <element signature="e#17554#17555#0" expanded="true" />
+            <element signature="e#17600#17601#0" expanded="true" />
+            <element signature="e#17640#17641#0" expanded="true" />
+            <element signature="e#17679#17680#0" expanded="true" />
+            <element signature="e#17715#17716#0" expanded="true" />
+            <element signature="e#17764#17765#0" expanded="true" />
+            <element signature="e#17806#17807#0" expanded="true" />
+            <element signature="e#17843#17844#0" expanded="true" />
+            <element signature="e#17878#17879#0" expanded="true" />
+            <element signature="e#17924#17925#0" expanded="true" />
+            <element signature="e#17964#17965#0" expanded="true" />
+            <element signature="e#18003#18004#0" expanded="true" />
+            <element signature="e#18039#18040#0" expanded="true" />
+            <element signature="e#18088#18089#0" expanded="true" />
+            <element signature="e#18130#18131#0" expanded="true" />
+            <element signature="e#18171#18172#0" expanded="true" />
+            <element signature="e#18208#18209#0" expanded="true" />
+            <element signature="e#18260#18261#0" expanded="true" />
+            <element signature="e#18304#18305#0" expanded="true" />
+            <element signature="e#18351#18352#0" expanded="true" />
+            <element signature="e#18388#18389#0" expanded="true" />
+            <element signature="e#18446#18447#0" expanded="true" />
+            <element signature="e#18490#18491#0" expanded="true" />
+            <element signature="e#18540#18541#0" expanded="true" />
+            <element signature="e#18584#18585#0" expanded="true" />
+            <element signature="e#18753#18754#0" expanded="true" />
+            <element signature="e#18790#18791#0" expanded="true" />
+            <element signature="e#18844#18845#0" expanded="true" />
+            <element signature="e#18888#18889#0" expanded="true" />
+            <element signature="e#18924#18925#0" expanded="true" />
+            <element signature="e#18959#18960#0" expanded="true" />
+            <element signature="e#19004#19005#0" expanded="true" />
+            <element signature="e#19044#19045#0" expanded="true" />
+            <element signature="e#19286#19287#0" expanded="true" />
+            <element signature="e#19327#19328#0" expanded="true" />
+            <element signature="e#19371#19372#0" expanded="true" />
+            <element signature="e#19415#19416#0" expanded="true" />
+            <element signature="e#19454#19455#0" expanded="true" />
+            <element signature="e#19497#19498#0" expanded="true" />
+            <element signature="e#19545#19546#0" expanded="true" />
+            <element signature="e#19593#19594#0" expanded="true" />
+            <element signature="e#19633#19634#0" expanded="true" />
+            <element signature="e#19677#19678#0" expanded="true" />
+            <element signature="e#19727#19728#0" expanded="true" />
+            <element signature="e#19777#19778#0" expanded="true" />
+            <element signature="e#19819#19820#0" expanded="true" />
+            <element signature="e#19865#19866#0" expanded="true" />
+            <element signature="e#19919#19920#0" expanded="true" />
+            <element signature="e#19973#19974#0" expanded="true" />
+            <element signature="e#20010#20011#0" expanded="true" />
+            <element signature="e#20051#20052#0" expanded="true" />
+            <element signature="e#20095#20096#0" expanded="true" />
+            <element signature="e#20139#20140#0" expanded="true" />
+            <element signature="e#21071#21072#0" expanded="true" />
+            <element signature="e#21118#21119#0" expanded="true" />
+            <element signature="e#21174#21175#0" expanded="true" />
+            <element signature="e#21230#21231#0" expanded="true" />
+            <element signature="e#21272#21273#0" expanded="true" />
+            <element signature="e#21318#21319#0" expanded="true" />
+            <element signature="e#21372#21373#0" expanded="true" />
+            <element signature="e#21426#21427#0" expanded="true" />
+            <element signature="e#21470#21471#0" expanded="true" />
+            <element signature="e#21518#21519#0" expanded="true" />
+            <element signature="e#21576#21577#0" expanded="true" />
+            <element signature="e#21634#21635#0" expanded="true" />
+            <element signature="e#21682#21683#0" expanded="true" />
+            <element signature="e#21734#21735#0" expanded="true" />
+            <element signature="e#21916#21917#0" expanded="true" />
+            <element signature="e#21970#21971#0" expanded="true" />
+            <element signature="e#22154#22155#0" expanded="true" />
+            <element signature="e#22202#22203#0" expanded="true" />
+            <element signature="e#22260#22261#0" expanded="true" />
+            <element signature="e#22318#22319#0" expanded="true" />
+            <element signature="e#22358#22359#0" expanded="true" />
+            <element signature="e#22402#22403#0" expanded="true" />
+            <element signature="e#22452#22453#0" expanded="true" />
+            <element signature="e#22502#22503#0" expanded="true" />
+            <element signature="e#22546#22547#0" expanded="true" />
+            <element signature="e#22594#22595#0" expanded="true" />
+            <element signature="e#22652#22653#0" expanded="true" />
+            <element signature="e#22710#22711#0" expanded="true" />
+            <element signature="e#22751#22752#0" expanded="true" />
+            <element signature="e#22796#22797#0" expanded="true" />
+            <element signature="e#22848#22849#0" expanded="true" />
+            <element signature="e#22900#22901#0" expanded="true" />
+            <element signature="e#22938#22939#0" expanded="true" />
+            <element signature="e#22980#22981#0" expanded="true" />
+            <element signature="e#23026#23027#0" expanded="true" />
+            <element signature="e#23072#23073#0" expanded="true" />
+            <element signature="e#23112#23113#0" expanded="true" />
+            <element signature="e#23156#23157#0" expanded="true" />
+            <element signature="e#23206#23207#0" expanded="true" />
+            <element signature="e#23256#23257#0" expanded="true" />
+            <element signature="e#23295#23296#0" expanded="true" />
+            <element signature="e#23338#23339#0" expanded="true" />
+            <element signature="e#23386#23387#0" expanded="true" />
+            <element signature="e#23434#23435#0" expanded="true" />
+            <element signature="e#23473#23474#0" expanded="true" />
+            <element signature="e#23516#23517#0" expanded="true" />
+            <element signature="e#23564#23565#0" expanded="true" />
+            <element signature="e#23612#23613#0" expanded="true" />
+            <element signature="e#23656#23657#0" expanded="true" />
+            <element signature="e#23704#23705#0" expanded="true" />
+            <element signature="e#23762#23763#0" expanded="true" />
+            <element signature="e#23820#23821#0" expanded="true" />
+            <element signature="e#23860#23861#0" expanded="true" />
+            <element signature="e#23904#23905#0" expanded="true" />
+            <element signature="e#23954#23955#0" expanded="true" />
+            <element signature="e#24004#24005#0" expanded="true" />
+            <element signature="e#24048#24049#0" expanded="true" />
+            <element signature="e#24096#24097#0" expanded="true" />
+            <element signature="e#24154#24155#0" expanded="true" />
+            <element signature="e#24212#24213#0" expanded="true" />
+            <element signature="e#24255#24256#0" expanded="true" />
+            <element signature="e#24302#24303#0" expanded="true" />
+            <element signature="e#24358#24359#0" expanded="true" />
+            <element signature="e#24414#24415#0" expanded="true" />
+            <element signature="e#24458#24459#0" expanded="true" />
+            <element signature="e#24506#24507#0" expanded="true" />
+            <element signature="e#24564#24565#0" expanded="true" />
+            <element signature="e#24622#24623#0" expanded="true" />
+            <element signature="e#24662#24663#0" expanded="true" />
+            <element signature="e#24706#24707#0" expanded="true" />
+            <element signature="e#24756#24757#0" expanded="true" />
+            <element signature="e#24806#24807#0" expanded="true" />
+            <element signature="e#24846#24847#0" expanded="true" />
+            <element signature="e#24890#24891#0" expanded="true" />
+            <element signature="e#24940#24941#0" expanded="true" />
+            <element signature="e#24990#24991#0" expanded="true" />
+            <element signature="e#25034#25035#0" expanded="true" />
+            <element signature="e#25082#25083#0" expanded="true" />
+            <element signature="e#25140#25141#0" expanded="true" />
+            <element signature="e#25198#25199#0" expanded="true" />
+            <element signature="e#25244#25245#0" expanded="true" />
+            <element signature="e#25294#25295#0" expanded="true" />
+            <element signature="e#25356#25357#0" expanded="true" />
+            <element signature="e#25418#25419#0" expanded="true" />
+            <element signature="e#25458#25459#0" expanded="true" />
+            <element signature="e#25502#25503#0" expanded="true" />
+            <element signature="e#25552#25553#0" expanded="true" />
+            <element signature="e#25602#25603#0" expanded="true" />
+            <element signature="e#25827#25828#0" expanded="true" />
+            <element signature="e#25871#25872#0" expanded="true" />
+            <element signature="e#25921#25922#0" expanded="true" />
+            <element signature="e#25971#25972#0" expanded="true" />
+            <element signature="e#26012#26013#0" expanded="true" />
+            <element signature="e#26057#26058#0" expanded="true" />
+            <element signature="e#26109#26110#0" expanded="true" />
+            <element signature="e#26161#26162#0" expanded="true" />
+            <element signature="e#26198#26199#0" expanded="true" />
+            <element signature="e#26239#26240#0" expanded="true" />
+            <element signature="e#26283#26284#0" expanded="true" />
+            <element signature="e#26327#26328#0" expanded="true" />
+            <element signature="e#26367#26368#0" expanded="true" />
+            <element signature="e#26411#26412#0" expanded="true" />
+            <element signature="e#26461#26462#0" expanded="true" />
+            <element signature="e#26511#26512#0" expanded="true" />
+            <element signature="e#26699#26700#0" expanded="true" />
+            <element signature="e#26743#26744#0" expanded="true" />
+            <element signature="e#26793#26794#0" expanded="true" />
+            <element signature="e#26843#26844#0" expanded="true" />
+            <element signature="e#26881#26882#0" expanded="true" />
+            <element signature="e#26923#26924#0" expanded="true" />
+            <element signature="e#26969#26970#0" expanded="true" />
+            <element signature="e#27015#27016#0" expanded="true" />
+            <element signature="e#27053#27054#0" expanded="true" />
+            <element signature="e#27095#27096#0" expanded="true" />
+            <element signature="e#27141#27142#0" expanded="true" />
+            <element signature="e#27187#27188#0" expanded="true" />
+            <element signature="e#27367#27368#0" expanded="true" />
+            <element signature="e#27412#27413#0" expanded="true" />
+            <element signature="e#27470#27471#0" expanded="true" />
+            <element signature="e#27522#27523#0" expanded="true" />
+            <element signature="e#27569#27570#0" expanded="true" />
+            <element signature="e#27614#27615#0" expanded="true" />
+            <element signature="e#27672#27673#0" expanded="true" />
+            <element signature="e#27724#27725#0" expanded="true" />
+            <element signature="e#27937#27938#0" expanded="true" />
+            <element signature="e#27981#27982#0" expanded="true" />
+            <element signature="e#28037#28038#0" expanded="true" />
+            <element signature="e#28087#28088#0" expanded="true" />
+            <element signature="e#28131#28132#0" expanded="true" />
+            <element signature="e#28173#28174#0" expanded="true" />
+            <element signature="e#28225#28226#0" expanded="true" />
+            <element signature="e#28271#28272#0" expanded="true" />
+            <element signature="e#28314#28315#0" expanded="true" />
+            <element signature="e#28360#28361#0" expanded="true" />
+            <element signature="e#28415#28416#0" expanded="true" />
+            <element signature="e#28469#28470#0" expanded="true" />
+            <element signature="e#28624#28625#0" expanded="true" />
+            <element signature="e#28666#28667#0" expanded="true" />
+            <element signature="e#28712#28713#0" expanded="true" />
+            <element signature="e#28758#28759#0" expanded="true" />
+            <element signature="e#28797#28798#0" expanded="true" />
+            <element signature="e#28840#28841#0" expanded="true" />
+            <element signature="e#28888#28889#0" expanded="true" />
+            <element signature="e#28936#28937#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.464285">
+          <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="233" column="91" selection-start-line="233" selection-start-column="91" selection-end-line="233" selection-end-column="91" />
+          <folding>
+            <element signature="e#8255#8287#0" expanded="true" />
+            <element signature="e#8405#8430#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/MangoDetailAdatper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding>
+            <element signature="e#1851#1852#0" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="135" column="10" selection-start-line="135" selection-start-column="10" selection-end-line="140" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4147,44 +4936,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.413793">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_mv.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2586207">
-          <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
-          <folding>
-            <element signature="e#497#537#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMangoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
+          <caret line="182" column="93" selection-start-line="182" selection-start-column="93" selection-end-line="182" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#10022#10023#0" expanded="true" />
+            <element signature="e#10081#10082#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/PlayMusicActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.670922">
-          <caret line="42" column="51" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.31456953">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding />
         </state>
       </provider>

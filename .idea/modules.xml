@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MusicUU.iml" filepath="$PROJECT_DIR$/MusicUU.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/giraffeplayer/giraffeplayer.iml" filepath="$PROJECT_DIR$/giraffeplayer/giraffeplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/musicuu.iml" filepath="$PROJECT_DIR$/musicuu.iml" />
     </modules>
   </component>
 </project>
