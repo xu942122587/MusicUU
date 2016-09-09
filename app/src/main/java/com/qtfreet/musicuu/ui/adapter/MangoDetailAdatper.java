@@ -53,6 +53,7 @@ public class MangoDetailAdatper extends RecyclerView.Adapter<MangoDetailAdatper.
         if (!Info.getIcon().isEmpty()) {
             Picasso.with(mContext).load(Info.getIcon()).into(holder.iv_yuGao);
         }
+
     }
 
     @Override

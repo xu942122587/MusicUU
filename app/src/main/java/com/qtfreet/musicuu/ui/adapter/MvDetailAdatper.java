@@ -62,7 +62,6 @@ public class MvDetailAdatper extends RecyclerView.Adapter<MvDetailAdatper.VideoV
 
     @Override
     public int getItemCount() {
-        ;
         return mvBean.size();
     }
 

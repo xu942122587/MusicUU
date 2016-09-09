@@ -26,4 +26,8 @@
 * 增加了音悦台接口，可以直接看mv
 * 越写越觉得代码丑，丑炸了
 
+######2016.9.9
+* 封装部分代码到BaseActivity
+* 去除一个崩溃bug
+
 ![image](https://raw.githubusercontent.com/Qrilee/MusicUU/master/screenshots/pic.png)

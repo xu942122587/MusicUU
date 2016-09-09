@@ -8,51 +8,29 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.ui.BaseActivity;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
 public class SettingsActivity extends BaseActivity {
 
     private SettingsFragment mSettingsFragment;
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-    @Bind(R.id.title_name)
-    TextView toolbarTitle;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_settings);
-        initView();
+        ButterKnife.bind(this);
+        setTitleName("设置", true);
         if (savedInstanceState == null) {
             mSettingsFragment = new SettingsFragment();
             replaceFragment(R.id.settings_container, mSettingsFragment);
         }
-
-
     }
 
-    private void initView() {
-        ButterKnife.bind(this);
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-            if (toolbarTitle != null) {
-                getSupportActionBar().setDisplayShowTitleEnabled(false);
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                toolbarTitle.setText("设置");
-            }
-        }
-    }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void replaceFragment(int viewId, android.app.Fragment fragment) {

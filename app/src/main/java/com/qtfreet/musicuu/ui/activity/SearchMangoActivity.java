@@ -43,19 +43,19 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
     @Bind(R.id.lv_search_result)
     RecyclerView recyclerView;
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-    @Bind(R.id.title_name)
-    TextView toolbarTitle;
     private MangoDetailAdatper mangoDetaiAdapter;
     @Bind(R.id.loadView)
     LoadingView loadingView;
 
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_search_mv);
-        initView();
+        ButterKnife.bind(this);
+        setTitleName("搜索", true);
+        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(mStaggeredGridLayoutManager);
         initData();
     }
 
@@ -71,21 +71,6 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
         }
     }
 
-    private void initView() {
-        ButterKnife.bind(this);
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-            if (toolbarTitle != null) {
-                getSupportActionBar().setDisplayShowTitleEnabled(false);
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                toolbarTitle.setText("搜索");
-            }
-        }
-        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,
-                StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(mStaggeredGridLayoutManager);
-
-    }
 
     public void requestData(String keyWord) throws UnsupportedEncodingException {
         OkHttpUtils.get().url("http://mobile.api.hunantv.com/v5/search/getResult?name=" + URLEncoder.encode(keyWord, "UTF-8")).build().execute(new StringCallback() {
@@ -126,6 +111,10 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
 
     }
 
+    private void showToast() {
+        Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();
+    }
+
     private List<MangoDetailBean.DataBean> data = null;
 
     private Handler hanlder = new Handler(new Handler.Callback() {
@@ -136,24 +125,24 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
             switch (message.what) {
                 case 1:
                     loadingView.setVisibility(View.GONE);
-                    Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();
+                    showToast();
                     break;
                 case 0:
                     loadingView.setVisibility(View.GONE);
                     MangoBean mangoBean = gson.fromJson(message.obj.toString(), MangoBean.class);
                     if (mangoBean == null) {
-                        Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();
+                        showToast();
                         return false;
                     }
                     List<MangoBean.DataBean.HitDocsBean> hitDocs = mangoBean.getData().getHitDocs();
                     if (hitDocs.size() == 0) {
-                        Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();
+                        showToast();
                         return false;
                     }
                     MangoBean.DataBean.HitDocsBean hitDocsBean = hitDocs.get(0);
                     int VideoId = hitDocsBean.getVideoId();
                     if (VideoId == 0) {
-                        Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();
+                        showToast();
                         return false;
                     }
 
@@ -165,12 +154,12 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
                     }
                     MangoDetailBean mangoDetailBean = gson.fromJson(message.obj.toString(), MangoDetailBean.class);
                     if (mangoDetailBean == null) {
-                        Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();
+                        showToast();
                         return false;
                     }
                     data = mangoDetailBean.getData();
                     if (data.size() == 0) {
-                        Toast.makeText(SearchMangoActivity.this, "未搜索到结果", Toast.LENGTH_SHORT).show();
+                        showToast();
                         return false;
                     }
                     mangoDetaiAdapter = new MangoDetailAdatper(SearchMangoActivity.this, data);
@@ -227,29 +216,6 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
     }
 
     private void requestVideoData(int videoId) {
-
-//        OkHttpClient okhttp = new OkHttpClient();
-//        Request builder = new Request.Builder().url("http://v.api.mgtv.com/player/video?retry=1&video_id=" + videoId).build();
-//        okhttp.newCall(builder).enqueue(new Callback() {
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//
-//            }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//                String result = response.body().string();
-//                Message msg = Message.obtain();
-//                msg.what = 3;
-//                msg.obj = result;
-//                hanlder.sendMessage(msg);
-////                if (result.contains("next")) {
-////                    hanlder.sendEmptyMessage(5);
-////                }
-//            }
-//        });
-
-//
         OkHttpUtils.get().url("http://v.api.mgtv.com/player/video?retry=1&video_id=" + videoId).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -45,19 +44,18 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     RecyclerView search_list;
     private SwipeRefreshLayout refresh;
     private List<resultBean> result = new ArrayList<>();
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-    @Bind(R.id.title_name)
-    TextView toolbarTitle;
     @Bind(R.id.loadView)
     LoadingView loadingView;
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_search);
-        initView();
+        ButterKnife.bind(this);
+        refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+        refresh.setOnRefreshListener(this);
+        setTitleName("搜索", true);
+        search_list.setLayoutManager(new LinearLayoutManager(this));
+        search_list.setHasFixedSize(true);
         initData();
     }
 
@@ -129,23 +127,6 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         popupMenu.setOnMenuItemClickListener(this);
         popupMenu.inflate(R.menu.main_popup_menu);
         popupMenu.show();
-    }
-
-    private void initView() {
-        ButterKnife.bind(this);
-        refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
-        refresh.setOnRefreshListener(this);
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-            if (toolbarTitle != null) {
-                getSupportActionBar().setDisplayShowTitleEnabled(false);
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                toolbarTitle.setText("搜索");
-            }
-        }
-        search_list.setLayoutManager(new LinearLayoutManager(this));
-        search_list.setHasFixedSize(true);
-
     }
 
 

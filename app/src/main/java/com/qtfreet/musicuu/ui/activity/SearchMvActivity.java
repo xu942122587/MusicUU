@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -38,21 +35,21 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
     @Bind(R.id.lv_search_result)
     RecyclerView recyclerView;
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-    @Bind(R.id.title_name)
-    TextView toolbarTitle;
     private MvDetailAdatper mAdapter;
     private List<MvBean.DataBean> dataBean;
     private String KeyWord;
     @Bind(R.id.loadView)
     LoadingView loadingView;
 
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_search_mv);
-        initView();
+        ButterKnife.bind(this);
+        setTitleName("搜索", true);
+        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(mStaggeredGridLayoutManager);
         initData();
     }
 
@@ -62,21 +59,6 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
             return;
         }
         requestData(KeyWord);
-    }
-
-    private void initView() {
-        ButterKnife.bind(this);
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-            if (toolbarTitle != null) {
-                getSupportActionBar().setDisplayShowTitleEnabled(false);
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                toolbarTitle.setText("搜索");
-            }
-        }
-        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,
-                StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(mStaggeredGridLayoutManager);
     }
 
 
@@ -107,6 +89,10 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
                     loadingView.setVisibility(View.GONE);
                     Gson gson = new Gson();
                     dataBean = gson.fromJson(message.obj.toString(), MvBean.class).getData();
+                    if (dataBean == null) {
+                        Toast.makeText(SearchMvActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
                     mAdapter = new MvDetailAdatper(SearchMvActivity.this, dataBean);
                     mAdapter.setOnVideoClickListener(SearchMvActivity.this);
                     recyclerView.setAdapter(mAdapter);

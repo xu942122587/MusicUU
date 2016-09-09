@@ -11,8 +11,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewStub;
 import android.view.Window;
@@ -21,16 +19,14 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.nineoldandroids.view.ViewHelper;
 import com.qtfreet.musicuu.R;
-
+import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.ui.BaseActivity;
-import com.qtfreet.musicuu.ui.view.LyricView;
-import com.qtfreet.musicuu.utils.PreferenceUtil;
 import com.qtfreet.musicuu.ui.view.CustomRelativeLayout;
 import com.qtfreet.musicuu.ui.view.CustomSettingView;
-
-import com.nineoldandroids.view.ViewHelper;
-import com.qtfreet.musicuu.model.Constant.Constants;
+import com.qtfreet.musicuu.ui.view.LyricView;
+import com.qtfreet.musicuu.utils.PreferenceUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.FileCallBack;
 
@@ -71,20 +67,6 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
 
     private long animatorDuration = 120;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.activity_playm);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus();
-        }
-
-        initAllViews();
-        initAllDatum();
-    }
-
     @TargetApi(19)
     private void setTranslucentStatus() {
         Window window = getWindow();
@@ -94,16 +76,13 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         window.setAttributes(params);
     }
 
-    public int getStatusBarHeight() {
-        int result = 0;
-        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result = getResources().getDimensionPixelSize(resourceId);
+    @Override
+    public void initView(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setContentView(R.layout.activity_playm);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setTranslucentStatus();
         }
-        return result;
-    }
-
-    private void initAllViews() {
         statueBar = findViewById(R.id.statue_bar);
         statueBar.getLayoutParams().height = getStatusBarHeight();
         display_title = (TextView) findViewById(R.id.title_view);
@@ -125,6 +104,17 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         lyricView.setTextSize(PreferenceUtil.getInstance(PlayMusicActivity.this).getFloat(PreferenceUtil.KEY_TEXT_SIZE, 15.0f));
         lyricView.setHighLightTextColor(PreferenceUtil.getInstance(PlayMusicActivity.this).getInt(PreferenceUtil.KEY_HIGHLIGHT_COLOR, Color.parseColor("#4FC5C7")));
         setting_layout = (ViewStub) findViewById(R.id.main_setting_layout);
+        initAllDatum();
+    }
+
+
+    public int getStatusBarHeight() {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 
     private void initAllDatum() {

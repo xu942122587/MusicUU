@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
+import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.utils.FileUtils;
 import com.qtfreet.musicuu.utils.SPUtils;
 import com.zhy.m.permission.MPermissions;
@@ -33,40 +34,22 @@ import me.curzbin.library.BottomDialog;
 import me.curzbin.library.Item;
 import me.curzbin.library.OnItemClickListener;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener, View.OnKeyListener {
     @Bind(R.id.ib_search_btn)
     ImageButton mSearchButton;
     @Bind(R.id.et_search_content)
     EditText mSearchEditText;
-
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-    @Bind(R.id.title_name)
-    TextView toolbarTitle;
     private static final int REQUECT_CODE_SDCARD = 2;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         MPermissions.requestPermissions(MainActivity.this, REQUECT_CODE_SDCARD, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         firstUse();
-        initView();
-        checkUpdate();
-
-    }
-
-
-    private void initView() {
         ButterKnife.bind(this);
         mistype = "wy";
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-            if (toolbarTitle != null) {
-                getSupportActionBar().setDisplayShowTitleEnabled(false);
-                toolbarTitle.setText(R.string.main_title);
-            }
-        }
+        setTitleName("首页", false);
         floatingActionButton.setOnClickListener(this);
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         mSearchEditText.setOnKeyListener(this);
+        checkUpdate();
     }
 
 
