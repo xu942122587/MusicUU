@@ -38,31 +38,98 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65267a9c-f2d4-4745-8adb-1773c4bead37" name="Default" comment="修改搜索页面">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/download.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/library_1_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/library_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/materialish_progress_1_0.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/wiget/SystemBarTintManager.java" afterPath="" />
+    <list default="true" id="65267a9c-f2d4-4745-8adb-1773c4bead37" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ijkplayer_java_0_6_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jjdxm_ijkplayer_1_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jjdxm_ijkplayer_armv7a_1_0_0.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_android_23.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/ijkplayer_armv7a_0_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/ijkplayer_java_0_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_mv.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/build.gradle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/giraffeplayer.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/proguard-rules.pro" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/androidTest/java/tcking/github/com/giraffeplayer/ApplicationTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/java/tcking/github/com/giraffeplayer/GiraffePlayer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/java/tcking/github/com/giraffeplayer/GiraffePlayerActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/java/tcking/github/com/giraffeplayer/IMediaController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/java/tcking/github/com/giraffeplayer/IRenderView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/java/tcking/github/com/giraffeplayer/IjkVideoView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/java/tcking/github/com/giraffeplayer/MeasureHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/java/tcking/github/com/giraffeplayer/SurfaceRenderView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/java/tcking/github/com/giraffeplayer/TextureRenderView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_brightness_6_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_chevron_left_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_fullscreen_exit_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_fullscreen_exit_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_fullscreen_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_play_arrow_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_play_circle_outline_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_stop_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_volume_off_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-hdpi/ic_volume_up_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_brightness_6_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_chevron_left_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_fullscreen_exit_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_fullscreen_exit_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_fullscreen_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_play_arrow_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_play_circle_outline_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_stop_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_volume_off_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-mdpi/ic_volume_up_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_brightness_6_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_chevron_left_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_fullscreen_exit_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_fullscreen_exit_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_fullscreen_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_play_arrow_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_play_circle_outline_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_stop_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_volume_off_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xhdpi/ic_volume_up_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_brightness_6_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_chevron_left_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_fullscreen_exit_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_fullscreen_exit_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_fullscreen_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_play_arrow_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_play_circle_outline_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_stop_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_volume_off_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxhdpi/ic_volume_up_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_brightness_6_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_chevron_left_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_fullscreen_exit_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_fullscreen_exit_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_fullscreen_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_play_arrow_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_play_circle_outline_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_stop_white_24dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_volume_off_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable-xxxhdpi/ic_volume_up_white_36dp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/drawable/app_video_center_bg.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/layout/giraffe_player.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/values-ch/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/values-es/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/values-ro/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/values/color.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/main/res/values/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/giraffeplayer/src/test/java/tcking/github/com/giraffeplayer/ExampleUnitTest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/OnMusicClickListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/OnMusicClickListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/BaseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/PlayMusicActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/PlayMusicActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMangoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMangoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SettingsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SettingsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/VideoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/VideoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/SongDetailAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/SongDetailAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/service/DownloadService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/service/DownloadService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_music_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_music_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/giraffeplayer/giraffeplayer.iml" afterPath="$PROJECT_DIR$/giraffeplayer/giraffeplayer.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
     </list>
     <ignored path="MusicUU.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,53 +167,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="60" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayMusicActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/PlayMusicActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="73" column="55" selection-start-line="72" selection-start-column="54" selection-end-line="73" selection-end-column="55" />
+              <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <file leaf-file-name="VideoActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/VideoActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.62913907">
+              <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+              <folding>
+                <element signature="e#1141#1363#0" expanded="true" />
+                <element signature="e#1362#1363#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simple_player_view_player.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.dou361.ijkplayer/jjdxm-ijkplayer/1.0.6/res/layout/simple_player_view_player.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73721343">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -155,8 +226,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+            <state vertical-scroll-proportion="-9.035714">
+              <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -188,7 +259,8 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="36" column="22" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2566#2567#0" expanded="false" />
+                <element signature="e#2593#2594#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -231,10 +303,6 @@
               <ExternalProjectPojo>
                 <option name="name" value="MusicUU" />
                 <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value=":giraffeplayer" />
-                <option name="path" value="$PROJECT_DIR$/giraffeplayer" />
               </ExternalProjectPojo>
             </list>
           </value>
@@ -752,6 +820,16 @@
                 <option name="name" value="prepareComDaimajiaSwipelayoutLibrary120Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.dou361.ijkplayer-armv7a:jjdxm-ijkplayer-armv7a:1.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComDou361IjkplayerArmv7aJjdxmIjkplayerArmv7a100Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.6" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComDou361IjkplayerJjdxmIjkplayer106Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Prepare com.github.zzz40500:android-shapeLoadingView:1.0.3.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComGithubZzz40500AndroidShapeLoadingView1032Library" />
@@ -794,11 +872,6 @@
                 <option name="name" value="prepareMeDrakeetUiviewAndroiduiview115Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare MusicUU:giraffeplayer:unspecified" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareMusicUUGiraffeplayerUnspecifiedLibrary" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareReleaseDependencies" />
               </ExternalTaskPojo>
@@ -812,14 +885,9 @@
                 <option name="name" value="prepareTopZibinBottomDialog104Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.1" />
+                <option name="description" value="Prepare tv.danmaku.ijk.media:ijkplayer-java:0.6.0" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareTvDanmakuIjkMediaIjkplayerArmv7a061Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare tv.danmaku.ijk.media:ijkplayer-java:0.6.1" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareTvDanmakuIjkMediaIjkplayerJava061Library" />
+                <option name="name" value="prepareTvDanmakuIjkMediaIjkplayerJava060Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare tv.danmaku.ijk.media:ijkplayer-x86:0.6.1" />
@@ -966,88 +1034,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="zipalignDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="assembleDefault" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles a bundle containing the library in debug." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="bundleDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles a bundle containing the library in release." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="bundleRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="copyDebugLint" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="copyReleaseLint" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Extracts Android annotations for the debug variant into the archive file" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractDebugAnnotations" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Extracts Android annotations for the release variant into the archive file" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="extractReleaseAnnotations" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="mergeDebugProguardFiles" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="mergeReleaseProguardFiles" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="packageDebugRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="packageDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="packageReleaseRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="packageReleaseResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:appcompat-v7:23.1.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportAppcompatV72310Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:support-v4:23.1.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportSupportV42310Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformClassesAndResourcesWithSyncLibJarsForDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformClassesAndResourcesWithSyncLibJarsForRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformNative_libsWithSyncJniLibsForDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformNative_libsWithSyncJniLibsForRelease" />
               </ExternalTaskPojo>
             </list>
           </value>
@@ -1537,6 +1523,16 @@
                 <option name="name" value="prepareComDaimajiaSwipelayoutLibrary120Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.dou361.ijkplayer-armv7a:jjdxm-ijkplayer-armv7a:1.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComDou361IjkplayerArmv7aJjdxmIjkplayerArmv7a100Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.6" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComDou361IjkplayerJjdxmIjkplayer106Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Prepare com.github.zzz40500:android-shapeLoadingView:1.0.3.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareComGithubZzz40500AndroidShapeLoadingView1032Library" />
@@ -1579,11 +1575,6 @@
                 <option name="name" value="prepareMeDrakeetUiviewAndroiduiview115Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare MusicUU:giraffeplayer:unspecified" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareMusicUUGiraffeplayerUnspecifiedLibrary" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareReleaseDependencies" />
               </ExternalTaskPojo>
@@ -1597,14 +1588,9 @@
                 <option name="name" value="prepareTopZibinBottomDialog104Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.1" />
+                <option name="description" value="Prepare tv.danmaku.ijk.media:ijkplayer-java:0.6.0" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareTvDanmakuIjkMediaIjkplayerArmv7a061Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare tv.danmaku.ijk.media:ijkplayer-java:0.6.1" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareTvDanmakuIjkMediaIjkplayerJava061Library" />
+                <option name="name" value="prepareTvDanmakuIjkMediaIjkplayerJava060Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare tv.danmaku.ijk.media:ijkplayer-x86:0.6.1" />
@@ -2433,7 +2419,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5894673259966" />
+        <entry key="$PROJECT_DIR$" value="4421614990846" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2633,17 +2619,18 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.zzz40500/android-shapeLoadingView/1.0.3.2/d37fbd269d3f7e07b6b517e5e153c4dc75289caf/android-shapeLoadingView-1.0.3.2.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.daimajia.swipelayout/library/1.2.0/44b3b8b1f9625bf4a697ab2b32a95da20ee7ddea/library-1.2.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.pedant.sweetalert/library/1.3/4d87f52c453faf689c87371ffa33316b8c0748f2/library-1.3.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dou361.ijkplayer/jjdxm-ijkplayer/1.0.6/3a61eceb811bfdbe5ae3909388d72ecc8ce44c28/jjdxm-ijkplayer-1.0.6.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/tv.danmaku.ijk.media/ijkplayer-x86/0.6.1/e20900176cd00c2a2081fce0da54eaf93ce6be1a/ijkplayer-x86-0.6.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/animated-vector-drawable/24.1.1/c845ec3f9011c89f7159d35345810788d746c8db/animated-vector-drawable-24.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-v4/24.1.1/57c006a017aa2cbe3d32511e5ac28ee76cf9f51b/support-v4-24.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-vector-drawable/24.1.1/19866ce520d61d4f001aa4c57a8cad3f483b54c5/support-vector-drawable-24.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/24.1.1/eb14224a80834c4eb124970a12e3e46d0a5d20f2/recyclerview-v7-24.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.1.1/3af19f153122737b372622fa6c81dd11a1c6b999/support-annotations-24.1.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.1/b9d63507329a7178e026fc334f87587ee5070ac5/gson-2.6.1.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/tv.danmaku.ijk.media/ijkplayer-java/0.6.1/8c77aaa5eed32d6c569b890f199b32ce58da097d/ijkplayer-java-0.6.1.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/tv.danmaku.ijk.media/ijkplayer-armv7a/0.6.1/93fd7dc034adcb74c639ac1b4f38ffea332a9b15/ijkplayer-armv7a-0.6.1.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/tv.danmaku.ijk.media/ijkplayer-x86/0.6.1/e20900176cd00c2a2081fce0da54eaf93ce6be1a/ijkplayer-x86-0.6.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zhy/mpermission-annotation/1.0.0/ad87d60db49aec2397f2c07c229db0886a175dd8/mpermission-annotation-1.0.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.pnikosis/materialish-progress/1.0/b1898820717b3bb087e268893b5f5c34681c77c5/materialish-progress-1.0.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dou361.ijkplayer-armv7a/jjdxm-ijkplayer-armv7a/1.0.0/8a6f53bbedfa3fcdc53b7f2db5304fb0119f74e9/jjdxm-ijkplayer-armv7a-1.0.0.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/tv.danmaku.ijk.media/ijkplayer-java/0.6.0/d35cbee4d5d1b0eba4fede6277f44d522417741/ijkplayer-java-0.6.0.aar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -2965,7 +2952,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMangoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/VideoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/OnMusicClickListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_music_list.xml" />
@@ -2973,11 +2959,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/library/src/main/java/com/github/javiersantos/bottomdialogs/BottomTextDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/service/DownloadService.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mv.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/VideoActivity.java" />
       </list>
     </option>
   </component>
@@ -3039,10 +3027,6 @@
               <option name="myItemId" value="MusicUU" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3202,87 +3186,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MusicUU" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MusicUU" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="musicuu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MusicUU" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MusicUU" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="musicuu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3297,7 +3201,7 @@
     <property name="android.sdk.path" value="D:/TOOLS/SDK" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="android.project.structure.last.selected" value="library" />
+    <property name="android.project.structure.last.selected" value="giraffeplayer" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/BottomTabLayout" />
     <property name="device.picker.selection" value="027406db8a8ec2e3" />
@@ -3590,6 +3494,13 @@
       <option name="number" value="Default" />
       <updated>1472710730944</updated>
     </task>
+    <task id="LOCAL-00001" summary="修改搜索页面">
+      <created>1474273537521</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1474273537521</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3597,12 +3508,13 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33556297" sideWeight="0.48507464" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33556297" sideWeight="0.48507464" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33556297" sideWeight="0.51492536" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29431438" sideWeight="0.5788913" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29431438" sideWeight="0.42377397" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29431438" sideWeight="0.576226" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17537314" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3610,7 +3522,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28837952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28837952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3622,7 +3534,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17537314" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3651,24 +3562,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/service/DownloadService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="22" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3824,14 +3717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/VideoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/adapter/MvDetailAdatper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3928,21 +3813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3977,14 +3847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3998,24 +3860,71 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="22" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2566#2567#0" expanded="false" />
+            <element signature="e#2593#2594#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.dou361.ijkplayer/jjdxm-ijkplayer/1.0.6/res/layout/simple_player_view_player.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.035714">
+          <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/SearchMvActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73721343">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/VideoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62913907">
+          <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+          <folding>
+            <element signature="e#1141#1363#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

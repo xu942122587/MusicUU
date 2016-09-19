@@ -19,11 +19,11 @@
     <application
         android:name=".ui.BaseApplication"
         android:allowBackup="true"
-        tools:replace="android:icon"
         android:icon="@mipmap/icon"
-
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity
             android:name=".ui.activity.MainActivity"
 

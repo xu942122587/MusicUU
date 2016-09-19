@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jjdxm-ijkplayer-1.0.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.dou361.ijkplayer/jjdxm-ijkplayer/1.0.6/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.dou361.ijkplayer/jjdxm-ijkplayer/1.0.6/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dou361.ijkplayer/jjdxm-ijkplayer/1.0.6/fd994dab53dc2a4d7191223b3d1f7b96e0dfd37c/jjdxm-ijkplayer-1.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
