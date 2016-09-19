@@ -2,13 +2,9 @@ package com.qtfreet.musicuu.ui.activity;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +12,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qtfreet.musicuu.R;
@@ -30,6 +25,7 @@ import com.zhy.m.permission.PermissionGrant;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import me.curzbin.library.BottomDialog;
 import me.curzbin.library.Item;
 import me.curzbin.library.OnItemClickListener;
@@ -65,18 +61,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private void firstUse() {
         boolean isFirst = (boolean) SPUtils.get(this, Constants.IS_FIRST_RUN, true);
         if (isFirst) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(R.string.start_info);
-
-            builder.setMessage(getString(R.string.description));
-            builder.setCancelable(false);
-            builder.setNegativeButton(R.string.i_know, new DialogInterface.OnClickListener() {
+            SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(this);
+            sweetAlertDialog.setTitleText(getString(R.string.start_info));
+            sweetAlertDialog.setContentText(getString(R.string.description)).setConfirmText(getString(R.string.i_know));
+            sweetAlertDialog.setCancelable(false);
+            sweetAlertDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     SPUtils.put(MainActivity.this, Constants.IS_FIRST_RUN, false);
+                    sweetAlertDialog.dismissWithAnimation();
                 }
             });
-            builder.show();
+            sweetAlertDialog.show();
         }
     }
 
@@ -208,12 +204,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                                 } else if (type.equals(getString(R.string.mango))) {
                                     mistype = "mango";
                                 }
-
-
                                 Toast.makeText(MainActivity.this, "已切换成 " + item.getTitle(), Toast.LENGTH_SHORT).show();
                             }
-                        })
-                        .show();
+                        }).show();
                 break;
         }
     }

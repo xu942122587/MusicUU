@@ -80,6 +80,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
     public void initView(Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_playm);
+        setupWindowAnimations();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus();
         }

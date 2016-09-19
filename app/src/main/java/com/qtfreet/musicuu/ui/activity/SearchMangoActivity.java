@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -51,6 +48,7 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
     @Override
     public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_search_mv);
+        setupWindowAnimations();
         ButterKnife.bind(this);
         setTitleName("搜索", true);
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,

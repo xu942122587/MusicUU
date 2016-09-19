@@ -23,6 +23,7 @@ public class SettingsActivity extends BaseActivity {
     @Override
     public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_settings);
+
         ButterKnife.bind(this);
         setTitleName("设置", true);
         if (savedInstanceState == null) {

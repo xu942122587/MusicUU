@@ -6,11 +6,7 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mingle.widget.LoadingView;
@@ -36,7 +32,7 @@ import retrofit2.Response;
 /**
  * Created by qtfreet on 2016/3/20.
  */
-public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, OnMusicClickListener, PopupMenu.OnMenuItemClickListener {
+public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, OnMusicClickListener {
 
     private SongDetailAdapter searchResultAdapter;
 
@@ -50,6 +46,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     @Override
     public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_search);
+        setupWindowAnimations();
         ButterKnife.bind(this);
         refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         refresh.setOnRefreshListener(this);
@@ -119,17 +116,6 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         }
     }
 
-    private int postion1;
-
-    public void popupMenuClick(View v, int postion) {
-        this.postion1 = postion;
-        PopupMenu popupMenu = new PopupMenu(this, v);
-        popupMenu.setOnMenuItemClickListener(this);
-        popupMenu.inflate(R.menu.main_popup_menu);
-        popupMenu.show();
-    }
-
-
     private void Download(int position) {
         final String SongName = result.get(position).getSongName();
         final String SongID = result.get(position).getSongId();
@@ -195,26 +181,25 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     }
 
     @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.download:
-                Download(postion1);
-                return true;
-            case R.id.mv:
-                String mvUrl = result.get(postion1).getMvUrl();
-                if (mvUrl.isEmpty()) {
-                    Toast.makeText(SearchActivity.this, "无MV信息", Toast.LENGTH_SHORT).show();
-                    return false;
-                }
-                String songName = result.get(postion1).getSongName() + "--" + result.get(postion1).getArtist();
-                Intent i = new Intent(SearchActivity.this, VideoActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString(Constants.NAME, songName);
-                bundle.putString(Constants.URL, mvUrl);
-                i.putExtras(bundle);
-                startActivity(i);
-                return true;
-        }
-        return false;
+    public void downLoadMusic(View itemView, int position) {
+        Download(position);
     }
+
+    @Override
+    public void playMV(View itemView, int position) {
+        String mvUrl = result.get(position).getMvUrl();
+        if (mvUrl.isEmpty()) {
+            Toast.makeText(SearchActivity.this, "无MV信息", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String songName = result.get(position).getSongName() + "--" + result.get(position).getArtist();
+        Intent i = new Intent(SearchActivity.this, VideoActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.NAME, songName);
+        bundle.putString(Constants.URL, mvUrl);
+        i.putExtras(bundle);
+        startActivity(i);
+    }
+
+
 }

@@ -45,6 +45,7 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
     @Override
     public void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_search_mv);
+        setupWindowAnimations();
         ButterKnife.bind(this);
         setTitleName("搜索", true);
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,

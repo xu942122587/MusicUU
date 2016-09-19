@@ -35,7 +35,6 @@ public class VideoActivity extends AppCompatActivity {
         url = getIntent().getExtras().getString(Constants.URL);
         init();
         play();
-
     }
 
 

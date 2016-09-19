@@ -2,6 +2,7 @@ package com.qtfreet.musicuu.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.daimajia.swipe.SwipeLayout;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.OnMusicClickListener;
@@ -18,10 +20,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by simonla on 2016/5/14.
- * Have a good day.
- */
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+
 public class SongDetailAdapter extends RecyclerView.Adapter<SongDetailAdapter.ViewHolder> {
     private OnMusicClickListener onItemClickListener;
     private List<resultBean> mSongs;
@@ -47,22 +49,69 @@ public class SongDetailAdapter extends RecyclerView.Adapter<SongDetailAdapter.Vi
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        // holder.swipe.setShowMode(SwipeLayout.ShowMode.LayDown);
+
         final resultBean song = mSongs.get(position);
         String url = song.getPicUrl();
+        final String mv = song.getMvUrl();
         holder.mImageView.setTag(url);
         Picasso.with(mContext).load(url).into(holder.mImageView);
         holder.mSongName.setText(song.getSongName());
         holder.mSinger.setText(song.getArtist());
-        holder.mPopupMenu.setOnClickListener(new View.OnClickListener() {
+        // holder.swipe.setClickToClose(true);
+        holder.down_music.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (mContext instanceof SearchActivity) {
-                    ((SearchActivity) mContext).popupMenuClick(v, position);
+            public void onClick(View view) {
+                onItemClickListener.downLoadMusic(view, position);
+                holder.swipe.close();
+
+            }
+        });
+        holder.play_mv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickListener.playMV(view, position);
+                holder.swipe.close();
+            }
+        });
+
+        holder.swipe.addSwipeListener(new SwipeLayout.SwipeListener() {
+            @Override
+            public void onStartOpen(SwipeLayout layout) {
+                // Log.e("qtfreet0000", "1111111111");
+                if (mv.isEmpty()) {
+                    holder.play_mv.setVisibility(View.INVISIBLE);
                 }
+            }
+
+            @Override
+            public void onOpen(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onStartClose(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onClose(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
+
+            }
+
+            @Override
+            public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
+
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
@@ -71,19 +120,26 @@ public class SongDetailAdapter extends RecyclerView.Adapter<SongDetailAdapter.Vi
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView mImageView;
-        public RelativeLayout mRelativeLayout;
-        public TextView mSongName;
-        public TextView mSinger;
-        public TextView mPopupMenu;
+
+        @Bind(R.id.rl_item_main)
+        RelativeLayout mRelativeLayout;
+        @Bind(R.id.iv_item_music)
+        ImageView mImageView;
+        @Bind(R.id.tv_item_song_name)
+        TextView mSongName;
+        @Bind(R.id.tv_item_singer)
+        TextView mSinger;
+        @Bind(R.id.swipe)
+        SwipeLayout swipe;
+        @Bind(R.id.play_mv)
+        ImageView play_mv;
+        @Bind(R.id.down_music)
+        ImageView down_music;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mRelativeLayout = (RelativeLayout) itemView.findViewById(R.id.rl_item_main);
-            mImageView = (ImageView) itemView.findViewById(R.id.iv_item_music);
-            mPopupMenu = (TextView) itemView.findViewById(R.id.tv_popup_menu);
-            mSongName = (TextView) itemView.findViewById(R.id.tv_item_song_name);
-            mSinger = (TextView) itemView.findViewById(R.id.tv_item_singer);
+            ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
