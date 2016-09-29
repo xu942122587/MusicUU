@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="bugly_crash_upgrade_v1.1.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/lib/bugly_crash_upgrade_v1.1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

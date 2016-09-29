@@ -235,6 +235,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
+
         next();
     }
 

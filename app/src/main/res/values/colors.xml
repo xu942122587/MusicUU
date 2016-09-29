@@ -3,17 +3,16 @@
     <color name="colorPrimary">#03A9F4</color>
     <color name="colorPrimaryDark">#0288D1</color>
     <color name="colorAccent">#FF4081</color>
-
     <color name="actionsheet_blue">#037BFF</color>
-
     <color name="actionsheet_gray">#8F8F8F</color>
     <color name="black">#000000</color>
-
     <color name="main_dark">#FF535353</color>
     <color name="white">#ffffff</color>
     <color name="gray_de">#666666</color>
     <color name="list_item_press">#216b74ff</color>
     <color name="primary_text">#212121</color>
+    <color name="swipe_one">#f7e79c</color>
+    <color name="swipe_two">#4cd964</color>
 
 
 

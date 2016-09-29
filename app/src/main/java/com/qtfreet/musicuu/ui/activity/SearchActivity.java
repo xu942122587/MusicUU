@@ -3,10 +3,14 @@ package com.qtfreet.musicuu.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.annotation.Size;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.mingle.widget.LoadingView;
@@ -19,6 +23,13 @@ import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.ui.adapter.SongDetailAdapter;
 import com.qtfreet.musicuu.ui.service.DownloadService;
 import com.qtfreet.musicuu.utils.NetUtil;
+import com.yanzhenjie.recyclerview.swipe.Closeable;
+import com.yanzhenjie.recyclerview.swipe.OnSwipeMenuItemClickListener;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuLayout;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +43,12 @@ import retrofit2.Response;
 /**
  * Created by qtfreet on 2016/3/20.
  */
-public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, OnMusicClickListener {
+public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, OnMusicClickListener, OnSwipeMenuItemClickListener {
 
     private SongDetailAdapter searchResultAdapter;
 
     @Bind(R.id.lv_search_result)
-    RecyclerView search_list;
+    SwipeMenuRecyclerView search_list;
     private SwipeRefreshLayout refresh;
     private List<resultBean> result = new ArrayList<>();
     @Bind(R.id.loadView)
@@ -53,9 +64,35 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         setTitleName("搜索", true);
         search_list.setLayoutManager(new LinearLayoutManager(this));
         search_list.setHasFixedSize(true);
+        //search_list.setItemViewSwipeEnabled(true);// 开启滑动删除。
+        search_list.setSwipeMenuCreator(swipeMenuCreator);
+        search_list.setSwipeMenuItemClickListener(this);
+
         initData();
     }
 
+    private SwipeMenuCreator swipeMenuCreator = new SwipeMenuCreator() {
+
+        @Override
+        public void onCreateMenu(SwipeMenu swipeLeftMenu, SwipeMenu swipeRightMenu, int viewType) {
+            int width = getResources().getDimensionPixelSize(R.dimen.item_width);
+            SwipeMenuItem downMuic = new SwipeMenuItem(SearchActivity.this)
+                    .setBackgroundDrawable(R.color.swipe_one)
+                    .setImage(R.drawable.new_download) // 图标。
+                    .setWidth(width) // 宽度。
+                    .setHeight(ViewGroup.LayoutParams.MATCH_PARENT); // 高度。
+            swipeRightMenu.addMenuItem(downMuic); // 添加一个按钮到左侧菜单。
+
+            SwipeMenuItem watchMV = new SwipeMenuItem(SearchActivity.this)
+                    .setBackgroundDrawable(R.color.swipe_two)
+                    .setImage(R.drawable.new_btn_mv) // 图标。
+                    .setWidth(width)
+                    .setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+            swipeRightMenu.addMenuItem(watchMV);// 添加一个按钮到右侧侧菜单。.
+
+            // 上面的菜单哪边不要菜单就不要添加。
+        }
+    };
 
     private void initData() {
         if (loadingView.getVisibility() == View.GONE) {
@@ -180,13 +217,13 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         startActivity(i);
     }
 
-    @Override
-    public void downLoadMusic(View itemView, int position) {
+
+    public void downLoadMusic(int position) {
         Download(position);
     }
 
-    @Override
-    public void playMV(View itemView, int position) {
+
+    public void playMV(int position) {
         String mvUrl = result.get(position).getMvUrl();
         if (mvUrl.isEmpty()) {
             Toast.makeText(SearchActivity.this, "无MV信息", Toast.LENGTH_SHORT).show();
@@ -202,4 +239,16 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     }
 
 
+    @Override
+    public void onItemClick(Closeable closeable, int adapterPosition, int menuPosition, int direction) {
+        if (direction == SwipeMenuRecyclerView.RIGHT_DIRECTION) {
+            if (menuPosition == 0) {
+                downLoadMusic(adapterPosition);
+            } else if (menuPosition == 1) {
+                playMV(adapterPosition);
+            }
+            closeable.smoothCloseRightMenu();
+
+        }
+    }
 }
