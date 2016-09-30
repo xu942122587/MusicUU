@@ -39,7 +39,7 @@ public class DownloadService extends Service {
         final String url = intent.getStringExtra(Constants.URL);
         final String name = intent.getStringExtra(Constants.NAME);
         if (url.isEmpty() || name.isEmpty()) {
-            return 0;
+            return super.onStartCommand(intent, flags, startId);
         }
         final File file = new File(path + "/" + name + ".mp3");
         if (file.exists()) {
@@ -75,7 +75,7 @@ public class DownloadService extends Service {
             return;
 
         }
-        Log.e("qtfreet0000","开始下载");
+        Log.e("qtfreet0000", "开始下载");
         FileDownloader.getImpl().create(url)
                 .setPath(path + "/" + name + ".mp3")
                 .setListener(new FileDownloadListener() {

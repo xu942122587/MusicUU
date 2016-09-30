@@ -178,6 +178,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     private void download(String name, String url, String id) {
         Intent i = new Intent(this, DownloadService.class);
         Bundle b = new Bundle();
+        if (url.isEmpty() || name.isEmpty() || id.isEmpty() || name == null || url == null || id == null) {
+            Toast.makeText(this, "获取下载链接失败，请重新尝试", Toast.LENGTH_SHORT).show();
+            return;
+        }
         b.putString(Constants.URL, url);
         b.putString(Constants.NAME, name);
         b.putString(Constants.SONG_ID, id);
