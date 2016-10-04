@@ -1,10 +1,12 @@
 package com.qtfreet.musicuu.ui.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Size;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
@@ -36,6 +38,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -157,18 +160,59 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         final String SongName = result.get(position).getSongName();
         final String SongID = result.get(position).getSongId();
         final String Artist = result.get(position).getArtist();
-        String SqUrl = result.get(position).getSqUrl();
-        String HqUrl = result.get(position).getHqUrl();
-        String LqUrl = result.get(position).getLqUrl();
-        String MusicUrl = "";
-        if (!SqUrl.equals("")) {
-            MusicUrl = SqUrl;
-        } else if (!HqUrl.equals("")) {
-            MusicUrl = HqUrl;
-        } else if (!LqUrl.equals("")) {
-            MusicUrl = LqUrl;
+        final String SqUrl = result.get(position).getSqUrl();
+        final String HqUrl = result.get(position).getHqUrl();
+        final String LqUrl = result.get(position).getLqUrl();
+        final String flacUrl = result.get(position).getFlacUrl();
+        final String aacUrl = result.get(position).getAacUrl();
+
+        List<String> l = new ArrayList();
+
+        if (!LqUrl.isEmpty()) {
+            l.add("标准");
         }
-        download(SongName + "-" + Artist + "-L", MusicUrl, SongID);
+        if (!HqUrl.isEmpty()) {
+            l.add("高");
+        }
+        if (!SqUrl.isEmpty()) {
+            l.add("极高");
+        }
+        if (!flacUrl.isEmpty() || !aacUrl.isEmpty()) {
+            l.add("无损");
+        }
+        String[] urls = l.toArray(new String[l.size()]);
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+
+        dialog.setItems(urls, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String name = SongName + "-" + Artist;
+                String url = "";
+                if (i == 0) {
+                    name += "-L";
+                    url = LqUrl;
+                } else if (i == 1) {
+                    name += "-H";
+                    url = HqUrl;
+                } else if (i == 2) {
+                    name += "-S";
+                    url = SqUrl;
+                } else if (i == 3) {
+                    name += "-F";
+                    if (flacUrl.isEmpty()) {
+                        url = aacUrl;
+                    } else {
+                        url = flacUrl;
+                    }
+
+                }
+
+                download(name, url, SongID);
+            }
+        });
+        dialog.show();
+
     }
 
 
