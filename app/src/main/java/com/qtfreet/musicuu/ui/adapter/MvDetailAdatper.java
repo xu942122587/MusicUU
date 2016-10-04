@@ -50,15 +50,16 @@ public class MvDetailAdatper extends RecyclerView.Adapter<MvDetailAdatper.VideoV
         String postImg = Info.getAlbumImg();
         String recImg = Info.getRecommendPic();
         String pic;
-        if (recImg == null) {
+        if (recImg==null) {
             pic = postImg;
         } else {
             pic = recImg;
         }
-        if (pic != null) {
+        if (!pic.isEmpty()) {
             Picasso.with(mContext).load(pic).into(holder.iv);
         } else {
-            Picasso.with(mContext).load(R.mipmap.icon).into(holder.iv);
+        //    Picasso.with(mContext).load(R.mipmap.icon).fit().into(holder.iv);
+
         }
         holder.des.setText(Info.getTitle());
 
