@@ -10,17 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4acf764-15c4-4e50-be40-226b9fad57e7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/pgyer_sdk_2_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/pgyer_sdk_2.4.2.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/ApiService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/ApiService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Constant/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/model/Constant/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/BaseApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/BaseApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/qtfreet/musicuu/ui/activity/MainActivity.java" />
     </list>
     <ignored path="MusicUU.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2812,7 +2802,14 @@
       <option name="project" value="LOCAL" />
       <updated>1475590284709</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修复无法搜索歌曲的问题">
+      <created>1476532495574</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1476532495574</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2870,7 +2867,8 @@
     <MESSAGE value="修复两个bug" />
     <MESSAGE value="常规性修复" />
     <MESSAGE value="支持下载歌曲时选择音质" />
-    <option name="LAST_COMMIT_MESSAGE" value="支持下载歌曲时选择音质" />
+    <MESSAGE value="修复无法搜索歌曲的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复无法搜索歌曲的问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
