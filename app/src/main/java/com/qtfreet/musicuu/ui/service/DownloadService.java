@@ -41,17 +41,17 @@ public class DownloadService extends Service {
         if (url.isEmpty() || name.isEmpty()) {
             return super.onStartCommand(intent, flags, startId);
         }
-        String downName;
+        String localName;
         if (url.contains(".mp3")) {
-            downName = name + ".mp3";
+            localName = name + ".mp3";
         } else if (url.contains(".flac")) {
-            downName = name + ".flac";
+            localName = name + ".flac";
         } else if (url.contains(".ape")) {
-            downName = name + ".ape";
+            localName = name + ".ape";
         } else {
-            downName = name + ".mp3";
+            localName = name + ".mp3";
         }
-        final File file = new File(path + "/" + downName);
+        final File file = new File(path + "/" + localName);
         if (file.exists()) {
             SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(this);
             sweetAlertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
