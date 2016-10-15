@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.pgyersdk.update.PgyUpdateManager;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.ui.BaseActivity;
@@ -88,7 +87,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         if (!(boolean) SPUtils.get(Constants.MUSICUU_PREF, this, Constants.AUTO_CHECK, true)) {
             return;
         }
-        PgyUpdateManager.register(this);
     }
 
 

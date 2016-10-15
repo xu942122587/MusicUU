@@ -19,7 +19,7 @@ public class Constants {
     public static final String PLAY_LRCS = "playlrc";
     public static final String PLAY_NAMES = "playname";
     public static final String POSITION = "position";
-    public static final String MUSIC_HOST = "http://itwusun.com/";
+    public static final String MUSIC_HOST = "http://api.itwusun.com/";
     public static final String lyricPath = Environment.getExternalStorageDirectory() + "/LyricDemo/lyric/";
     public static final String YinyueTai = "keyword";
     public static final String Mango = "mango";
