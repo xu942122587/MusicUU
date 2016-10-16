@@ -14,6 +14,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.iflytek.autoupdate.IFlytekUpdate;
+import com.iflytek.autoupdate.IFlytekUpdateListener;
+import com.iflytek.autoupdate.UpdateConstants;
+import com.iflytek.autoupdate.UpdateErrorCode;
+import com.iflytek.autoupdate.UpdateInfo;
+import com.iflytek.autoupdate.UpdateType;
+import com.iflytek.sunflower.FlowerCollector;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.ui.BaseActivity;
@@ -79,14 +86,42 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     protected void onResume() {
-        initDir();
         super.onResume();
+        initDir();
+        FlowerCollector.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        FlowerCollector.onPause(this);
     }
 
     private void checkUpdate() {
         if (!(boolean) SPUtils.get(Constants.MUSICUU_PREF, this, Constants.AUTO_CHECK, true)) {
             return;
         }
+        final IFlytekUpdate update = IFlytekUpdate.getInstance(this);
+        update.setParameter(UpdateConstants.EXTRA_NOTI_ICON, "true");
+        update.setParameter(UpdateConstants.EXTRA_STYLE, UpdateConstants.UPDATE_UI_DIALOG);
+        update.autoUpdate(this, new IFlytekUpdateListener() {
+            @Override
+            public void onResult(int errorcode, UpdateInfo result) {
+
+                if (errorcode == UpdateErrorCode.OK && result != null) {
+                    if (result.getUpdateType() == UpdateType.NoNeed) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(MainActivity.this, "已经是最新版本！", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        return;
+                    }
+                    update.showUpdateInfo(MainActivity.this, result);
+                }
+            }
+        });
     }
 
 

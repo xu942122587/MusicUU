@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.iflytek.sunflower.FlowerCollector;
 import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.Mango.MangoBean;
@@ -206,6 +207,18 @@ public class SearchMangoActivity extends BaseActivity implements OnVideoClickLis
             return false;
         }
     });
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FlowerCollector.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        FlowerCollector.onPause(this);
+    }
 
     @Override
     public void click(View v, int postion) {

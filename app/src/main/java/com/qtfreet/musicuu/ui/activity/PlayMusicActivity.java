@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.iflytek.sunflower.FlowerCollector;
 import com.nineoldandroids.view.ViewHelper;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
@@ -480,6 +481,17 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         public void onStopTrackingTouch(SeekBar seekBar) {
             PreferenceUtil.getInstance(PlayMusicActivity.this).putFloat(PreferenceUtil.KEY_LINE_SPACE, 12.0f + 3 * seekBar.getProgress() / 100.0f);
         }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FlowerCollector.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        FlowerCollector.onPause(this);
     }
 
     private class DismissBtnClickListener implements View.OnClickListener {

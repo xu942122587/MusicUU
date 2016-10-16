@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="AutoUpdate_SDK">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/lib/AutoUpdate_SDK.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

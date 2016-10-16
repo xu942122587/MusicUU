@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.dou361.ijkplayer.listener.OnPlayerBackListener;
 import com.dou361.ijkplayer.widget.PlayerView;
+import com.iflytek.sunflower.FlowerCollector;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
 
@@ -40,14 +41,17 @@ public class VideoActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        FlowerCollector.onPause(this);
         if (player != null) {
             player.onPause();
         }
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
+        FlowerCollector.onResume(this);
         if (player != null) {
             player.onResume();
         }

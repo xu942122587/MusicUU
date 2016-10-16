@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ifly_push_sdk_1.0_1044">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/lib/ifly_push_sdk_1.0_1044.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

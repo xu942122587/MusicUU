@@ -9,6 +9,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 
+import com.iflytek.sunflower.FlowerCollector;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.ui.BaseActivity;
@@ -32,6 +33,17 @@ public class SettingsActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FlowerCollector.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        FlowerCollector.onPause(this);
+    }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void replaceFragment(int viewId, android.app.Fragment fragment) {

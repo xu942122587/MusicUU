@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.iflytek.sunflower.FlowerCollector;
 import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.YinyueTai.MvBean;
@@ -41,6 +42,17 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
     @Bind(R.id.loadView)
     LoadingView loadingView;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FlowerCollector.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        FlowerCollector.onPause(this);
+    }
 
     @Override
     public void initView(Bundle savedInstanceState) {

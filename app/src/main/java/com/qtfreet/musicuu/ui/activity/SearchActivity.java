@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.iflytek.sunflower.FlowerCollector;
 import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.ApiService;
@@ -214,7 +215,17 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         dialog.show();
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FlowerCollector.onResume(this);
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        FlowerCollector.onPause(this);
+    }
 
     private static final int REQUEST_SUCCESS = 1;
     private static final int REQUEST_ERROR = 0;
