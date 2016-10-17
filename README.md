@@ -37,8 +37,6 @@
 
 ![image](https://raw.githubusercontent.com/Qrilee/MusicUU/master/screenshots/pic.png)
 
-
-![image](http://qtfreet.com/zfb.png)
-
-![image](http://qtfreet.com/wx.png)
+捐赠：愿意支持开发的可以支持下哈
+![image](http://qtfreet.com/zfb.png) ![image](http://qtfreet.com/wx.png)
 
