@@ -36,3 +36,9 @@
 * 修改部分提示
 
 ![image](https://raw.githubusercontent.com/Qrilee/MusicUU/master/screenshots/pic.png)
+
+
+![image](http://qtfreet.com/zfb.png)
+
+![image](http://qtfreet.com/wx.png)
+
