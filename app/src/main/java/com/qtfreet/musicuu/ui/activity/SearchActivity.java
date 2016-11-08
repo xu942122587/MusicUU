@@ -26,6 +26,7 @@ import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.ui.adapter.SongDetailAdapter;
 import com.qtfreet.musicuu.ui.service.DownloadService;
 import com.qtfreet.musicuu.utils.NetUtil;
+import com.qtfreet.musicuu.utils.SPUtils;
 import com.yanzhenjie.recyclerview.swipe.Closeable;
 import com.yanzhenjie.recyclerview.swipe.OnSwipeMenuItemClickListener;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
@@ -71,9 +72,28 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         //search_list.setItemViewSwipeEnabled(true);// 开启滑动删除。
         search_list.setSwipeMenuCreator(swipeMenuCreator);
         search_list.setSwipeMenuItemClickListener(this);
-
         initData();
+        firstUse();
     }
+
+    private void firstUse() {
+        boolean isFirst = (boolean) SPUtils.get(this, Constants.IS_FIRST_SEARCH, true);
+        if (isFirst) {
+            SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(this);
+            sweetAlertDialog.setTitleText(getString(R.string.start_info));
+            sweetAlertDialog.setContentText(getString(R.string.description_search)).setConfirmText(getString(R.string.i_know));
+            sweetAlertDialog.setCancelable(false);
+            sweetAlertDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                @Override
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                    SPUtils.put(SearchActivity.this, Constants.IS_FIRST_SEARCH, false);
+                    sweetAlertDialog.dismissWithAnimation();
+                }
+            });
+            sweetAlertDialog.show();
+        }
+    }
+
 
     private SwipeMenuCreator swipeMenuCreator = new SwipeMenuCreator() {
 
@@ -166,55 +186,68 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         final String LqUrl = result.get(position).getLqUrl();
         final String flacUrl = result.get(position).getFlacUrl();
         final String aacUrl = result.get(position).getAacUrl();
-
-        List<String> l = new ArrayList();
-
-        if (!LqUrl.isEmpty()) {
-            l.add("标准");
+        String url = "";
+        if (!flacUrl.isEmpty()) {
+            url = flacUrl;
+        } else if (!aacUrl.isEmpty()) {
+            url = aacUrl;
+        } else if (!SqUrl.isEmpty()) {
+            url = SqUrl;
+        } else if (!HqUrl.isEmpty()) {
+            url = HqUrl;
+        } else if (!LqUrl.isEmpty()) {
+            url = LqUrl;
         }
-        if (!HqUrl.isEmpty()) {
-            l.add("高");
-        }
-        if (!SqUrl.isEmpty()) {
-            l.add("极高");
-        }
-        if (!flacUrl.isEmpty() || !aacUrl.isEmpty()) {
-            l.add("无损");
-        }
-        String[] urls = l.toArray(new String[l.size()]);
-
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-
-        dialog.setItems(urls, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                String name = SongName + "-" + Artist;
-                String url = "";
-                if (i == 0) {
-                    name += "-L";
-                    url = LqUrl;
-                } else if (i == 1) {
-                    name += "-H";
-                    url = HqUrl;
-                } else if (i == 2) {
-                    name += "-S";
-                    url = SqUrl;
-                } else if (i == 3) {
-                    name += "-F";
-                    if (flacUrl.isEmpty()) {
-                        url = aacUrl;
-                    } else {
-                        url = flacUrl;
-                    }
-
-                }
-
-                download(name, url, SongID);
-            }
-        });
-        dialog.show();
-
+        String name = SongName + "-" + Artist;
+//        List<String> l = new ArrayList();
+//
+//        if (!LqUrl.isEmpty()) {
+//            l.add("标准");
+//        }
+//        if (!HqUrl.isEmpty()) {
+//            l.add("高");
+//        }
+//        if (!SqUrl.isEmpty()) {
+//            l.add("极高");
+//        }
+//        if (!flacUrl.isEmpty() || !aacUrl.isEmpty()) {
+//            l.add("无损");
+//        }
+//        String[] urls = l.toArray(new String[l.size()]);
+//
+//        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+//
+//        dialog.setItems(urls, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                String name = SongName + "-" + Artist;
+//                String url = "";
+//                if (i == 0) {
+//                    name += "-L";
+//                    url = LqUrl;
+//                } else if (i == 1) {
+//                    name += "-H";
+//                    url = HqUrl;
+//                } else if (i == 2) {
+//                    name += "-S";
+//                    url = SqUrl;
+//                } else if (i == 3) {
+//                    name += "-F";
+//                    if (flacUrl.isEmpty()) {
+//                        url = aacUrl;
+//                    } else {
+//                        url = flacUrl;
+//                    }
+//
+//                }
+//
+//
+//            }
+//        });
+//        dialog.show();
+        download(name, url, SongID);
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -256,7 +289,11 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         int size = result.size();
         String[] songs = new String[size];
         for (int i = 0; i < size; i++) {
-            songs[i] = result.get(i).getListenUrl();
+            if (!result.get(i).getHqUrl().isEmpty()) {
+                songs[i] = result.get(i).getHqUrl();
+            } else {
+                songs[i] = result.get(i).getLqUrl();
+            }
         }
         String[] lrcs = new String[size];
         for (int i = 0; i < size; i++) {

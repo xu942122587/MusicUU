@@ -23,4 +23,5 @@ public class Constants {
     public static final String lyricPath = Environment.getExternalStorageDirectory() + "/LyricDemo/lyric/";
     public static final String YinyueTai = "keyword";
     public static final String Mango = "mango";
+    public static final String IS_FIRST_SEARCH = "issearch";
 }

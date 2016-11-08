@@ -22,6 +22,7 @@ public class VideoActivity extends AppCompatActivity {
         String videoName = getIntent().getExtras().getString(Constants.NAME);
         String url = getIntent().getExtras().getString(Constants.URL);
         player = new PlayerView(this, rootView)
+
                 .setTitle(videoName)
                 .setOnlyFullScreen(true)
                 .forbidTouch(false)

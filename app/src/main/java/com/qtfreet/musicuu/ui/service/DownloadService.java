@@ -41,7 +41,7 @@ public class DownloadService extends Service {
         if (url.isEmpty() || name.isEmpty()) {
             return super.onStartCommand(intent, flags, startId);
         }
-        String localName;
+        final String localName;
         if (url.contains(".mp3")) {
             localName = name + ".mp3";
         } else if (url.contains(".flac")) {
@@ -59,14 +59,15 @@ public class DownloadService extends Service {
             sweetAlertDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
                 public void onClick(SweetAlertDialog sweetAlertDialog) {
-                    download(url, name, path);
+                    file.delete();
+                    download(url, localName, path);
                     sweetAlertDialog.dismissWithAnimation();
                 }
             });
             sweetAlertDialog.show();
 
         } else {
-            download(url, name, path);
+            download(url, localName, path);
         }
         return super.onStartCommand(intent, flags, startId);
     }
@@ -87,7 +88,7 @@ public class DownloadService extends Service {
         }
         Log.e("qtfreet0000", "开始下载");
         FileDownloader.getImpl().create(url)
-                .setPath(path + "/" + name + ".mp3")
+                .setPath(path + "/" + name)
                 .setListener(new FileDownloadListener() {
                     @Override
                     protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {

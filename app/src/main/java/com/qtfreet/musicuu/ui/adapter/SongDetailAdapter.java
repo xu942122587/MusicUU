@@ -56,7 +56,7 @@ public class SongDetailAdapter extends SwipeMenuAdapter<SongDetailAdapter.ViewHo
         holder.mImageView.setTag(url);
         Picasso.with(mContext).load(url).into(holder.mImageView);
         holder.mSongName.setText(song.getSongName());
-        holder.mSinger.setText(song.getArtist());
+        holder.mSinger.setText(song.getArtist() + "-" + song.getAlbum());
     }
 
 
@@ -86,8 +86,8 @@ public class SongDetailAdapter extends SwipeMenuAdapter<SongDetailAdapter.ViewHo
 
         @Override
         public void onClick(View view) {
-            if(onItemClickListener!=null){
-                onItemClickListener.Music(view,getAdapterPosition());
+            if (onItemClickListener != null) {
+                onItemClickListener.Music(view, getAdapterPosition());
             }
         }
     }
