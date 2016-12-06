@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -54,7 +55,11 @@ public class DownloadService extends Service {
         final File file = new File(path + "/" + localName);
         if (file.exists()) {
             SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(this);
-            sweetAlertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+            if (Build.VERSION.SDK_INT > 19) {
+                sweetAlertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_TOAST);
+            } else {
+                sweetAlertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+            }
             sweetAlertDialog.setTitleText("提示").setContentText("文件已存在，是否需要重新下载？").setConfirmText("是").setCancelText("否");
             sweetAlertDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
