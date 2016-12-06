@@ -102,14 +102,14 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             int width = getResources().getDimensionPixelSize(R.dimen.item_width);
             SwipeMenuItem downMuic = new SwipeMenuItem(SearchActivity.this)
                     .setBackgroundDrawable(R.color.swipe_one)
-                    .setImage(R.drawable.new_download) // 图标。
+                    .setText("下载")
                     .setWidth(width) // 宽度。
                     .setHeight(ViewGroup.LayoutParams.MATCH_PARENT); // 高度。
             swipeRightMenu.addMenuItem(downMuic); // 添加一个按钮到左侧菜单。
 
             SwipeMenuItem watchMV = new SwipeMenuItem(SearchActivity.this)
                     .setBackgroundDrawable(R.color.swipe_two)
-                    .setImage(R.drawable.new_btn_mv) // 图标。
+                    .setText("MV")
                     .setWidth(width)
                     .setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
             swipeRightMenu.addMenuItem(watchMV);// 添加一个按钮到右侧侧菜单。.
@@ -127,6 +127,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         call.enqueue(new Callback<List<resultBean>>() {
             @Override
             public void onResponse(Call<List<resultBean>> call, Response<List<resultBean>> response) {
+                if (response == null) {
+                    handler.sendEmptyMessage(REQUEST_ERROR);
+                    return;
+                }
                 if (response.body().size() == 0) {
                     handler.sendEmptyMessage(REQUEST_ERROR);
                     return;
@@ -186,67 +190,65 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         final String LqUrl = result.get(position).getLqUrl();
         final String flacUrl = result.get(position).getFlacUrl();
         final String aacUrl = result.get(position).getAacUrl();
-        String url = "";
-        if (!flacUrl.isEmpty()) {
-            url = flacUrl;
-        } else if (!aacUrl.isEmpty()) {
-            url = aacUrl;
-        } else if (!SqUrl.isEmpty()) {
-            url = SqUrl;
-        } else if (!HqUrl.isEmpty()) {
-            url = HqUrl;
-        } else if (!LqUrl.isEmpty()) {
-            url = LqUrl;
-        }
-        String name = SongName + "-" + Artist;
-//        List<String> l = new ArrayList();
-//
-//        if (!LqUrl.isEmpty()) {
-//            l.add("标准");
-//        }
-//        if (!HqUrl.isEmpty()) {
-//            l.add("高");
-//        }
-//        if (!SqUrl.isEmpty()) {
-//            l.add("极高");
-//        }
-//        if (!flacUrl.isEmpty() || !aacUrl.isEmpty()) {
-//            l.add("无损");
-//        }
-//        String[] urls = l.toArray(new String[l.size()]);
-//
-//        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-//
-//        dialog.setItems(urls, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                String name = SongName + "-" + Artist;
-//                String url = "";
-//                if (i == 0) {
-//                    name += "-L";
-//                    url = LqUrl;
-//                } else if (i == 1) {
-//                    name += "-H";
-//                    url = HqUrl;
-//                } else if (i == 2) {
-//                    name += "-S";
-//                    url = SqUrl;
-//                } else if (i == 3) {
-//                    name += "-F";
-//                    if (flacUrl.isEmpty()) {
-//                        url = aacUrl;
-//                    } else {
-//                        url = flacUrl;
-//                    }
-//
-//                }
-//
-//
-//            }
-//        });
-//        dialog.show();
-        download(name, url, SongID);
+        List<String> arrayList = new ArrayList();
+        arrayList.add("标准");
+        arrayList.add("高");
+        arrayList.add("极高");
+        arrayList.add("无损");
+        String[] urls = arrayList.toArray(new String[arrayList.size()]);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setItems(urls, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String name = SongName + "-" + Artist;
+                String url = "";
+                if (i == 0) {
+                    name += "-L";
+                    if (!LqUrl.isEmpty()) {
+                        url = LqUrl;
+                    } else {
+                        showError();
+                        return;
+                    }
+                } else if (i == 1) {
+                    name += "-H";
+                    if (!HqUrl.isEmpty()) {
+                        url = HqUrl;
+                    } else {
+                        showError();
+                        return;
+                    }
+
+                } else if (i == 2) {
+                    if (!SqUrl.isEmpty()) {
+                        url = SqUrl;
+                    } else {
+                        showError();
+                        return;
+                    }
+                    name += "-S";
+
+                } else if (i == 3) {
+                    name += "-F";
+                    if (!flacUrl.isEmpty()) {
+                        url = flacUrl;
+                    } else if (!aacUrl.isEmpty()) {
+                        url = aacUrl;
+                    } else {
+                        showError();
+                        return;
+                    }
+                }
+                download(name, url, SongID);
+            }
+        });
+        dialog.show();
     }
+
+    private void showError() {
+        Toast.makeText(this, "该音乐没有此音质链接~", Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     protected void onResume() {
@@ -289,10 +291,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         int size = result.size();
         String[] songs = new String[size];
         for (int i = 0; i < size; i++) {
-            if (!result.get(i).getHqUrl().isEmpty()) {
-                songs[i] = result.get(i).getHqUrl();
+            if (!result.get(i).getLqUrl().isEmpty()) {
+                songs[i] = result.get(i).getLqUrl();  //考虑性能问题，默认播放低音质
             } else {
-                songs[i] = result.get(i).getLqUrl();
+                songs[i] = result.get(i).getHqUrl();
             }
         }
         String[] lrcs = new String[size];

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.utils.ConvertUtils;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.OnMusicClickListener;
@@ -54,7 +55,8 @@ public class SongDetailAdapter extends SwipeMenuAdapter<SongDetailAdapter.ViewHo
         final resultBean song = mSongs.get(position);
         String url = song.getPicUrl();
         holder.mImageView.setTag(url);
-        Picasso.with(mContext).load(url).into(holder.mImageView);
+        int size = ConvertUtils.dp2px(mContext, 90);
+        Picasso.with(mContext).load(url).resize(size, size).centerCrop().into(holder.mImageView);
         holder.mSongName.setText(song.getSongName());
         holder.mSinger.setText(song.getArtist() + "-" + song.getAlbum());
     }

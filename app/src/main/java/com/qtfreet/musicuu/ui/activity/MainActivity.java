@@ -150,10 +150,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             bundle.putString(Constants.YinyueTai, text);
             startActivity(MainActivity.this, SearchMvActivity.class, bundle);
 
-        } else if (mistype.equals("mango")) {
-            bundle.putString(Constants.Mango, text);
-            startActivity(MainActivity.this, SearchMangoActivity.class, bundle);
-
         } else {
             bundle.putString(Constants.KEY, text);
             bundle.putString(Constants.TYPE, mistype);
@@ -211,7 +207,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.fab:
                 new BottomDialog(MainActivity.this)
                         .title(getString(R.string.sel_music_type))             //设置标题
-
                         .inflateMenu(R.menu.music_type)         //传人菜单内容
                         .itemClick(new OnItemClickListener() {  //设置监听
                             @Override
@@ -235,8 +230,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                                     mistype = "xm";
                                 } else if (type.equals(getString(R.string.mv_yinyuetai))) {
                                     mistype = "yinyutai";
-                                } else if (type.equals(getString(R.string.mango))) {
-                                    mistype = "mango";
                                 }
                                 Toast.makeText(MainActivity.this, "已切换成 " + item.getTitle(), Toast.LENGTH_SHORT).show();
                             }

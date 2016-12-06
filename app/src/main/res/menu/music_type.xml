@@ -38,10 +38,7 @@
         android:icon="@mipmap/iting"
         android:title="@string/music_dx" />
 
-    <item
-        android:id="@+id/mango"
-        android:icon="@mipmap/mango"
-        android:title="@string/mango" />
+
 
 
 </menu>

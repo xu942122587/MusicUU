@@ -28,10 +28,10 @@
         android:title="帮助">
         <Preference
             android:layout="@layout/preference_item"
-            android:title="关于">
+            android:title="开源地址">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://www.pgyer.com/musicspy" />
+                android:data="https://github.com/Qrilee/MusicUU" />
         </Preference>
 
         <com.qtfreet.musicuu.wiget.DialogPreference
@@ -49,18 +49,10 @@
         android:title="那些人">
         <Preference
             android:layout="@layout/preference_item"
-            android:title="@string/app_designer">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="http://weibo.com/u/3552577720" />
-        </Preference>
+            android:title="@string/app_designer"></Preference>
 
         <Preference
             android:layout="@layout/preference_item"
-            android:title="@string/ui_designer">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="http://weibo.com/u/2535451595" />
-        </Preference>
+            android:title="@string/ui_designer"></Preference>
     </PreferenceCategory>
 </PreferenceScreen>
