@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.qtfreet.musicuu"
-        minSdkVersion 16
+        minSdkVersion 15
         targetSdkVersion 25
         versionCode 19
         versionName "1.1.9"
