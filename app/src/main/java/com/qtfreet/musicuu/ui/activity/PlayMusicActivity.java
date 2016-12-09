@@ -36,14 +36,11 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 
 import okhttp3.Call;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 public class PlayMusicActivity extends BaseActivity implements View.OnClickListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, LyricView.OnPlayerClickListener {
 
     private LyricView lyricView;
     private MediaPlayer mediaPlayer;
-
-
     private View statueBar;
     private SeekBar display_seek;
     private TextView display_total;
@@ -224,6 +221,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onPrepared(MediaPlayer mediaPlayer) {
+
         setCurrentState(State.STATE_PREPARE);
         DecimalFormat format = new DecimalFormat("00");
         display_seek.setMax(mediaPlayer.getDuration());
@@ -280,7 +278,10 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
                 if (file.exists()) {
                     lyricView.setLyricFile(file, "UTF-8");
                 } else {
-                    downloadLyric(song_lyrics[position], lrcName);
+                    try {
+                        downloadLyric(song_lyrics[position], lrcName);
+                    } catch (Exception e) {
+                    }
                 }
                 btnPlay.setImageResource(R.mipmap.m_icon_player_play_normal);
                 setLoading(true);
@@ -388,7 +389,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
-    private void downloadLyric(String url, String name) {
+    private void downloadLyric(String url, String name) throws Exception {
         OkHttpUtils.get().url(url).build().execute(new FileCallBack(Constants.lyricPath, name) {
             @Override
             public void onError(Call call, Exception e, int id) {
