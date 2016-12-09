@@ -36,11 +36,13 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 
 import okhttp3.Call;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 public class PlayMusicActivity extends BaseActivity implements View.OnClickListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, LyricView.OnPlayerClickListener {
 
     private LyricView lyricView;
     private MediaPlayer mediaPlayer;
+
 
     private View statueBar;
     private SeekBar display_seek;
@@ -378,8 +380,12 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        mediaPlayer.seekTo(seekBar.getProgress());
-        handler.sendEmptyMessageDelayed(MSG_REFRESH, 120);
+        try {
+            mediaPlayer.seekTo(seekBar.getProgress());
+            handler.sendEmptyMessageDelayed(MSG_REFRESH, 120);
+        } catch (Exception e) {
+
+        }
     }
 
     private void downloadLyric(String url, String name) {
@@ -482,6 +488,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
             PreferenceUtil.getInstance(PlayMusicActivity.this).putFloat(PreferenceUtil.KEY_LINE_SPACE, 12.0f + 3 * seekBar.getProgress() / 100.0f);
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();

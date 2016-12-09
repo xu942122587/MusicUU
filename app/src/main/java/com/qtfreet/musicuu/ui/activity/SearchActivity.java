@@ -4,15 +4,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.annotation.Size;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.iflytek.sunflower.FlowerCollector;
@@ -32,7 +28,6 @@ import com.yanzhenjie.recyclerview.swipe.OnSwipeMenuItemClickListener;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
-import com.yanzhenjie.recyclerview.swipe.SwipeMenuLayout;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
 import java.util.ArrayList;
@@ -127,16 +122,21 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         call.enqueue(new Callback<List<resultBean>>() {
             @Override
             public void onResponse(Call<List<resultBean>> call, Response<List<resultBean>> response) {
-                if (response == null) {
+                try {
+                    if (response == null) {
+                        handler.sendEmptyMessage(REQUEST_ERROR);
+                        return;
+                    }
+                    if (response.body().size() == 0) {
+                        handler.sendEmptyMessage(REQUEST_ERROR);
+                        return;
+                    }
+                    result = response.body();
+                    handler.sendEmptyMessage(REQUEST_SUCCESS);
+                } catch (Exception e) {
                     handler.sendEmptyMessage(REQUEST_ERROR);
-                    return;
                 }
-                if (response.body().size() == 0) {
-                    handler.sendEmptyMessage(REQUEST_ERROR);
-                    return;
-                }
-                result = response.body();
-                handler.sendEmptyMessage(REQUEST_SUCCESS);
+
 
             }
 

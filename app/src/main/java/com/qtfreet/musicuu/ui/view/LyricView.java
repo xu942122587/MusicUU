@@ -606,7 +606,12 @@ public class LyricView extends View {
                 BufferedReader reader = new BufferedReader(inputStreamReader);
                 String line = null;
                 while ((line = reader.readLine()) != null) {
-                    analyzeLyric(lyricInfo, line);
+                    try {
+                        analyzeLyric(lyricInfo, line);
+                    } catch (Exception e) {
+
+                    }
+
                 }
                 reader.close();
                 inputStream.close();

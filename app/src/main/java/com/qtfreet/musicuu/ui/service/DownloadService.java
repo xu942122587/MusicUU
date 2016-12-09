@@ -34,13 +34,16 @@ public class DownloadService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        if (intent == null) {
+            return START_NOT_STICKY;
+        }
         final String path = Environment.getExternalStorageDirectory() + "/" + SPUtils.get(Constants.MUSICUU_PREF, this, Constants.SAVE_PATH, "musicuu");
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mBuilder = new NotificationCompat.Builder(this);
         final String url = intent.getStringExtra(Constants.URL);
         final String name = intent.getStringExtra(Constants.NAME);
         if (url.isEmpty() || name.isEmpty()) {
-            return super.onStartCommand(intent, flags, startId);
+            return START_NOT_STICKY;
         }
         final String localName;
         if (url.contains(".mp3")) {
