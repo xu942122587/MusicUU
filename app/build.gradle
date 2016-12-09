@@ -8,8 +8,8 @@ android {
         applicationId "com.qtfreet.musicuu"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 18
-        versionName "1.1.8"
+        versionCode 19
+        versionName "1.1.9"
     }
     buildTypes {
         release {
