@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -122,13 +123,13 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
                     String uhdUrl = mv.getData().getUhdUrl();
                     String hdUrl = mv.getData().getHdUrl();
                     String mdUrl = mv.getData().getUrl();
-                    if (ShdUrl != null && !ShdUrl.isEmpty()) {
+                    if (!TextUtils.isEmpty(ShdUrl)) {
                         mvUrl = ShdUrl;
-                    } else if (uhdUrl != null && !uhdUrl.isEmpty()) {
+                    } else if (!TextUtils.isEmpty(uhdUrl)) {
                         mvUrl = uhdUrl;
-                    } else if (hdUrl != null && !hdUrl.isEmpty()) {
+                    } else if (!TextUtils.isEmpty(hdUrl)) {
                         mvUrl = hdUrl;
-                    } else if (mdUrl != null && !mdUrl.isEmpty()) {
+                    } else if (!TextUtils.isEmpty(mdUrl)) {
                         mvUrl = mdUrl;
                     } else {
                         Toast.makeText(SearchMvActivity.this, "获取播放链接失败！", Toast.LENGTH_SHORT).show();

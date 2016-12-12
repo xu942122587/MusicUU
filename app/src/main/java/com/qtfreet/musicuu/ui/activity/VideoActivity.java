@@ -2,7 +2,9 @@ package com.qtfreet.musicuu.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
 import com.dou361.ijkplayer.listener.OnPlayerBackListener;
 import com.dou361.ijkplayer.widget.PlayerView;
@@ -21,6 +23,10 @@ public class VideoActivity extends AppCompatActivity {
         setContentView(rootView);
         String videoName = getIntent().getExtras().getString(Constants.NAME);
         String url = getIntent().getExtras().getString(Constants.URL);
+        if (TextUtils.isEmpty(videoName) || TextUtils.isEmpty(url)) {
+            Toast.makeText(this, "播放链接无效~", Toast.LENGTH_SHORT).show();
+            return;
+        }
         player = new PlayerView(this, rootView)
 
                 .setTitle(videoName)

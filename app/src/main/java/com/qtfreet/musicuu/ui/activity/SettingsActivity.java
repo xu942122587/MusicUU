@@ -65,7 +65,6 @@ public class SettingsActivity extends BaseActivity {
             addPreferencesFromResource(R.xml.preferences);
             editTextPreference = (EditTextPreference) getPreferenceManager().findPreference(Constants.SAVE_PATH);
             editTextPreference.setOnPreferenceChangeListener(this);
-
             String path = editTextPreference.getSharedPreferences().getString(Constants.SAVE_PATH, "");
             if (!path.equals("musicuu")) {
                 editTextPreference.setSummary("当前保存在sd卡下的 " + path + " 文件夹下");

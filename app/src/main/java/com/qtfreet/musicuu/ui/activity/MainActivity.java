@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -141,7 +142,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private void startSearchSong() {
         String text = mSearchEditText.getText().toString();
-        if (text.isEmpty()) {
+        if (TextUtils.isEmpty(text)) {
             Toast.makeText(MainActivity.this, R.string.no_music_name, Toast.LENGTH_SHORT).show();
             return;
         }

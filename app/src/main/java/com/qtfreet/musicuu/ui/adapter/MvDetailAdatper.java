@@ -2,6 +2,7 @@ package com.qtfreet.musicuu.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,15 +51,15 @@ public class MvDetailAdatper extends RecyclerView.Adapter<MvDetailAdatper.VideoV
         String postImg = Info.getAlbumImg();
         String recImg = Info.getRecommendPic();
         String pic;
-        if (recImg==null) {
+        if (recImg == null) {
             pic = postImg;
         } else {
             pic = recImg;
         }
-        if (!pic.isEmpty()) {
+        if (!TextUtils.isEmpty(pic)) {
             Picasso.with(mContext).load(pic).into(holder.iv);
         } else {
-        //    Picasso.with(mContext).load(R.mipmap.icon).fit().into(holder.iv);
+            //    Picasso.with(mContext).load(R.mipmap.icon).fit().into(holder.iv);
 
         }
         holder.des.setText(Info.getTitle());

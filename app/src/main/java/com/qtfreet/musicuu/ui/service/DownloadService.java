@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -42,7 +43,7 @@ public class DownloadService extends Service {
         mBuilder = new NotificationCompat.Builder(this);
         final String url = intent.getStringExtra(Constants.URL);
         final String name = intent.getStringExtra(Constants.NAME);
-        if (url.isEmpty() || name.isEmpty()) {
+        if (TextUtils.isEmpty(url) || TextUtils.isEmpty(name)) {
             return START_NOT_STICKY;
         }
         final String localName;
@@ -52,6 +53,8 @@ public class DownloadService extends Service {
             localName = name + ".flac";
         } else if (url.contains(".ape")) {
             localName = name + ".ape";
+        } else if (url.contains(".mp4")) {
+            localName = name + ".mp4";
         } else {
             localName = name + ".mp3";
         }

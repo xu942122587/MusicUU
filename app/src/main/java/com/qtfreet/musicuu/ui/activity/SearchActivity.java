@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -190,55 +191,45 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         final String LqUrl = result.get(position).getLqUrl();
         final String flacUrl = result.get(position).getFlacUrl();
         final String aacUrl = result.get(position).getAacUrl();
+        final String mvUrl = result.get(position).getMvUrl();
         List<String> arrayList = new ArrayList();
-        arrayList.add("标准");
-        arrayList.add("高");
-        arrayList.add("极高");
-        arrayList.add("无损");
-        String[] urls = arrayList.toArray(new String[arrayList.size()]);
+        final List<String> songs = new ArrayList<>();
+        final List<String> format = new ArrayList<>();
+        if (!TextUtils.isEmpty(LqUrl)) {
+            arrayList.add("标准");
+            songs.add(LqUrl);
+            format.add("-L");
+        }
+        if (!TextUtils.isEmpty(HqUrl)) {
+            arrayList.add("高");
+            songs.add(HqUrl);
+            format.add("-H");
+        }
+        if (!TextUtils.isEmpty(SqUrl)) {
+            arrayList.add("极高");
+            songs.add(SqUrl);
+            format.add("-S");
+        }
+        if (!TextUtils.isEmpty(flacUrl)) {
+            songs.add(flacUrl);
+            arrayList.add("无损");
+            format.add("-F");
+        } else if (!TextUtils.isEmpty(aacUrl)) {
+            songs.add(aacUrl);
+            format.add("-F");
+        }
+        if (!TextUtils.isEmpty(mvUrl)) {
+            arrayList.add("MV");
+            songs.add(mvUrl);
+            format.add("-Video");
+        }
+        String[] types = arrayList.toArray(new String[arrayList.size()]);
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setItems(urls, new DialogInterface.OnClickListener() {
+        dialog.setItems(types, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String name = SongName + "-" + Artist;
-                String url = "";
-                if (i == 0) {
-                    name += "-L";
-                    if (!LqUrl.isEmpty()) {
-                        url = LqUrl;
-                    } else {
-                        showError();
-                        return;
-                    }
-                } else if (i == 1) {
-                    name += "-H";
-                    if (!HqUrl.isEmpty()) {
-                        url = HqUrl;
-                    } else {
-                        showError();
-                        return;
-                    }
-
-                } else if (i == 2) {
-                    if (!SqUrl.isEmpty()) {
-                        url = SqUrl;
-                    } else {
-                        showError();
-                        return;
-                    }
-                    name += "-S";
-
-                } else if (i == 3) {
-                    name += "-F";
-                    if (!flacUrl.isEmpty()) {
-                        url = flacUrl;
-                    } else if (!aacUrl.isEmpty()) {
-                        url = aacUrl;
-                    } else {
-                        showError();
-                        return;
-                    }
-                }
+                String name = SongName + "-" + Artist + format.get(i);
+                String url = songs.get(i);
                 download(name, url, SongID);
             }
         });
@@ -268,7 +259,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     private void download(String name, String url, String id) {
         Intent i = new Intent(this, DownloadService.class);
         Bundle b = new Bundle();
-        if (url.isEmpty() || name.isEmpty() || id.isEmpty() || name == null || url == null || id == null) {
+        if (TextUtils.isEmpty(url) || TextUtils.isEmpty(name) || TextUtils.isEmpty(id)) {
             Toast.makeText(this, "获取下载链接失败，请重新尝试", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -291,7 +282,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         int size = result.size();
         String[] songs = new String[size];
         for (int i = 0; i < size; i++) {
-            if (!result.get(i).getLqUrl().isEmpty()) {
+            if (!TextUtils.isEmpty(result.get(i).getLqUrl())) {
                 songs[i] = result.get(i).getLqUrl();  //考虑性能问题，默认播放低音质
             } else {
                 songs[i] = result.get(i).getHqUrl();
@@ -323,7 +314,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     public void playMV(int position) {
         String mvUrl = result.get(position).getMvUrl();
-        if (mvUrl.isEmpty()) {
+        if (TextUtils.isEmpty(mvUrl)) {
             Toast.makeText(SearchActivity.this, "无MV信息", Toast.LENGTH_SHORT).show();
             return;
         }
