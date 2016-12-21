@@ -6,11 +6,13 @@ import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.media.MediaPlayer;
+
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.view.Window;
@@ -28,14 +30,20 @@ import com.qtfreet.musicuu.ui.view.CustomRelativeLayout;
 import com.qtfreet.musicuu.ui.view.CustomSettingView;
 import com.qtfreet.musicuu.ui.view.LyricView;
 import com.qtfreet.musicuu.utils.PreferenceUtil;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.FileCallBack;
+import com.yolanda.nohttp.Headers;
+import com.yolanda.nohttp.NoHttp;
+import com.yolanda.nohttp.RequestMethod;
+import com.yolanda.nohttp.download.DownloadListener;
+import com.yolanda.nohttp.download.DownloadQueue;
+import com.yolanda.nohttp.download.DownloadRequest;
+
+import net.protyposis.android.mediaplayer.MediaPlayer;
+import net.protyposis.android.mediaplayer.MediaSource;
+import net.protyposis.android.mediaplayer.UriSource;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
-
-import okhttp3.Call;
 
 public class PlayMusicActivity extends BaseActivity implements View.OnClickListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, LyricView.OnPlayerClickListener {
 
@@ -66,6 +74,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
     private final int MSG_LYRIC_SHOW = 0x187;
 
     private long animatorDuration = 120;
+
 
     @TargetApi(19)
     private void setTranslucentStatus() {
@@ -159,6 +168,16 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         handler.sendEmptyMessageDelayed(MSG_LYRIC_SHOW, 420);
     }
 
+    private void pauseToPrepare() {
+        if (null != mediaPlayer) {
+            mediaPlayer.reset();
+        }
+        handler.removeMessages(MSG_REFRESH);
+        lyricView.reset("载入歌词ing...");
+        setCurrentState(State.STATE_STOP);
+    }
+
+
     /**
      * 停止
      */
@@ -199,7 +218,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
      * 上一首
      */
     private void previous() {
-        stop();
+        pauseToPrepare();
         position--;
         if (position < 0) {
             position = Math.min(Math.min(song_names.length, song_lyrics.length), song_urls.length) - 1;
@@ -211,7 +230,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
      * 上一首
      */
     private void next() {
-        stop();
+        pauseToPrepare();
         position++;
         if (position >= Math.min(Math.min(song_names.length, song_lyrics.length), song_urls.length)) {
             position = 0;
@@ -273,6 +292,8 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
                 setLoading(false);
                 break;
             case STATE_SETUP:
+                btnPlay.setImageResource(R.mipmap.m_icon_player_play_normal);
+                setLoading(true);
                 String lrcName = song_names[position] + ".lrc";
                 File file = new File(Constants.lyricPath + lrcName);
                 if (file.exists()) {
@@ -283,8 +304,6 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
                     } catch (Exception e) {
                     }
                 }
-                btnPlay.setImageResource(R.mipmap.m_icon_player_play_normal);
-                setLoading(true);
                 break;
             default:
                 break;
@@ -310,20 +329,25 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
                     break;
                 case MSG_LYRIC_SHOW:
                     try {
-                        setCurrentState(State.STATE_SETUP);
+
+
                         mediaPlayer = new MediaPlayer();
                         mediaPlayer.setOnPreparedListener(PlayMusicActivity.this);
                         mediaPlayer.setOnCompletionListener(PlayMusicActivity.this);
                         mediaPlayer.setOnBufferingUpdateListener(PlayMusicActivity.this);
-
-                        mediaPlayer.setDataSource(song_urls[position]);
+                        MediaSource mediaSource = new UriSource(PlayMusicActivity.this, Uri.parse(song_urls[position]));
+                        mediaPlayer.setDataSource(mediaSource);
                         mediaPlayer.prepareAsync();
+
+                        setCurrentState(State.STATE_SETUP);
+//                        mediaPlayer.prepareAsync();
 
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     break;
                 case MSG_LOADING:
+
                     Drawable background = btnPlay.getBackground();
                     int level = background.getLevel();
                     level = level + 300;
@@ -390,18 +414,38 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void downloadLyric(String url, String name) throws Exception {
-        OkHttpUtils.get().url(url).build().execute(new FileCallBack(Constants.lyricPath, name) {
-            @Override
-            public void onError(Call call, Exception e, int id) {
-
-            }
-
-            @Override
-            public void onResponse(File response, int id) {
-                lyricView.setLyricFile(response, "UTF-8");
-            }
-        });
+        DownloadRequest request = NoHttp.createDownloadRequest(url, RequestMethod.GET, Constants.lyricPath, name, false, false);
+        DownloadQueue downloadQueue = NoHttp.newDownloadQueue();
+        downloadQueue.add(0, request, downloadListener);
     }
+
+    private DownloadListener downloadListener = new DownloadListener() {
+        @Override
+        public void onDownloadError(int what, Exception exception) {
+
+        }
+
+        @Override
+        public void onStart(int what, boolean isResume, long rangeSize, Headers responseHeaders, long allCount) {
+
+        }
+
+        @Override
+        public void onProgress(int what, int progress, long fileCount) {
+
+        }
+
+        @Override
+        public void onFinish(int what, String filePath) {
+            File file = new File(filePath);
+            lyricView.setLyricFile(file, "UTF-8");
+        }
+
+        @Override
+        public void onCancel(int what) {
+
+        }
+    };
 
     @Override
     public void onClick(View view) {

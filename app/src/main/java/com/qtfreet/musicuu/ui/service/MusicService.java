@@ -20,6 +20,7 @@ public class MusicService extends Service {
     public void onCreate() {
 
     }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         try {

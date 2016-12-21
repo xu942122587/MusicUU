@@ -7,11 +7,10 @@ import android.os.Message;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
 import com.iflytek.sunflower.FlowerCollector;
 import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
@@ -21,14 +20,16 @@ import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.model.OnVideoClickListener;
 import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.ui.adapter.MvDetailAdatper;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
+import com.yolanda.nohttp.NoHttp;
+import com.yolanda.nohttp.rest.Request;
+import com.yolanda.nohttp.rest.RequestQueue;
+import com.yolanda.nohttp.rest.Response;
+import com.yolanda.nohttp.rest.SimpleResponseListener;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import okhttp3.Call;
 
 /**
  * Created by qtfreet00 on 2016/9/1.
@@ -77,22 +78,27 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
 
 
     public void requestData(String keyWord) {
-        OkHttpUtils.get().url("http://mapiv2.yinyuetai.com/search/video.json?&order=&sourceVersion=&area=&singerType=&offset=0&size=20&keyword=" + keyWord).addHeader("App-Id", "10201041").addHeader("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb").addHeader("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=").build().execute(new StringCallback() {
+        RequestQueue stringRequest = NoHttp.newRequestQueue();
+        Request<String> request = NoHttp.createStringRequest("http://mapiv2.yinyuetai.com/search/video.json?&order=&sourceVersion=&area=&singerType=&offset=0&size=20&keyword=" + keyWord);
+        request.headers().add("App-Id", "10201041");
+        request.headers().add("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb");
+        request.headers().add("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=");
+        stringRequest.add(0, request, new SimpleResponseListener<String>() {
             @Override
-            public void onError(Call call, Exception e, int id) {
-                hanlder.sendEmptyMessage(1);
-            }
-
-            @Override
-            public void onResponse(String response, int id) {
-                Log.e("TAG", response);
+            public void onSucceed(int what, Response<String> response) {
+                super.onSucceed(what, response);
                 Message msg = Message.obtain();
                 msg.what = 0;
-                msg.obj = response;
+                msg.obj = response.get();
                 hanlder.sendMessage(msg);
+            }
 
+            @Override
+            public void onFailed(int what, Response<String> response) {
+                super.onFailed(what, response);
             }
         });
+
     }
 
     private Handler hanlder = new Handler(new Handler.Callback() {
@@ -101,8 +107,7 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
             switch (message.what) {
                 case 0:
                     loadingView.setVisibility(View.GONE);
-                    Gson gson = new Gson();
-                    dataBean = gson.fromJson(message.obj.toString(), MvBean.class).getData();
+                    dataBean = JSON.parseObject(message.obj.toString(), MvBean.class).getData();
                     if (dataBean == null) {
                         Toast.makeText(SearchMvActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
                         return false;
@@ -116,8 +121,7 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
                     Toast.makeText(SearchMvActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
                     break;
                 case 2:
-                    Gson gson2 = new Gson();
-                    MvPlayBean mv = gson2.fromJson(message.getData().getString("response"), MvPlayBean.class);
+                    MvPlayBean mv = JSON.parseObject(message.getData().getString("response"), MvPlayBean.class);
                     String mvUrl;
                     String ShdUrl = mv.getData().getShdUrl();
                     String uhdUrl = mv.getData().getUhdUrl();
@@ -159,24 +163,30 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
     }
 
     private void requestVideo(int id, final String videoName) {
-        OkHttpUtils.get().url("http://mapiv2.yinyuetai.com/video/play.json?&id=" + id + "&type=1").addHeader("App-Id", "10201041").addHeader("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb").addHeader("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=").build().execute(new StringCallback() {
-            @Override
-            public void onError(Call call, Exception e, int id) {
-                hanlder.sendEmptyMessage(1);
-            }
 
+        RequestQueue stringRequest = NoHttp.newRequestQueue();
+        Request<String> request = NoHttp.createStringRequest("http://mapiv2.yinyuetai.com/video/play.json?&id=" + id + "&type=1");
+        request.headers().add("App-Id", "10201041");
+        request.headers().add("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb");
+        request.headers().add("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=");
+        stringRequest.add(0, request, new SimpleResponseListener<String>() {
             @Override
-            public void onResponse(String response, int id) {
-                Log.e("TAG", response);
+            public void onSucceed(int what, Response<String> response) {
+                super.onSucceed(what, response);
                 Message msg = Message.obtain();
                 msg.what = 2;
                 Bundle b = new Bundle();
-                b.putString("response", response);
+                b.putString("response", response.get());
                 b.putString("name", videoName);
                 msg.setData(b);
                 hanlder.sendMessage(msg);
+            }
 
+            @Override
+            public void onFailed(int what, Response<String> response) {
+                super.onFailed(what, response);
             }
         });
+
     }
 }

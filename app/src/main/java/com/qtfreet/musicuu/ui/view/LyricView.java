@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -607,6 +608,7 @@ public class LyricView extends View {
                 String line = null;
                 while ((line = reader.readLine()) != null) {
                     try {
+                        // Log.e("qtfreet00",""+line);
                         analyzeLyric(lyricInfo, line);
                     } catch (Exception e) {
 
@@ -661,11 +663,11 @@ public class LyricView extends View {
         if (line != null && line.startsWith("[by:")) {
             return;
         }
-        if (line != null && index == 9 && line.trim().length() > 10) {
+        if (line != null && (index >= 9 || index <= 10) && line.trim().length() > 10) {
             // 歌词内容
             LineInfo lineInfo = new LineInfo();
-            lineInfo.content = line.substring(10, line.length());
-            lineInfo.start = measureStartTimeMillis(line.substring(0, 10));
+            lineInfo.content = line.substring(index + 1, line.length());
+            lineInfo.start = measureStartTimeMillis(line.substring(0, index + 1));
             lyricInfo.song_lines.add(lineInfo);
         }
     }

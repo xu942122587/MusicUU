@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "com.qtfreet.musicuu"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
-        versionCode 20
-        versionName "1.2.0"
+        versionCode 21
+        versionName "1.2.1"
     }
     buildTypes {
         release {
@@ -23,29 +23,28 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support:design:25.0.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.android.support:cardview-v7:25.0.1'
+    compile 'com.android.support:cardview-v7:25.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
 
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
-    compile 'com.zhy:okhttputils:2.6.2'
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile 'com.squareup.okio:okio:1.9.0'
     apt 'com.zhy:mpermission-compiler:1.0.0'
     compile 'com.zhy:mpermission-api:1.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.liulishuo.filedownloader:library:0.3.5'
+    compile 'com.liulishuo.filedownloader:library:1.3.9'
     compile 'top.zibin:BottomDialog:1.0.4'
     compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
     compile 'cn.pedant.sweetalert:library:1.3'
     compile 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.6'
-    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.6.1'
+    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.7.5'
     compile 'com.yanzhenjie:recyclerview-swipe:1.0.2'
     compile files('lib/AutoUpdate_SDK.jar')
     compile files('lib/Sunflower.jar')
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.blankj:utilcode:1.3.4'
+    compile 'com.yolanda.nohttp:nohttp:1.1.0'
+    compile 'com.yanzhenjie.nohttp:okhttp:1.1.0'
+    compile 'com.alibaba:fastjson:1.1.55.android'
+    compile 'net.protyposis.android.mediaplayer:mediaplayer:4.2.2-rc1'
 }

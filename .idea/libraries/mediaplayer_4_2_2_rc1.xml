@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="mediaplayer-4.2.2-rc1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/net.protyposis.android.mediaplayer/mediaplayer/4.2.2-rc1/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/net.protyposis.android.mediaplayer/mediaplayer/4.2.2-rc1/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.protyposis.android.mediaplayer/mediaplayer/4.2.2-rc1/75f129e4aa02afabd41c1e4c2b38f5a9316222a5/mediaplayer-4.2.2-rc1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

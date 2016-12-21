@@ -15,14 +15,13 @@ import android.widget.Toast;
 import com.iflytek.sunflower.FlowerCollector;
 import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
-import com.qtfreet.musicuu.model.ApiService;
 import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.Constant.Constants;
+import com.qtfreet.musicuu.model.JavaBeanRequest;
 import com.qtfreet.musicuu.model.OnMusicClickListener;
 import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.ui.adapter.SongDetailAdapter;
 import com.qtfreet.musicuu.ui.service.DownloadService;
-import com.qtfreet.musicuu.utils.NetUtil;
 import com.qtfreet.musicuu.utils.SPUtils;
 import com.yanzhenjie.recyclerview.swipe.Closeable;
 import com.yanzhenjie.recyclerview.swipe.OnSwipeMenuItemClickListener;
@@ -30,6 +29,10 @@ import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
+import com.yolanda.nohttp.NoHttp;
+import com.yolanda.nohttp.rest.RequestQueue;
+import com.yolanda.nohttp.rest.Response;
+import com.yolanda.nohttp.rest.SimpleResponseListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,9 +40,6 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by qtfreet on 2016/3/20.
@@ -118,36 +118,36 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         if (loadingView.getVisibility() == View.GONE) {
             loadingView.setVisibility(View.VISIBLE);
         }
-        ApiService apiService = NetUtil.getInstance().create(ApiService.class);
-        Call<List<resultBean>> call = apiService.GetInfo(getIntent().getExtras().getString(Constants.TYPE), getIntent().getExtras().getString(Constants.KEY));
-        call.enqueue(new Callback<List<resultBean>>() {
+        RequestQueue stringRequest = NoHttp.newRequestQueue();
+        JavaBeanRequest<resultBean> request = new JavaBeanRequest<>(String.format(Constants.MUSIC_HOST, getIntent().getExtras().getString(Constants.TYPE), getIntent().getExtras().getString(Constants.KEY)), resultBean.class);
+        stringRequest.add(0, request, new SimpleResponseListener<List<resultBean>>() {
             @Override
-            public void onResponse(Call<List<resultBean>> call, Response<List<resultBean>> response) {
+            public void onSucceed(int what, Response<List<resultBean>> response) {
+                super.onSucceed(what, response);
                 try {
                     if (response == null) {
                         handler.sendEmptyMessage(REQUEST_ERROR);
                         return;
                     }
-                    if (response.body().size() == 0) {
+                    if (response.get().size() == 0) {
                         handler.sendEmptyMessage(REQUEST_ERROR);
                         return;
                     }
-                    result = response.body();
+                    result = response.get();
                     handler.sendEmptyMessage(REQUEST_SUCCESS);
                 } catch (Exception e) {
                     handler.sendEmptyMessage(REQUEST_ERROR);
                 }
 
-
             }
 
             @Override
-            public void onFailure(Call<List<resultBean>> call, Throwable t) {
+            public void onFailed(int what, Response<List<resultBean>> response) {
+                super.onFailed(what, response);
                 handler.sendEmptyMessage(REQUEST_ERROR);
             }
         });
     }
-
 
     private android.os.Handler handler = new android.os.Handler(new android.os.Handler.Callback() {
         @Override
