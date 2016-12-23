@@ -44,6 +44,11 @@
 * 因旧版api已经停用，导致搜索会崩溃，更及时更新到最新版
 * 恢复下载音乐时选择音质选项
 
+######2016.12.21
+* 修复播放时无限下一首的问题（已知问题，加载时圆圈不动）
+* 统一网络框架，优化代码
+* 更新下载功能
+
 ![image](https://raw.githubusercontent.com/Qrilee/MusicUU/master/screenshots/pic.png)
 
 捐赠：愿意支持开发的可以支持下哈
