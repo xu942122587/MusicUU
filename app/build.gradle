@@ -8,8 +8,8 @@ android {
         applicationId "com.qtfreet.musicuu"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 21
-        versionName "1.2.1"
+        versionCode 22
+        versionName "1.2.2"
     }
     buildTypes {
         release {
@@ -46,5 +46,4 @@ dependencies {
     compile 'com.yolanda.nohttp:nohttp:1.1.0'
     compile 'com.yanzhenjie.nohttp:okhttp:1.1.0'
     compile 'com.alibaba:fastjson:1.1.55.android'
-    compile 'net.protyposis.android.mediaplayer:mediaplayer:4.2.2-rc1'
 }

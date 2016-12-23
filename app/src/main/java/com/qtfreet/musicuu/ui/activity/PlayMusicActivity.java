@@ -7,6 +7,7 @@ import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,15 +38,12 @@ import com.yolanda.nohttp.download.DownloadListener;
 import com.yolanda.nohttp.download.DownloadQueue;
 import com.yolanda.nohttp.download.DownloadRequest;
 
-import net.protyposis.android.mediaplayer.MediaPlayer;
-import net.protyposis.android.mediaplayer.MediaSource;
-import net.protyposis.android.mediaplayer.UriSource;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
-public class PlayMusicActivity extends BaseActivity implements View.OnClickListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, LyricView.OnPlayerClickListener {
+public class PlayMusicActivity extends BaseActivity implements View.OnClickListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, LyricView.OnPlayerClickListener, MediaPlayer.OnErrorListener {
 
     private LyricView lyricView;
     private MediaPlayer mediaPlayer;
@@ -255,7 +253,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
-
+        Log.e("qtfreet00", "come in Completion");
         next();
     }
 
@@ -310,6 +308,20 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
+    boolean isError = false;
+
+    @Override
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        // Log.e("qtfreet00", "come in error");
+    //    Log.e("qtfreet0","the error is "+what);
+        if(what==-38){
+            isError = true;
+            handler.sendEmptyMessage(MSG_LYRIC_SHOW);
+            return true;
+        }
+        return false;
+    }
+
     Handler handler = new Handler() {
 
         @Override
@@ -330,14 +342,19 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
                 case MSG_LYRIC_SHOW:
                     try {
 
-
+                        String url = song_urls[position];
                         mediaPlayer = new MediaPlayer();
                         mediaPlayer.setOnPreparedListener(PlayMusicActivity.this);
                         mediaPlayer.setOnCompletionListener(PlayMusicActivity.this);
                         mediaPlayer.setOnBufferingUpdateListener(PlayMusicActivity.this);
-                        MediaSource mediaSource = new UriSource(PlayMusicActivity.this, Uri.parse(song_urls[position]));
-                        mediaPlayer.setDataSource(mediaSource);
-                        mediaPlayer.prepareAsync();
+                        mediaPlayer.setOnErrorListener(PlayMusicActivity.this);
+                        //     MediaSource mediaSource = new UriSource(PlayMusicActivity.this, Uri.parse(song_urls[position]));
+                        mediaPlayer.setDataSource(url);
+                        if (isError) {
+                            mediaPlayer.prepare();
+                        } else {
+                            mediaPlayer.prepareAsync();
+                        }
 
                         setCurrentState(State.STATE_SETUP);
 //                        mediaPlayer.prepareAsync();
@@ -493,6 +510,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         customSettingView.setOnDismissBtnClickListener(new DismissBtnClickListener());
         customSettingView.setOnLineSpaceChangeListener(new LineSpaceChangeListener());
     }
+
 
     private class TextSizeChangeListener implements SeekBar.OnSeekBarChangeListener {
 
