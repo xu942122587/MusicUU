@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="recyclerview-swipe-1.0.2">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.yanzhenjie/recyclerview-swipe/1.0.2/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/b27bded102c5634e50faed39d63e804d9c7b0391/output/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.yanzhenjie/recyclerview-swipe/1.0.2/res" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.yanzhenjie/recyclerview-swipe/1.0.2/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/b27bded102c5634e50faed39d63e804d9c7b0391/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/b27bded102c5634e50faed39d63e804d9c7b0391/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

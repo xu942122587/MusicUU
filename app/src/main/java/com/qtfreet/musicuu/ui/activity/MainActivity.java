@@ -31,6 +31,10 @@ import com.zhy.m.permission.MPermissions;
 import com.zhy.m.permission.PermissionDenied;
 import com.zhy.m.permission.PermissionGrant;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLEncoder;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -145,6 +149,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         if (TextUtils.isEmpty(text)) {
             Toast.makeText(MainActivity.this, R.string.no_music_name, Toast.LENGTH_SHORT).show();
             return;
+        }
+        try {
+            text = URLEncoder.encode(text,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
         Bundle bundle = new Bundle();
         if (mistype.equals("yinyutai")) {
