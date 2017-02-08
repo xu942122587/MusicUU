@@ -8,10 +8,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.iflytek.sunflower.FlowerCollector;
 import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
@@ -19,6 +21,9 @@ import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.model.JavaBeanRequest;
 import com.qtfreet.musicuu.model.OnMusicClickListener;
+import com.qtfreet.musicuu.musicApi.MusicBean.SearchResult;
+import com.qtfreet.musicuu.musicApi.MusicService.SongResult;
+import com.qtfreet.musicuu.musicApi.SearchSong;
 import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.ui.adapter.SongDetailAdapter;
 import com.qtfreet.musicuu.ui.service.DownloadService;
@@ -51,7 +56,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     @Bind(R.id.lv_search_result)
     SwipeMenuRecyclerView search_list;
     private SwipeRefreshLayout refresh;
-    private List<resultBean> result = new ArrayList<>();
+    private List<SongResult> result = new ArrayList<>();
     @Bind(R.id.loadView)
     LoadingView loadingView;
 
@@ -118,35 +123,20 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         if (loadingView.getVisibility() == View.GONE) {
             loadingView.setVisibility(View.VISIBLE);
         }
-        RequestQueue stringRequest = NoHttp.newRequestQueue();
-        JavaBeanRequest<resultBean> request = new JavaBeanRequest<>(String.format(Constants.MUSIC_HOST, getIntent().getExtras().getString(Constants.TYPE), getIntent().getExtras().getString(Constants.KEY)), resultBean.class);
-        stringRequest.add(0, request, new SimpleResponseListener<List<resultBean>>() {
+        new Thread(new Runnable() {
             @Override
-            public void onSucceed(int what, Response<List<resultBean>> response) {
-                super.onSucceed(what, response);
-                try {
-                    if (response == null) {
-                        handler.sendEmptyMessage(REQUEST_ERROR);
-                        return;
-                    }
-                    if (response.get().size() == 0) {
-                        handler.sendEmptyMessage(REQUEST_ERROR);
-                        return;
-                    }
-                    result = response.get();
+            public void run() {
+                SearchResult search = SearchSong.Search(getIntent().getExtras().getString(Constants.TYPE), getIntent().getExtras().getString(Constants.KEY), 1, 15);
+                Log.e("qtfreet0000", JSON.toJSONString(search));
+                if (search.getStatus() == 200) {
+                    result = search.getSongs();
+
                     handler.sendEmptyMessage(REQUEST_SUCCESS);
-                } catch (Exception e) {
+                } else {
                     handler.sendEmptyMessage(REQUEST_ERROR);
                 }
-
             }
-
-            @Override
-            public void onFailed(int what, Response<List<resultBean>> response) {
-                super.onFailed(what, response);
-                handler.sendEmptyMessage(REQUEST_ERROR);
-            }
-        });
+        }).start();
     }
 
     private android.os.Handler handler = new android.os.Handler(new android.os.Handler.Callback() {
@@ -183,15 +173,15 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     }
 
     private void Download(int position) {
+
         final String SongName = result.get(position).getSongName();
         final String SongID = result.get(position).getSongId();
-        final String Artist = result.get(position).getArtist();
+        final String Artist = result.get(position).getArtistName();
         final String SqUrl = result.get(position).getSqUrl();
         final String HqUrl = result.get(position).getHqUrl();
         final String LqUrl = result.get(position).getLqUrl();
         final String flacUrl = result.get(position).getFlacUrl();
-        final String aacUrl = result.get(position).getAacUrl();
-        final String mvUrl = result.get(position).getMvUrl();
+        String mvUrl = result.get(position).getMvHdUrl().isEmpty() ? result.get(position).getMvLdUrl() : result.get(position).getMvHdUrl();
         List<String> arrayList = new ArrayList();
         final List<String> songs = new ArrayList<>();
         final List<String> format = new ArrayList<>();
@@ -213,9 +203,6 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         if (!TextUtils.isEmpty(flacUrl)) {
             songs.add(flacUrl);
             arrayList.add("无损");
-            format.add("-F");
-        } else if (!TextUtils.isEmpty(aacUrl)) {
-            songs.add(aacUrl);
             format.add("-F");
         }
         if (!TextUtils.isEmpty(mvUrl)) {
@@ -294,7 +281,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         }
         String[] names = new String[size];
         for (int i = 0; i < size; i++) {
-            names[i] = result.get(i).getSongName() + "--" + result.get(i).getArtist();
+            names[i] = result.get(i).getSongName() + "--" + result.get(i).getArtistName();
         }
         Intent i = new Intent(SearchActivity.this, PlayMusicActivity.class);
         Bundle b = new Bundle();
@@ -313,12 +300,12 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
 
     public void playMV(int position) {
-        String mvUrl = result.get(position).getMvUrl();
+        String mvUrl = result.get(position).getMvHdUrl().isEmpty() ? result.get(position).getMvLdUrl() : result.get(position).getMvHdUrl();
         if (TextUtils.isEmpty(mvUrl)) {
             Toast.makeText(SearchActivity.this, "无MV信息", Toast.LENGTH_SHORT).show();
             return;
         }
-        String songName = result.get(position).getSongName() + "--" + result.get(position).getArtist();
+        String songName = result.get(position).getSongName() + "--" + result.get(position).getArtistName();
         Intent i = new Intent(SearchActivity.this, VideoActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString(Constants.NAME, songName);

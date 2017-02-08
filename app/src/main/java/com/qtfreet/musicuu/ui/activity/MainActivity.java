@@ -151,7 +151,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             return;
         }
         try {
-            text = URLEncoder.encode(text,"UTF-8");
+            text = URLEncoder.encode(text, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

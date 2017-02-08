@@ -13,6 +13,7 @@ import com.blankj.utilcode.utils.ConvertUtils;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.OnMusicClickListener;
+import com.qtfreet.musicuu.musicApi.MusicService.SongResult;
 import com.squareup.picasso.Picasso;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuAdapter;
 
@@ -24,14 +25,14 @@ import butterknife.ButterKnife;
 
 public class SongDetailAdapter extends SwipeMenuAdapter<SongDetailAdapter.ViewHolder> {
     private OnMusicClickListener onItemClickListener;
-    private List<resultBean> mSongs;
+    private List<SongResult> mSongs;
     private Context mContext;
 
     public void setOnMusicClickListener(OnMusicClickListener listener) {
         this.onItemClickListener = listener;
     }
 
-    public SongDetailAdapter(Context context, List<resultBean>
+    public SongDetailAdapter(Context context, List<SongResult>
             songs) {
         mSongs = songs;
         mContext = context;
@@ -52,13 +53,15 @@ public class SongDetailAdapter extends SwipeMenuAdapter<SongDetailAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        final resultBean song = mSongs.get(position);
+        final SongResult song = mSongs.get(position);
         String url = song.getPicUrl();
         holder.mImageView.setTag(url);
         int size = ConvertUtils.dp2px(mContext, 90);
-        Picasso.with(mContext).load(url).resize(size, size).centerCrop().into(holder.mImageView);
+        if(!url.isEmpty()){
+            Picasso.with(mContext).load(url).resize(size, size).centerCrop().into(holder.mImageView);
+        }
         holder.mSongName.setText(song.getSongName());
-        holder.mSinger.setText(song.getArtist() + "-" + song.getAlbum());
+        holder.mSinger.setText(song.getArtistName() + "-" + song.getAlbumName());
     }
 
 
