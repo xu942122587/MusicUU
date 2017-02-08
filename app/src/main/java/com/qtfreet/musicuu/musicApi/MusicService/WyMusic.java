@@ -13,6 +13,8 @@ import com.qtfreet.musicuu.musicApi.MusicBean.wy.NeteasePic;
 import com.qtfreet.musicuu.musicApi.MusicBean.wy.NeteaseSongUrl;
 
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -295,6 +297,8 @@ public class WyMusic implements IMusic {
 
     @Override
     public List<SongResult> SongSearch(String key, int page, int size) {
-        return search(key, page, size);
+
+            return search(key, page, size);
+
     }
 }

@@ -127,7 +127,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             @Override
             public void run() {
                 SearchResult search = SearchSong.Search(getIntent().getExtras().getString(Constants.TYPE), getIntent().getExtras().getString(Constants.KEY), 1, 15);
-                Log.e("qtfreet0000", JSON.toJSONString(search));
+
                 if (search.getStatus() == 200) {
                     result = search.getSongs();
 
