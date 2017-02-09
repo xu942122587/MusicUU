@@ -177,10 +177,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         final String SongName = result.get(position).getSongName();
         final String SongID = result.get(position).getSongId();
         final String Artist = result.get(position).getArtistName();
-        final String SqUrl = result.get(position).getSqUrl();
-        final String HqUrl = result.get(position).getHqUrl();
-        final String LqUrl = result.get(position).getLqUrl();
-        final String flacUrl = result.get(position).getFlacUrl();
+        final String SqUrl = result.get(position).getSqUrl().replace("\n", "");//不清楚什么原因此处拿到的url被换行符隔断
+        final String HqUrl = result.get(position).getHqUrl().replace("\n", "");
+        final String LqUrl = result.get(position).getLqUrl().replace("\n", "");
+        final String flacUrl = result.get(position).getFlacUrl().replace("\n", "");
         String mvUrl = result.get(position).getMvHdUrl().isEmpty() ? result.get(position).getMvLdUrl() : result.get(position).getMvHdUrl();
         List<String> arrayList = new ArrayList();
         final List<String> songs = new ArrayList<>();
@@ -270,9 +270,9 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         String[] songs = new String[size];
         for (int i = 0; i < size; i++) {
             if (!TextUtils.isEmpty(result.get(i).getLqUrl())) {
-                songs[i] = result.get(i).getLqUrl();  //考虑性能问题，默认播放低音质
+                songs[i] = result.get(i).getLqUrl().replace("\n", "");  //考虑性能问题，默认播放低音质
             } else {
-                songs[i] = result.get(i).getHqUrl();
+                songs[i] = result.get(i).getHqUrl().replace("\n", "");
             }
         }
         String[] lrcs = new String[size];
