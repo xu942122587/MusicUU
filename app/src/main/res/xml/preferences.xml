@@ -41,7 +41,7 @@
             android:layout="@layout/preference_item"
             android:negativeButtonText="同意"
             android:positiveButtonText="@null"
-            android:title="免责声明"></com.qtfreet.musicuu.wiget.DialogPreference>
+            android:title="免责声明" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -49,10 +49,10 @@
         android:title="那些人">
         <Preference
             android:layout="@layout/preference_item"
-            android:title="@string/app_designer"></Preference>
+            android:title="@string/app_designer" />
 
         <Preference
             android:layout="@layout/preference_item"
-            android:title="@string/ui_designer"></Preference>
+            android:title="@string/ui_designer" />
     </PreferenceCategory>
 </PreferenceScreen>

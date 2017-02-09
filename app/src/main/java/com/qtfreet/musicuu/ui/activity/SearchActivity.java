@@ -8,18 +8,16 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
+import com.dou361.dialogui.DialogUIUtils;
+import com.dou361.dialogui.bean.BuildBean;
 import com.iflytek.sunflower.FlowerCollector;
-import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
-import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.Constant.Constants;
-import com.qtfreet.musicuu.model.JavaBeanRequest;
 import com.qtfreet.musicuu.model.OnMusicClickListener;
 import com.qtfreet.musicuu.musicApi.MusicBean.SearchResult;
 import com.qtfreet.musicuu.musicApi.MusicService.SongResult;
@@ -34,10 +32,6 @@ import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
-import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.rest.RequestQueue;
-import com.yolanda.nohttp.rest.Response;
-import com.yolanda.nohttp.rest.SimpleResponseListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +51,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     SwipeMenuRecyclerView search_list;
     private SwipeRefreshLayout refresh;
     private List<SongResult> result = new ArrayList<>();
-    @Bind(R.id.loadView)
-    LoadingView loadingView;
+    private BuildBean buildBean = null;
 
     @Override
     public void initView(Bundle savedInstanceState) {
@@ -120,9 +113,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     };
 
     private void initData() {
-        if (loadingView.getVisibility() == View.GONE) {
-            loadingView.setVisibility(View.VISIBLE);
-        }
+        buildBean = DialogUIUtils.showMdLoading(this, "加载中...", true, true, false, true);
+        buildBean.show();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -144,7 +136,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
                 case REQUEST_SUCCESS:
-                    loadingView.setVisibility(View.GONE);
+                    DialogUIUtils.dismiss(buildBean);
                     if (result == null) {
                         handler.sendEmptyMessage(REQUEST_ERROR);
                         return true;
@@ -154,7 +146,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                     search_list.setAdapter(searchResultAdapter);
                     break;
                 case REQUEST_ERROR:
-                    loadingView.setVisibility(View.GONE);
+                    DialogUIUtils.dismiss(buildBean);
                     Toast.makeText(SearchActivity.this, "获取信息失败", Toast.LENGTH_SHORT).show();
                     break;
             }
@@ -326,5 +318,15 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             closeable.smoothCloseRightMenu();
 
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

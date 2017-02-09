@@ -11,8 +11,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.dou361.dialogui.DialogUIUtils;
+import com.dou361.dialogui.bean.BuildBean;
 import com.iflytek.sunflower.FlowerCollector;
-import com.mingle.widget.LoadingView;
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.YinyueTai.MvBean;
 import com.qtfreet.musicuu.model.Bean.YinyueTai.MvPlayBean;
@@ -41,8 +42,7 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
     private MvDetailAdatper mAdapter;
     private List<MvBean.DataBean> dataBean;
     private String KeyWord;
-    @Bind(R.id.loadView)
-    LoadingView loadingView;
+    private BuildBean buildBean = null;
 
     @Override
     protected void onResume() {
@@ -69,6 +69,7 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
     }
 
     private void initData() {
+        buildBean = DialogUIUtils.showMdLoading(this, "加载中...", true, true, false, true);
         KeyWord = getIntent().getStringExtra(Constants.YinyueTai);
         if (KeyWord.isEmpty()) {
             return;
@@ -106,7 +107,7 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    loadingView.setVisibility(View.GONE);
+                    DialogUIUtils.dismiss(buildBean);
                     dataBean = JSON.parseObject(message.obj.toString(), MvBean.class).getData();
                     if (dataBean == null) {
                         Toast.makeText(SearchMvActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
@@ -117,7 +118,7 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
                     recyclerView.setAdapter(mAdapter);
                     break;
                 case 1:
-                    loadingView.setVisibility(View.GONE);
+                    DialogUIUtils.dismiss(buildBean);
                     Toast.makeText(SearchMvActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
                     break;
                 case 2:

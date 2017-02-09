@@ -22,12 +22,5 @@
             android:scrollbars="vertical" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <com.mingle.widget.LoadingView
-        android:id="@+id/loadView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerInParent="true"
-        app:loadingText="加载中..." />
-
 
 </android.support.design.widget.CoordinatorLayout>
