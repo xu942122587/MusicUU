@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iflytek.sunflower.FlowerCollector;
 import com.nineoldandroids.view.ViewHelper;
@@ -356,6 +357,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
                         }
                         setCurrentState(State.STATE_SETUP);
                     } catch (Exception e) {
+                        Toast.makeText(PlayMusicActivity.this, "歌曲播放失败", Toast.LENGTH_SHORT).show();
 
                     }
                     break;
@@ -427,7 +429,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void downloadLyric(String url, String name) throws Exception {
-        if(url.isEmpty()){
+        if (url.isEmpty()) {
             return;
         }
         DownloadRequest request = NoHttp.createDownloadRequest(url, RequestMethod.GET, Constants.lyricPath, name, false, false);

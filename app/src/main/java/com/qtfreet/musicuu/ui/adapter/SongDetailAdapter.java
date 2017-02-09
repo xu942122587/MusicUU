@@ -57,8 +57,10 @@ public class SongDetailAdapter extends SwipeMenuAdapter<SongDetailAdapter.ViewHo
         String url = song.getPicUrl();
         holder.mImageView.setTag(url);
         int size = ConvertUtils.dp2px(mContext, 90);
-        if(!url.isEmpty()){
-            Picasso.with(mContext).load(url).resize(size, size).centerCrop().into(holder.mImageView);
+        if (url != null) {
+            if (!url.isEmpty()) {
+                Picasso.with(mContext).load(url).resize(size, size).centerCrop().into(holder.mImageView);
+            }
         }
         holder.mSongName.setText(song.getSongName());
         holder.mSinger.setText(song.getArtistName() + "-" + song.getAlbumName());

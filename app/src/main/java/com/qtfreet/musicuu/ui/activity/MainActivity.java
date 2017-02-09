@@ -150,6 +150,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             Toast.makeText(MainActivity.this, R.string.no_music_name, Toast.LENGTH_SHORT).show();
             return;
         }
+        if (!mistype.equals("wy")) {
+            try {
+                text = URLEncoder.encode(text, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
         Bundle bundle = new Bundle();
         if (mistype.equals("yinyutai")) {
             bundle.putString(Constants.YinyueTai, text);
