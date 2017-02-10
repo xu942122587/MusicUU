@@ -42,7 +42,7 @@ public class TxMusic implements IMusic {
         }
         for (TencentDatas.DataBean.SongBean.ListBean song : songs) {
             SongResult songResult = new SongResult();
-            NetUtil.init(songResult);
+            NetUtil.initNullElement(songResult);
             TencentDatas.DataBean.SongBean.ListBean songsBean = song;
             String SongId = String.valueOf(songsBean.getSongid());
             String SongName = songsBean.getSongname();
@@ -111,6 +111,7 @@ public class TxMusic implements IMusic {
 
             songResult.setType("qq");
 //            songResult.setLrcUrl(GetLrcUrl(SongId, SongName, artistName)); //暂不去拿歌词，直接解析浪费性能
+            NetUtil.removeNullElement(songResult);
             list.add(songResult);
         }
         return list;

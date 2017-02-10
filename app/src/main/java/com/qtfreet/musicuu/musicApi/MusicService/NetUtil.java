@@ -94,7 +94,7 @@ public class NetUtil {
 
         try {
             Request<String> request = NoHttp.createStringRequest(url, RequestMethod.POST);
-            request .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36");
+            request.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36");
             int len = params.size();
             if (len <= 0) {
                 return "";
@@ -177,9 +177,7 @@ public class NetUtil {
         return sb.toString();
     }
 
-
-    public static void init(SongResult result) {
-        //初始化，方便反序列化
+    public static void initNullElement(SongResult result) {
         result.setLqUrl("");
         result.setMvHdUrl("");
         result.setMvLdUrl("");
@@ -199,5 +197,69 @@ public class NetUtil {
         result.setSongLink("");
         result.setSongId("");
         result.setSongName("");
+    }
+
+    public static void removeNullElement(SongResult result) {
+        //初始化，方便反序列化
+        if (result.getLqUrl() == null) {
+            result.setLqUrl("");
+        }
+
+        if (result.getMvHdUrl() == null) {
+            result.setMvHdUrl("");
+        }
+
+        if (result.getMvLdUrl() == null) {
+            result.setMvLdUrl("");
+        }
+        if (result.getAlbumId() == null) {
+            result.setAlbumId("");
+        }
+        if (result.getAlbumName() == null) {
+            result.setAlbumName("");
+        }
+        if (result.getArtistId() == null) {
+            result.setArtistId("");
+        }
+
+        if (result.getArtistName() == null) {
+            result.setArtistName("");
+        }
+        if (result.getBitRate() == null) {
+            result.setBitRate("128K");
+        }
+        if (result.getFlacUrl() == null) {
+            result.setFlacUrl("");
+        }
+        if (result.getHqUrl() == null) {
+            result.setHqUrl("");
+        }
+        if (result.getSqUrl() == null) {
+            result.setSqUrl("");
+        }
+        if (result.getLength() == null) {
+            result.setLength("");
+        }
+        if (result.getLrcUrl() == null) {
+            result.setLrcUrl("");
+        }
+        if (result.getType() == null) {
+            result.setType("");
+        }
+        if (result.getPicUrl() == null) {
+            result.setPicUrl("");
+        }
+        if (result.getMvId() == null) {
+            result.setMvId("");
+        }
+        if (result.getSongLink() == null) {
+            result.setSongLink("");
+        }
+        if (result.getSongId() == null) {
+            result.setSongId("");
+        }
+        if (result.getSongName() == null) {
+            result.setSongName("");
+        }
     }
 }

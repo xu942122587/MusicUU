@@ -41,7 +41,7 @@ public class KgMusic implements IMusic {
         int i = 0;
         while (i < len) {
             SongResult songResult = new SongResult();
-            NetUtil.init(songResult);
+            NetUtil.initNullElement(songResult);
             JSONObject songsBean = songs.getJSONObject(i);
             String SongId = songsBean.getString("hash");
             String SongName = songsBean.getString("songname");
@@ -92,6 +92,7 @@ public class KgMusic implements IMusic {
 //            songResult.setPicUrl(songsBean.getPicUrl());
 //            GetUrl(SongId,"320","lrc");
 //            songResult.setLrcUrl(GetLrcUrl(SongId, SongName, artistName)); //暂不去拿歌曲，直接解析浪费性能
+            NetUtil.removeNullElement(songResult);
             list.add(songResult);
             i++;
         }
@@ -151,9 +152,10 @@ public class KgMusic implements IMusic {
             if (format.equals("mp3")) {
                 String url = "http://trackercdn.kugou.com/i/?key=" + Util.getMD5(id + "kgcloud") + "&cmd=4&acceptMp3=1&hash=" + id + "&pid=1";
                 html = NetUtil.GetHtmlContent(url);
-                if (html.contains("Bad key")) {
+                if (html.contains("Bad key") || html.contains("The Resource Needs to be Paid")) {
                     return "";
                 }
+                //付费歌曲无法解析 {"status":0,"error":"The Resource Needs to be Paid"}
                 KugouMp3Url kugouMp3Url = JSON.parseObject(html, KugouMp3Url.class);
                 return kugouMp3Url.getUrl();
             }

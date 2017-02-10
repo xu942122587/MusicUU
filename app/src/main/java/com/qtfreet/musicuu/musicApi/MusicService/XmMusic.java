@@ -61,7 +61,7 @@ public class XmMusic implements IMusic {
             }
             XiamiIds.DataBean.TrackListBean trackListBean = trackList.get(0);
             SongResult song = new SongResult();
-            NetUtil.init(song);
+            NetUtil.initNullElement(song);
             String songId = trackListBean.getSong_id();
             String songName = trackListBean.getSongName();
             String songLink = "http://www.xiami.com/song/" + songId;
@@ -103,6 +103,7 @@ public class XmMusic implements IMusic {
                 song.setBitRate("128K");
             }
             song.setType("xm");
+            NetUtil.removeNullElement(song);
             return song;
         } catch (Exception ex) {
 
