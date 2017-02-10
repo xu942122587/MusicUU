@@ -69,7 +69,6 @@ public class WyMusic implements IMusic {
         }
         for (NeteaseDatas.ResultBean.SongsBean song : songs) {
             SongResult songResult = new SongResult();
-            NetUtil.initNullElement(songResult);
             NeteaseDatas.ResultBean.SongsBean songsBean = song;
             List<NeteaseDatas.ResultBean.SongsBean.ArBean> ar = songsBean.getAr();
             String artistName = "";
@@ -131,7 +130,7 @@ public class WyMusic implements IMusic {
                     songResult.setBitRate("320K");
                 }
             }
-            NetUtil.removeNullElement(songResult);
+
             list.add(songResult);
         }
         return list;

@@ -84,6 +84,9 @@ public class SongResult {
 
 
     public String getSongId() {
+        if (SongId == null) {
+            return "";
+        }
         return SongId;
     }
 
@@ -92,6 +95,9 @@ public class SongResult {
     }
 
     public String getSongName() {
+        if (SongName == null) {
+            return "";
+        }
         return SongName;
     }
 
@@ -100,6 +106,9 @@ public class SongResult {
     }
 
     public String getArtistId() {
+        if (ArtistId == null) {
+            return "";
+        }
         return ArtistId;
     }
 
@@ -108,6 +117,9 @@ public class SongResult {
     }
 
     public String getArtistName() {
+        if (ArtistName == null) {
+            return "";
+        }
         return ArtistName;
     }
 
@@ -116,6 +128,9 @@ public class SongResult {
     }
 
     public String getAlbumId() {
+        if (AlbumId == null) {
+            return "";
+        }
         return AlbumId;
     }
 
@@ -124,6 +139,9 @@ public class SongResult {
     }
 
     public String getAlbumName() {
+        if (AlbumName == null) {
+            return "";
+        }
         return AlbumName;
     }
 
@@ -132,6 +150,9 @@ public class SongResult {
     }
 
     public String getSongLink() {
+        if (SongLink == null) {
+            return "";
+        }
         return SongLink;
     }
 
@@ -140,6 +161,9 @@ public class SongResult {
     }
 
     public String getLength() {
+        if (Length == null) {
+            return "";
+        }
         return Length;
     }
 
@@ -149,6 +173,9 @@ public class SongResult {
 
 
     public String getBitRate() {
+        if (BitRate == null) {
+            return "";
+        }
         return BitRate;
     }
 
@@ -157,6 +184,9 @@ public class SongResult {
     }
 
     public String getFlacUrl() {
+        if (FlacUrl == null) {
+            return "";
+        }
         return FlacUrl;
     }
 
@@ -166,6 +196,9 @@ public class SongResult {
     }
 
     public String getSqUrl() {
+        if (SqUrl == null) {
+            return "";
+        }
         return SqUrl;
     }
 
@@ -175,6 +208,9 @@ public class SongResult {
     }
 
     public String getHqUrl() {
+        if (HqUrl == null) {
+            return "";
+        }
         return HqUrl;
     }
 
@@ -184,6 +220,9 @@ public class SongResult {
     }
 
     public String getLqUrl() {
+        if (LqUrl == null) {
+            return "";
+        }
         return LqUrl;
     }
 
@@ -193,6 +232,9 @@ public class SongResult {
     }
 
     public String getPicUrl() {
+        if (PicUrl == null) {
+            return "";
+        }
         return PicUrl;
     }
 
@@ -201,6 +243,9 @@ public class SongResult {
     }
 
     public String getLrcUrl() {
+        if (LrcUrl == null) {
+            return "";
+        }
         return LrcUrl;
     }
 
@@ -208,7 +253,10 @@ public class SongResult {
         LrcUrl = lrcUrl;
     }
 
-    public String getMvId(){
+    public String getMvId() {
+        if (MvId == null) {
+            return "";
+        }
         return MvId;
     }
 
@@ -217,6 +265,9 @@ public class SongResult {
     }
 
     public String getMvHdUrl() {
+        if (MvHdUrl == null) {
+            return "";
+        }
         return MvHdUrl;
     }
 
@@ -225,6 +276,9 @@ public class SongResult {
     }
 
     public String getMvLdUrl() {
+        if (MvLdUrl == null) {
+            return "";
+        }
         return MvLdUrl;
     }
 
@@ -233,6 +287,9 @@ public class SongResult {
     }
 
     public String getType() {
+        if (Type == null) {
+            return "";
+        }
         return Type;
     }
 

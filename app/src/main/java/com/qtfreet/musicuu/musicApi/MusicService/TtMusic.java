@@ -36,7 +36,7 @@ public class TtMusic implements IMusic {
         }
         for (TiantianDatas.DataBean song : songs) {
             SongResult songResult = new SongResult();
-            NetUtil.initNullElement(songResult);
+
             TiantianDatas.DataBean songsBean = song;
             List<TiantianDatas.DataBean.UrlListBean> links = songsBean.getUrlList();
             if (JSON.toJSONString(links).equals("[]") || links == null || links.size() == 0) {
@@ -119,7 +119,7 @@ public class TtMusic implements IMusic {
             songResult.setType("tt");
             songResult.setPicUrl(songsBean.getPicUrl());
 //            songResult.setLrcUrl(GetLrcUrl(SongId, SongName, artistName)); //暂不去拿歌曲，直接解析浪费性能
-            NetUtil.removeNullElement(songResult);
+
             list.add(songResult);
         }
         return list;

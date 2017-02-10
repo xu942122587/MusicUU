@@ -41,7 +41,7 @@ public class KgMusic implements IMusic {
         int i = 0;
         while (i < len) {
             SongResult songResult = new SongResult();
-            NetUtil.initNullElement(songResult);
+
             JSONObject songsBean = songs.getJSONObject(i);
             String SongId = songsBean.getString("hash");
             String SongName = songsBean.getString("songname");
@@ -92,7 +92,7 @@ public class KgMusic implements IMusic {
 //            songResult.setPicUrl(songsBean.getPicUrl());
 //            GetUrl(SongId,"320","lrc");
 //            songResult.setLrcUrl(GetLrcUrl(SongId, SongName, artistName)); //暂不去拿歌曲，直接解析浪费性能
-            NetUtil.removeNullElement(songResult);
+
             list.add(songResult);
             i++;
         }
