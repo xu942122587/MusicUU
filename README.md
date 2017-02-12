@@ -49,8 +49,11 @@
 * 统一网络框架，优化代码
 * 更新下载功能
 
+声明：本项目只能用于学习交流，请勿用于任何商业或者收费项目
+
 ![image](https://raw.githubusercontent.com/Qrilee/MusicUU/master/screenshots/pic.png)
 
 捐赠：愿意支持开发的可以支持下哈
+
 ![image](http://qtfreet.com/zfb.png) ![image](http://qtfreet.com/wx.png)
 
