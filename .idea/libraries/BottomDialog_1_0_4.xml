@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="BottomDialog-1.0.4">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/9232ec54d321ccf30dc0aa1f808f655b62341f13/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/9232ec54d321ccf30dc0aa1f808f655b62341f13/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/c9f187a43e69b2822bf6fa105271c53aa5c2994c/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/c9f187a43e69b2822bf6fa105271c53aa5c2994c/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

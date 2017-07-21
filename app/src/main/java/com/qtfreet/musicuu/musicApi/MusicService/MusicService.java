@@ -8,8 +8,6 @@ public class MusicService {
         switch (type) {
             case "wy":
                 return new WyMusic();
-            case "tt":
-                return new TtMusic();
             case "qq":
                 return new TxMusic();
             case "kg":
@@ -17,7 +15,7 @@ public class MusicService {
             case "xm":
                 return new XmMusic();
             default:
-                return new TtMusic();
+                return new TxMusic();
         }
     }
 }

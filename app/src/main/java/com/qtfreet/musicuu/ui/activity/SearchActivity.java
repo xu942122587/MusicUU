@@ -8,11 +8,14 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.blankj.utilcode.util.StringUtils;
 import com.dou361.dialogui.DialogUIUtils;
 import com.dou361.dialogui.bean.BuildBean;
 import com.iflytek.sunflower.FlowerCollector;
@@ -44,8 +47,6 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
  * Created by qtfreet on 2016/3/20.
  */
 public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, OnMusicClickListener, OnSwipeMenuItemClickListener {
-
-    private SongDetailAdapter searchResultAdapter;
 
     @Bind(R.id.lv_search_result)
     SwipeMenuRecyclerView search_list;
@@ -141,7 +142,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                         handler.sendEmptyMessage(REQUEST_ERROR);
                         return true;
                     }
-                    searchResultAdapter = new SongDetailAdapter(SearchActivity.this, result);
+                    SongDetailAdapter searchResultAdapter = new SongDetailAdapter(SearchActivity.this, result);
                     searchResultAdapter.setOnMusicClickListener(SearchActivity.this);
                     search_list.setAdapter(searchResultAdapter);
                     break;
@@ -164,61 +165,67 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         }
     }
 
+    private String parseUrl(String url) {
+        if (!StringUtils.isEmpty(url)) {
+            url = url.replace("\n", "");
+        }
+        return url;
+    }
+
     private void Download(int position) {
-
-        final String SongName = result.get(position).getSongName();
-        final String SongID = result.get(position).getSongId();
-        final String Artist = result.get(position).getArtistName();
-        final String SqUrl = result.get(position).getSqUrl().replace("\n", "");//不清楚什么原因此处拿到的url被换行符隔断
-        final String HqUrl = result.get(position).getHqUrl().replace("\n", "");
-        final String LqUrl = result.get(position).getLqUrl().replace("\n", "");
-        final String flacUrl = result.get(position).getFlacUrl().replace("\n", "");
-        String mvUrl = result.get(position).getMvHdUrl().isEmpty() ? result.get(position).getMvLdUrl() : result.get(position).getMvHdUrl();
-        List<String> arrayList = new ArrayList();
-        final List<String> songs = new ArrayList<>();
-        final List<String> format = new ArrayList<>();
-        if (!TextUtils.isEmpty(LqUrl)) {
-            arrayList.add("标准");
-            songs.add(LqUrl);
-            format.add("-L");
-        }
-        if (!TextUtils.isEmpty(HqUrl)) {
-            arrayList.add("高");
-            songs.add(HqUrl);
-            format.add("-H");
-        }
-        if (!TextUtils.isEmpty(SqUrl)) {
-            arrayList.add("极高");
-            songs.add(SqUrl);
-            format.add("-S");
-        }
-        if (!TextUtils.isEmpty(flacUrl)) {
-            songs.add(flacUrl);
-            arrayList.add("无损");
-            format.add("-F");
-        }
-        if (!TextUtils.isEmpty(mvUrl)) {
-            arrayList.add("MV");
-            songs.add(mvUrl);
-            format.add("-Video");
-        }
-        String[] types = arrayList.toArray(new String[arrayList.size()]);
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setItems(types, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                String name = SongName + "-" + Artist + format.get(i);
-                String url = songs.get(i);
-                download(name, url, SongID);
+        try {
+            SongResult ret = result.get(position);
+            final String SongName = ret.getSongName();
+            final String SongID = ret.getSongId();
+            final String Artist = ret.getArtistName();
+            final String SqUrl = parseUrl(ret.getSqUrl());//不清楚什么原因此处拿到的url被换行符隔断
+            final String HqUrl = parseUrl(ret.getHqUrl());
+            final String LqUrl = parseUrl(ret.getLqUrl());
+            final String flacUrl = parseUrl(ret.getFlacUrl());
+            String mvUrl = ret.getMvHdUrl().isEmpty() ? ret.getMvLdUrl() : ret.getMvHdUrl();
+            List<String> arrayList = new ArrayList();
+            final List<String> songs = new ArrayList<>();
+            final List<String> format = new ArrayList<>();
+            if (!TextUtils.isEmpty(LqUrl)) {
+                arrayList.add("标准");
+                songs.add(LqUrl);
+                format.add("-L");
             }
-        });
-        dialog.show();
+            if (!TextUtils.isEmpty(HqUrl)) {
+                arrayList.add("高");
+                songs.add(HqUrl);
+                format.add("-H");
+            }
+            if (!TextUtils.isEmpty(SqUrl)) {
+                arrayList.add("极高");
+                songs.add(SqUrl);
+                format.add("-S");
+            }
+            if (!TextUtils.isEmpty(flacUrl)) {
+                songs.add(flacUrl);
+                arrayList.add("无损");
+                format.add("-F");
+            }
+            if (!TextUtils.isEmpty(mvUrl)) {
+                arrayList.add("MV");
+                songs.add(mvUrl);
+                format.add("-Video");
+            }
+            String[] types = arrayList.toArray(new String[arrayList.size()]);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setItems(types, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    String name = SongName + "-" + Artist + format.get(i);
+                    String url = songs.get(i);
+                    download(name, url, SongID);
+                }
+            });
+            dialog.show();
+        } catch (Exception e) {
+            Toast.makeText(this, "解析数据失败", Toast.LENGTH_SHORT).show();
+        }
     }
-
-    private void showError() {
-        Toast.makeText(this, "该音乐没有此音质链接~", Toast.LENGTH_SHORT).show();
-    }
-
 
     @Override
     protected void onResume() {
@@ -258,31 +265,34 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     @Override
     public void Music(View itemView, int position) {
-        int size = result.size();
-        String[] songs = new String[size];
-        for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(result.get(i).getLqUrl())) {
-                songs[i] = result.get(i).getLqUrl().replace("\n", "");  //考虑性能问题，默认播放低音质
-            } else {
-                songs[i] = result.get(i).getHqUrl().replace("\n", "");
+        try {
+            int size = result.size();
+            String[] songs = new String[size];
+            String[] lrcs = new String[size];
+            String[] names = new String[size];
+            for (int i = 0; i < size; i++) {
+                SongResult ret = result.get(i);
+                String LqUrl = ret.getLqUrl();
+                if (!StringUtils.isEmpty(LqUrl)) {
+                    songs[i] = LqUrl.replace("\n", "");  //考虑性能问题，默认播放低音质
+                } else {
+                    songs[i] = "";
+                    continue;
+                }
+                lrcs[i] = ret.getLrcUrl();
+                names[i] = ret.getSongName() + "--" + ret.getArtistName();
             }
+            Intent i = new Intent(SearchActivity.this, PlayMusicActivity.class);
+            Bundle b = new Bundle();
+            b.putStringArray(Constants.PLAY_URLS, songs);
+            b.putStringArray(Constants.PLAY_LRCS, lrcs);
+            b.putStringArray(Constants.PLAY_NAMES, names);
+            b.putInt(Constants.POSITION, position);
+            i.putExtras(b);
+            startActivity(i);
+        } catch (Exception e) {
+            Toast.makeText(this, "获取播放链接失败", Toast.LENGTH_SHORT).show();
         }
-        String[] lrcs = new String[size];
-        for (int i = 0; i < size; i++) {
-            lrcs[i] = result.get(i).getLrcUrl();
-        }
-        String[] names = new String[size];
-        for (int i = 0; i < size; i++) {
-            names[i] = result.get(i).getSongName() + "--" + result.get(i).getArtistName();
-        }
-        Intent i = new Intent(SearchActivity.this, PlayMusicActivity.class);
-        Bundle b = new Bundle();
-        b.putStringArray(Constants.PLAY_URLS, songs);
-        b.putStringArray(Constants.PLAY_LRCS, lrcs);
-        b.putStringArray(Constants.PLAY_NAMES, names);
-        b.putInt(Constants.POSITION, position);
-        i.putExtras(b);
-        startActivity(i);
     }
 
 
@@ -292,18 +302,23 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
 
     public void playMV(int position) {
-        String mvUrl = result.get(position).getMvHdUrl().isEmpty() ? result.get(position).getMvLdUrl() : result.get(position).getMvHdUrl();
-        if (TextUtils.isEmpty(mvUrl)) {
-            Toast.makeText(SearchActivity.this, "无MV信息", Toast.LENGTH_SHORT).show();
-            return;
+        try {
+            SongResult ret = result.get(position);
+            String mvUrl = ret.getMvHdUrl().isEmpty() ? ret.getMvLdUrl() : ret.getMvHdUrl();
+            if (TextUtils.isEmpty(mvUrl)) {
+                Toast.makeText(SearchActivity.this, "无MV信息", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String songName = ret.getSongName() + "--" + ret.getArtistName();
+            Intent i = new Intent(SearchActivity.this, VideoActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString(Constants.NAME, songName);
+            bundle.putString(Constants.URL, mvUrl);
+            i.putExtras(bundle);
+            startActivity(i);
+        } catch (Exception e) {
+            Toast.makeText(this, "获取MV链接失败", Toast.LENGTH_SHORT).show();
         }
-        String songName = result.get(position).getSongName() + "--" + result.get(position).getArtistName();
-        Intent i = new Intent(SearchActivity.this, VideoActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString(Constants.NAME, songName);
-        bundle.putString(Constants.URL, mvUrl);
-        i.putExtras(bundle);
-        startActivity(i);
     }
 
 
@@ -318,15 +333,5 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             closeable.smoothCloseRightMenu();
 
         }
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            finish();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.StringUtils;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
@@ -43,7 +44,7 @@ public class DownloadService extends Service {
         mBuilder = new NotificationCompat.Builder(this);
         final String url = intent.getStringExtra(Constants.URL);
         final String name = intent.getStringExtra(Constants.NAME);
-        if (TextUtils.isEmpty(url) || TextUtils.isEmpty(name)) {
+        if (StringUtils.isEmpty(url) || StringUtils.isEmpty(name)) {
             return START_NOT_STICKY;
         }
         final String localName;

@@ -8,13 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import com.qtfreet.musicuu.R;
 import com.qtfreet.musicuu.model.Bean.YinyueTai.MvBean;
 import com.qtfreet.musicuu.model.OnVideoClickListener;
 import com.qtfreet.musicuu.ui.view.RadioImageView;
 import com.squareup.picasso.Picasso;
-
 
 import java.util.List;
 
@@ -78,7 +76,7 @@ public class MvDetailAdatper extends RecyclerView.Adapter<MvDetailAdatper.VideoV
         RadioImageView iv;
 
 
-        public VideoViewHodler(View itemView) {
+        VideoViewHodler(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(new View.OnClickListener() {

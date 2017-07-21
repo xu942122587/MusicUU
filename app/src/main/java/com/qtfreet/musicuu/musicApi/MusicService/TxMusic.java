@@ -15,7 +15,7 @@ import java.util.Random;
 /**
  * Created by qtfreet on 2017/2/6.
  */
-public class TxMusic implements IMusic {
+class TxMusic implements IMusic {
     //腾讯支持无损和mv解析
     private static List<SongResult> search(String key, int page, int size) throws Exception {
         String url = "http://soso.music.qq.com/fcgi-bin/search_cp?aggr=0&catZhida=0&lossless=1&sem=1&w=" + key + "&n=" + size + "&t=0&p=" + page + "&remoteplace=sizer.yqqlist.song&g_tk=5381&loginUin=0&hostUin=0&format=jsonp&inCharset=GB2312&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0";
@@ -99,11 +99,11 @@ public class TxMusic implements IMusic {
 
 
             }
-            if (songsBean.getSizeflac() != 0) {
-                songResult.setBitRate("无损");
-                songResult.setFlacUrl("http://dl.stream.qqmusic.qq.com/F000" + mid + ".flac?vkey=F7B5C260CB57AE3339B157A9443C33A01043A9AB6A8CFC7600535EEC4FDA13A31B1C94259C6A655FAB2A255A4C107F6D3A2FB1F2308ABE60&guid=YYFM&uin=123456&fromtag=53");
-
-            }
+//            if (songsBean.getSizeflac() != 0) {
+//                songResult.setBitRate("无损");
+//                songResult.setFlacUrl("http://dl.stream.qqmusic.qq.com/F000" + mid + ".flac?vkey=F7B5C260CB57AE3339B157A9443C33A01043A9AB6A8CFC7600535EEC4FDA13A31B1C94259C6A655FAB2A255A4C107F6D3A2FB1F2308ABE60&guid=YYFM&uin=123456&fromtag=53");
+//
+//            }
             //ape为A000
             String albummid = songsBean.getAlbummid();
             songResult.setPicUrl("http://i.gtimg.cn/music/photo/mid_album_500/" + albummid.substring(albummid.length() - 2, albummid.length() - 1) + "/" + albummid.substring(albummid.length() - 1) + "/" + albummid + ".jpg");

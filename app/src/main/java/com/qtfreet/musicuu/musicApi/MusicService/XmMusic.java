@@ -1,7 +1,11 @@
 package com.qtfreet.musicuu.musicApi.MusicService;
 
 
+import android.util.Log;
+
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.blankj.utilcode.util.StringUtils;
 import com.qtfreet.musicuu.musicApi.MusicBean.xm.XiamiDatas;
 import com.qtfreet.musicuu.musicApi.MusicBean.xm.XiamiIds;
 
@@ -11,12 +15,13 @@ import java.util.List;
 /**
  * Created by qtfreet on 2017/2/8.
  */
-public class XmMusic implements IMusic {
+class XmMusic implements IMusic {
     //虾米不支持mv和无损解析
     private static List<SongResult> search(String key, int page, int size) throws Exception {
         String url = "http://api.xiami.com/web?v=2.0&app_key=1&key=" + key + "&page=" + page + "&limit=" + size + "&r=search/songs";
-        String s = NetUtil.GetHtmlWithRefer(url, "http://m.xiami.com");
-        if (s.isEmpty()) {
+        String s = NetUtil.GetHtmlWithReferCookie(url, "http://m.xiami.com");
+        Log.e("qtfreet0000",s);
+        if (StringUtils.isEmpty(s)) {
             return null;  //搜索歌曲失败
         }
         XiamiDatas xiamiDatas = JSON.parseObject(s, XiamiDatas.class);
@@ -34,15 +39,12 @@ public class XmMusic implements IMusic {
         if (len <= 0) {
             return null;
         }
-        int i = 0;
-        while (i < len) {
-            XiamiDatas.DataBean.SongsBean songsBean = songs.get(i);
+        for (XiamiDatas.DataBean.SongsBean songsBean : songs) {
             String SongId = String.valueOf(songsBean.getSong_id());
             SongResult songResult = SearchSong(SongId);
             if (songResult != null) {
                 list.add(songResult);
             }
-            i++;
         }
         return list;
     }
@@ -83,32 +85,31 @@ public class XmMusic implements IMusic {
             song.setLength(length);
             song.setLrcUrl(lyric);
             song.setPicUrl(picUrl);
-            List<XiamiIds.DataBean.TrackListBean.AllAudiosBean> allAudios = trackListBean.getAllAudios();
-            boolean hash320Kbite = false;
-            for (XiamiIds.DataBean.TrackListBean.AllAudiosBean allAudiosBean : allAudios) {
-                if (allAudiosBean.getFormat().equals("mp3")) {
-                    if (allAudiosBean.getAudioQualityEnum().equals("HIGH")) {
-                        hash320Kbite = true;
-                        song.setSqUrl(allAudiosBean.getFilePath());
-                        song.setHqUrl(allAudiosBean.getFilePath());
-                    }
-                    if (allAudiosBean.getAudioQualityEnum().equals("LOW")) {
-                        song.setLqUrl(allAudiosBean.getFilePath());
-                    }
-                }
-            }
-            if (hash320Kbite) {
-                song.setBitRate("320K");
-            } else {
+            String location = trackListBean.getLocation();
+            if (!location.isEmpty()) {
+                song.setLqUrl(Util.getXiaMp3Url(location));
                 song.setBitRate("128K");
+            }
+            String hqUrl = songUrl(songId);
+            if (!hqUrl.isEmpty()) {
+                song.setHqUrl(Util.getXiaMp3Url(hqUrl));
+                song.setSqUrl(Util.getXiaMp3Url(hqUrl));
+                song.setBitRate("320K");
             }
             song.setType("xm");
 
             return song;
-        } catch (Exception ex) {
+        } catch (Exception ignored) {
 
         }
         return null;
+    }
+
+    private static String songUrl(String songId) {
+        String url = String.format("http://www.xiami.com/song/gethqsong/sid/%s", songId);
+        String s = NetUtil.GetHtmlWithRefer(url, "http://www.xiami.com/");
+        JSONObject ret = JSON.parseObject(s);
+        return ret.getString("location");
     }
 
     private static SongResult SearchSong(String songId) {

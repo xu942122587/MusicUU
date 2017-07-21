@@ -28,16 +28,8 @@ public class MusicService extends Service {
             mp.setDataSource("");
             mp.prepare();
 
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | SecurityException | IllegalStateException | IOException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalStateException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
         return START_NOT_STICKY;

@@ -3,6 +3,7 @@ package com.qtfreet.musicuu.ui.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
@@ -14,12 +15,12 @@ import com.qtfreet.musicuu.model.Constant.Constants;
 
 public class VideoActivity extends AppCompatActivity {
     private PlayerView player;
-    private View rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        rootView = getLayoutInflater().from(this).inflate(R.layout.simple_player_view_player, null);
+        getLayoutInflater();
+        View rootView = LayoutInflater.from(this).inflate(R.layout.simple_player_view_player, null);
         setContentView(rootView);
         String videoName = getIntent().getExtras().getString(Constants.NAME);
         String url = getIntent().getExtras().getString(Constants.URL);

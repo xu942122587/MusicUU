@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by qtfreet00 on 2017/2/3.
  */
-public class WyMusic implements IMusic {
+class WyMusic implements IMusic {
 
     //网易不支持无损解析，支持下架音乐
     private static List<SongResult> search(String key, int page, int size) {

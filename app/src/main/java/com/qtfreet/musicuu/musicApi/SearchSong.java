@@ -1,6 +1,9 @@
 package com.qtfreet.musicuu.musicApi;
 
 
+import android.util.Log;
+
+import com.alibaba.fastjson.JSON;
 import com.qtfreet.musicuu.musicApi.MusicBean.SearchResult;
 import com.qtfreet.musicuu.musicApi.MusicService.MusicService;
 import com.qtfreet.musicuu.musicApi.MusicService.SongResult;

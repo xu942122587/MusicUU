@@ -9,9 +9,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.blankj.utilcode.utils.ConvertUtils;
+import com.blankj.utilcode.util.ConvertUtils;
 import com.qtfreet.musicuu.R;
-import com.qtfreet.musicuu.model.Bean.MusicUU.resultBean;
 import com.qtfreet.musicuu.model.OnMusicClickListener;
 import com.qtfreet.musicuu.musicApi.MusicService.SongResult;
 import com.squareup.picasso.Picasso;
@@ -56,7 +55,7 @@ public class SongDetailAdapter extends SwipeMenuAdapter<SongDetailAdapter.ViewHo
         final SongResult song = mSongs.get(position);
         String url = song.getPicUrl();
         holder.mImageView.setTag(url);
-        int size = ConvertUtils.dp2px(mContext, 90);
+        int size = ConvertUtils.dp2px(90);
         if (url != null) {
             if (!url.isEmpty()) {
                 Picasso.with(mContext).load(url).resize(size, size).centerCrop().into(holder.mImageView);
@@ -85,7 +84,7 @@ public class SongDetailAdapter extends SwipeMenuAdapter<SongDetailAdapter.ViewHo
         TextView mSinger;
 
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);

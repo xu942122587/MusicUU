@@ -32,7 +32,6 @@ import com.zhy.m.permission.PermissionDenied;
 import com.zhy.m.permission.PermissionGrant;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
 import java.net.URLEncoder;
 
 import butterknife.Bind;
@@ -66,7 +65,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             }
         });
         mSearchEditText.setOnKeyListener(this);
-        checkUpdate();
+        //checkUpdate();
     }
 
 

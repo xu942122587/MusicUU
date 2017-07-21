@@ -21,11 +21,11 @@ import com.qtfreet.musicuu.model.Constant.Constants;
 import com.qtfreet.musicuu.model.OnVideoClickListener;
 import com.qtfreet.musicuu.ui.BaseActivity;
 import com.qtfreet.musicuu.ui.adapter.MvDetailAdatper;
-import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.rest.Request;
-import com.yolanda.nohttp.rest.RequestQueue;
-import com.yolanda.nohttp.rest.Response;
-import com.yolanda.nohttp.rest.SimpleResponseListener;
+import com.yanzhenjie.nohttp.NoHttp;
+import com.yanzhenjie.nohttp.rest.Request;
+import com.yanzhenjie.nohttp.rest.RequestQueue;
+import com.yanzhenjie.nohttp.rest.Response;
+import com.yanzhenjie.nohttp.rest.SimpleResponseListener;
 
 import java.util.List;
 
@@ -81,9 +81,10 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
     public void requestData(String keyWord) {
         RequestQueue stringRequest = NoHttp.newRequestQueue();
         Request<String> request = NoHttp.createStringRequest("http://mapiv2.yinyuetai.com/search/video.json?&order=&sourceVersion=&area=&singerType=&offset=0&size=20&keyword=" + keyWord);
-        request.headers().add("App-Id", "10201041");
-        request.headers().add("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb");
-        request.headers().add("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=");
+
+        request.addHeader("App-Id", "10201041");
+        request.addHeader("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb");
+        request.addHeader("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=");
         stringRequest.add(0, request, new SimpleResponseListener<String>() {
             @Override
             public void onSucceed(int what, Response<String> response) {
@@ -167,9 +168,9 @@ public class SearchMvActivity extends BaseActivity implements OnVideoClickListen
 
         RequestQueue stringRequest = NoHttp.newRequestQueue();
         Request<String> request = NoHttp.createStringRequest("http://mapiv2.yinyuetai.com/video/play.json?&id=" + id + "&type=1");
-        request.headers().add("App-Id", "10201041");
-        request.headers().add("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb");
-        request.headers().add("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=");
+        request.addHeader("App-Id", "10201041");
+        request.addHeader("Device-Id", "178bc560c9e8d719e048c7e8f2d25fcb");
+        request.addHeader("Device-V", "QW5kcm9pZF80LjQuMl83NjgqMTE4NF8xMDAwMDEwMDA=");
         stringRequest.add(0, request, new SimpleResponseListener<String>() {
             @Override
             public void onSucceed(int what, Response<String> response) {

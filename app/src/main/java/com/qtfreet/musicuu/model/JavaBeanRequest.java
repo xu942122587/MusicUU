@@ -1,10 +1,10 @@
 package com.qtfreet.musicuu.model;
 
 import com.alibaba.fastjson.JSON;
-import com.yolanda.nohttp.Headers;
-import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.RestRequest;
-import com.yolanda.nohttp.rest.StringRequest;
+import com.yanzhenjie.nohttp.Headers;
+import com.yanzhenjie.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.rest.RestRequest;
+import com.yanzhenjie.nohttp.rest.StringRequest;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class JavaBeanRequest<T> extends RestRequest<List<T>> {
     }
 
     @Override
-    public List<T> parseResponse(Headers responseHeaders, byte[] responseBody) throws Throwable {
+    public List<T> parseResponse(Headers responseHeaders, byte[] responseBody) {
         String response = StringRequest.parseResponseString(responseHeaders, responseBody);
 
         // 这里如果数据格式错误，或者解析失败，会在失败的回调方法中返回 ParseError 异常。

@@ -6,9 +6,7 @@ import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,29 +30,26 @@ import com.qtfreet.musicuu.ui.view.CustomRelativeLayout;
 import com.qtfreet.musicuu.ui.view.CustomSettingView;
 import com.qtfreet.musicuu.ui.view.LyricView;
 import com.qtfreet.musicuu.utils.PreferenceUtil;
-import com.yolanda.nohttp.Headers;
-import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.download.DownloadListener;
-import com.yolanda.nohttp.download.DownloadQueue;
-import com.yolanda.nohttp.download.DownloadRequest;
-
+import com.yanzhenjie.nohttp.Headers;
+import com.yanzhenjie.nohttp.NoHttp;
+import com.yanzhenjie.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.download.DownloadListener;
+import com.yanzhenjie.nohttp.download.DownloadQueue;
+import com.yanzhenjie.nohttp.download.DownloadRequest;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class PlayMusicActivity extends BaseActivity implements View.OnClickListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener, LyricView.OnPlayerClickListener, MediaPlayer.OnErrorListener {
 
     private LyricView lyricView;
     private MediaPlayer mediaPlayer;
-    private View statueBar;
     private SeekBar display_seek;
     private TextView display_total;
     private TextView display_title;
     private TextView display_position;
 
-    private ImageView btnPre, btnPlay, btnNext, btnSetting;
+    private ImageView btnPlay;
 
     private String song_urls[] = null;
     private String song_names[] = null;
@@ -65,7 +60,6 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
     private ValueAnimator press_animator, up_animator;
 
     private ViewStub setting_layout;
-    private CustomSettingView customSettingView;
     private CustomRelativeLayout customRelativeLayout;
 
     private final int MSG_REFRESH = 0x167;
@@ -92,17 +86,17 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus();
         }
-        statueBar = findViewById(R.id.statue_bar);
+        View statueBar = findViewById(R.id.statue_bar);
         statueBar.getLayoutParams().height = getStatusBarHeight();
         display_title = (TextView) findViewById(R.id.title_view);
         display_position = (TextView) findViewById(android.R.id.text1);
         display_total = (TextView) findViewById(android.R.id.text2);
         display_seek = (SeekBar) findViewById(android.R.id.progress);
         display_seek.setOnSeekBarChangeListener(this);
-        btnNext = (ImageView) findViewById(android.R.id.button3);
+        ImageView btnNext = (ImageView) findViewById(android.R.id.button3);
         btnPlay = (ImageView) findViewById(android.R.id.button2);
-        btnPre = (ImageView) findViewById(android.R.id.button1);
-        btnSetting = (ImageView) findViewById(R.id.action_setting);
+        ImageView btnPre = (ImageView) findViewById(android.R.id.button1);
+        ImageView btnSetting = (ImageView) findViewById(R.id.action_setting);
         btnSetting.setOnClickListener(this);
         btnPlay.setOnClickListener(this);
         btnNext.setOnClickListener(this);
@@ -391,7 +385,6 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
             handler.removeMessages(MSG_LOADING);
             btnPlay.setBackgroundColor(Color.TRANSPARENT);
             mLoading = false;
-            return;
         }
     }
 
@@ -423,7 +416,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         try {
             mediaPlayer.seekTo(seekBar.getProgress());
             handler.sendEmptyMessageDelayed(MSG_REFRESH, 120);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }
@@ -449,9 +442,10 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
         }
 
         @Override
-        public void onProgress(int what, int progress, long fileCount) {
+        public void onProgress(int what, int progress, long fileCount, long speed) {
 
         }
+
 
         @Override
         public void onFinish(int what, String filePath) {
@@ -505,7 +499,7 @@ public class PlayMusicActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void initCustomSettingView() {
-        customSettingView = (CustomSettingView) customRelativeLayout.getChildAt(0);
+        CustomSettingView customSettingView = (CustomSettingView) customRelativeLayout.getChildAt(0);
         customSettingView.setOnTextSizeChangeListener(new TextSizeChangeListener());
         customSettingView.setOnColorItemChangeListener(new ColorItemClickListener());
         customSettingView.setOnDismissBtnClickListener(new DismissBtnClickListener());
